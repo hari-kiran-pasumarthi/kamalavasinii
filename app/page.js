@@ -1,12 +1,11 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Search, User, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import {
   LotusLogo,
   LotusMotif,
-  WomanIllustration,
-  SareeStackIllustration,
   IconNecklace,
   IconSaree,
   IconGems,
@@ -271,17 +270,25 @@ function Hero() {
       <FloatingPetals />
       <GoldenSparkles />
 
-      <div className="max-w-[1440px] w-full mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-10 grid grid-cols-1 lg:grid-cols-[1fr_1.05fr_1fr] gap-4 md:gap-6 items-center relative z-[2]">
+      <div className="max-w-[1440px] w-full mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-10 grid grid-cols-1 lg:grid-cols-[3fr_4fr_3fr] gap-4 md:gap-8 items-center relative z-[2]">
         {/* Left: Woman illustration */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
           style={{ y: yLeft, opacity }}
           className="relative order-2 lg:order-1"
         >
           <div className="gentle-float">
-            <WomanIllustration className="w-full max-w-[500px] mx-auto drop-shadow-[0_20px_40px_rgba(107,30,40,0.10)]" />
+            <Image
+              src="/images/hero/hero-woman.png"
+              alt="Elegant South Indian woman in Kanchipuram silk saree with temple jewellery holding a pink lotus"
+              width={909}
+              height={1024}
+              priority
+              sizes="(max-width: 1024px) 80vw, 30vw"
+              className="w-full h-auto max-w-[520px] mx-auto select-none pointer-events-none drop-shadow-[0_25px_50px_rgba(107,30,40,0.15)]"
+            />
           </div>
         </motion.div>
 
@@ -385,12 +392,20 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 1.1, delay: 0.2 }}
           style={{ y: yRight, opacity }}
           className="relative order-3"
         >
           <div className="gentle-float" style={{ animationDelay: "1.8s" }}>
-            <SareeStackIllustration className="w-full max-w-[540px] mx-auto drop-shadow-[0_20px_40px_rgba(107,30,40,0.10)]" />
+            <Image
+              src="/images/hero/hero-sarees.png"
+              alt="Stack of luxurious Kanchipuram silk sarees with gold zari borders, temple necklace, jhumkas and gemstones"
+              width={864}
+              height={951}
+              priority
+              sizes="(max-width: 1024px) 80vw, 30vw"
+              className="w-full h-auto max-w-[540px] mx-auto select-none pointer-events-none drop-shadow-[0_25px_50px_rgba(107,30,40,0.15)]"
+            />
           </div>
         </motion.div>
       </div>
