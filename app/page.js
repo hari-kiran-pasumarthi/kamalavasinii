@@ -1,9 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Search, User, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import {
   LotusLogo,
+  LotusMotif,
   WomanIllustration,
   SareeStackIllustration,
   IconNecklace,
@@ -236,26 +237,51 @@ function Header({ active, setActive }) {
 
 function Hero() {
   const [slide, setSlide] = useState(0);
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Subtle parallax transforms
+  const yLeft   = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const yRight  = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const yCenter = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
+
   useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % 3), 6000);
     return () => clearInterval(t);
   }, []);
 
   return (
-    <section id="home" className="relative watercolor-bg paper-texture overflow-hidden">
+    <section
+      id="home"
+      ref={heroRef}
+      className="relative watercolor-bg paper-texture overflow-hidden min-h-[calc(100vh-72px)] flex items-center"
+    >
+      {/* Background lotus motifs (very subtle) */}
+      <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden>
+        <LotusMotif className="absolute -left-16 top-10 w-[280px] h-[280px]" opacity={0.09} />
+        <LotusMotif className="absolute right-[-40px] top-24 w-[240px] h-[240px]" opacity={0.08} />
+        <LotusMotif className="absolute left-1/3 bottom-[-80px] w-[360px] h-[360px]" opacity={0.06} />
+        <LotusMotif className="absolute right-[10%] bottom-4 w-[200px] h-[200px]" opacity={0.07} />
+      </div>
+
       <FloatingPetals />
       <GoldenSparkles />
 
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-10 py-6 md:py-10 grid grid-cols-1 lg:grid-cols-[1fr_1.05fr_1fr] gap-4 md:gap-6 items-center relative z-[2]">
+      <div className="max-w-[1440px] w-full mx-auto px-4 md:px-8 lg:px-12 py-6 md:py-10 grid grid-cols-1 lg:grid-cols-[1fr_1.05fr_1fr] gap-4 md:gap-6 items-center relative z-[2]">
         {/* Left: Woman illustration */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          style={{ y: yLeft, opacity }}
           className="relative order-2 lg:order-1"
         >
           <div className="gentle-float">
-            <WomanIllustration className="w-full max-w-[480px] mx-auto" />
+            <WomanIllustration className="w-full max-w-[500px] mx-auto drop-shadow-[0_20px_40px_rgba(107,30,40,0.10)]" />
           </div>
         </motion.div>
 
@@ -263,49 +289,84 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1 }}
+          transition={{ duration: 1, delay: 0.15 }}
+          style={{ y: yCenter }}
           className="relative text-center order-1 lg:order-2 px-2 md:px-4"
         >
-          <div className="flex justify-center mb-3">
-            <LotusLogo size={100} />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.35, ease: "easeOut" }}
+            className="flex justify-center mb-3"
+          >
+            <LotusLogo size={110} />
+          </motion.div>
+
           <h1 className="font-serif tracking-[0.06em] leading-[0.95] maroon-text">
-            <span className="block text-[42px] sm:text-[58px] md:text-[68px] lg:text-[76px] font-semibold">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.5 }}
+              className="block text-[42px] sm:text-[58px] md:text-[68px] lg:text-[78px] font-semibold"
+            >
               KAMALAVASINII
-            </span>
+            </motion.span>
           </h1>
-          <div className="mt-2 flex justify-center items-center gap-3 text-[#B8862A]">
-            <span className="h-px w-10 bg-gradient-to-r from-transparent via-[#C8A048] to-transparent" />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.7 }}
+            className="mt-3 flex justify-center items-center gap-3 text-[#B8860B]"
+          >
+            <span className="h-px w-12 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent" />
             <span className="font-serif tracking-[0.4em] text-[15px] md:text-[17px] uppercase">
               Swarna &amp; Silks
             </span>
-            <span className="h-px w-10 bg-gradient-to-r from-transparent via-[#C8A048] to-transparent" />
-          </div>
-          <p className="mt-6 font-serif italic text-[22px] md:text-[28px] text-[#4a2a2f]">
+            <span className="h-px w-12 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent" />
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.85 }}
+            className="mt-6 font-serif italic text-[22px] md:text-[28px] text-[#3A2A20]"
+          >
             Where Heritage Becomes Luxury
-          </p>
+          </motion.p>
+
           <div className="mt-3 flex justify-center">
-            <svg width="70" height="18" viewBox="0 0 70 18">
-              <path d="M0 9 L30 9" stroke="#C8A048" strokeWidth="1" />
-              <path d="M40 9 L70 9" stroke="#C8A048" strokeWidth="1" />
-              <path d="M35 2 C30 6 30 12 35 16 C40 12 40 6 35 2 Z" fill="#C8A048" />
+            <svg width="72" height="18" viewBox="0 0 72 18" aria-hidden>
+              <path d="M0 9 L30 9" stroke="#B8860B" strokeWidth="1" />
+              <path d="M42 9 L72 9" stroke="#B8860B" strokeWidth="1" />
+              <path d="M36 2 C31 6 31 12 36 16 C41 12 41 6 36 2 Z" fill="#B8860B" />
             </svg>
           </div>
 
-          <p className="mt-5 font-sans text-[14px] md:text-[15px] text-[#5a3a3f] max-w-lg mx-auto leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 1 }}
+            className="mt-5 font-sans text-[14px] md:text-[15px] text-[#5a3a3f] max-w-lg mx-auto leading-relaxed"
+          >
             Exclusive Customised Jewellery in Gold, Silver, Clay, Wood, Brass &amp; Bronze.
             <br className="hidden md:inline" />
             All Types of GI Tagged Sarees of South India and Exquisite Gemstones.
-          </p>
+          </motion.p>
 
-          <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 1.15 }}
+            className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
             <button className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-8 py-4 rounded-full font-medium">
               EXPLORE SWARNA
             </button>
             <button className="btn-outline-gold font-sans tracking-[0.2em] text-[12px] px-8 py-4 rounded-full font-medium">
               DISCOVER SILKS
             </button>
-          </div>
+          </motion.div>
 
           {/* Slider dots */}
           <div className="mt-8 flex justify-center gap-2">
@@ -324,11 +385,12 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.9, delay: 0.15 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          style={{ y: yRight, opacity }}
           className="relative order-3"
         >
-          <div className="gentle-float" style={{ animationDelay: "1.5s" }}>
-            <SareeStackIllustration className="w-full max-w-[520px] mx-auto" />
+          <div className="gentle-float" style={{ animationDelay: "1.8s" }}>
+            <SareeStackIllustration className="w-full max-w-[540px] mx-auto drop-shadow-[0_20px_40px_rgba(107,30,40,0.10)]" />
           </div>
         </motion.div>
       </div>
