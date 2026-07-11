@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, User, Heart, ShoppingBag, Menu, X } from "lucide-react";
 import {
@@ -34,21 +34,25 @@ const CATEGORIES = [
   { title: "Heritage", sub: "Our Legacy",  bg: "card-ivory", icon: IconTemple   },
 ];
 
-// Floating petals over hero
+// Floating petals over hero — client only to avoid hydration mismatch
 function FloatingPetals() {
-  const petals = useMemo(
-    () =>
+  const [mounted, setMounted] = useState(false);
+  const [petals, setPetals] = useState([]);
+  useEffect(() => {
+    setPetals(
       Array.from({ length: 12 }).map((_, i) => ({
         left: `${(i * 8.3 + Math.random() * 6) % 100}%`,
         delay: `${Math.random() * 10}s`,
         duration: `${14 + Math.random() * 10}s`,
         size: 10 + Math.random() * 14,
         rotate: Math.random() * 360,
-      })),
-    []
-  );
+      }))
+    );
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden z-[1]">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden z-[1]" aria-hidden>
       {petals.map((p, i) => (
         <span
           key={i}
@@ -75,20 +79,24 @@ function FloatingPetals() {
   );
 }
 
-// Small golden sparkles scattered
+// Small golden sparkles scattered — client only to avoid hydration mismatch
 function GoldenSparkles({ count = 18 }) {
-  const items = useMemo(
-    () =>
+  const [mounted, setMounted] = useState(false);
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(
       Array.from({ length: count }).map(() => ({
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
         size: 8 + Math.random() * 10,
         delay: `${Math.random() * 3}s`,
-      })),
-    [count]
-  );
+      }))
+    );
+    setMounted(true);
+  }, [count]);
+  if (!mounted) return null;
   return (
-    <div className="pointer-events-none absolute inset-0 z-[1]">
+    <div className="pointer-events-none absolute inset-0 z-[1]" aria-hidden>
       {items.map((s, i) => (
         <svg
           key={i}
