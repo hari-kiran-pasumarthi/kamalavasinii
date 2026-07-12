@@ -484,6 +484,225 @@ function Categories() {
   );
 }
 
+function WhyUs() {
+  const FEATURES = [
+    {
+      title: "Heritage",
+      desc:
+        "Traditional Indian craftsmanship preserved across generations, kept alive through master artisans.",
+      Icon: () => (
+        <svg viewBox="0 0 100 100" className="w-14 h-14" fill="none" stroke="url(#gold-line)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <defs>
+            <linearGradient id="gold-line" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="#EAC77A" />
+              <stop offset="55%" stopColor="#C8A048" />
+              <stop offset="100%" stopColor="#8B6A1E" />
+            </linearGradient>
+          </defs>
+          <path d="M20 82 L80 82" />
+          <path d="M25 82 L25 55 L75 55 L75 82" />
+          <path d="M25 55 L30 45 L70 45 L75 55" />
+          <path d="M30 45 L34 36 L66 36 L70 45" />
+          <path d="M34 36 L38 28 L62 28 L66 36" />
+          <path d="M38 28 L45 22 L50 14 L55 22 L62 28" />
+          <circle cx="50" cy="10" r="1.6" fill="url(#gold-line)" />
+          <path d="M44 82 L44 68 C44 64 56 64 56 68 L56 82" />
+          <path d="M14 82 L14 62 M14 62 c-3 -2 -5 -6 -5 -10 M14 62 c3 -2 5 -6 5 -10" />
+          <path d="M86 82 L86 62 M86 62 c-3 -2 -5 -6 -5 -10 M86 62 c3 -2 5 -6 5 -10" />
+        </svg>
+      ),
+    },
+    {
+      title: "Custom Jewellery",
+      desc:
+        "Every piece is handcrafted and customized to the client's vision — from concept sketch to final polish.",
+      Icon: () => (
+        <svg viewBox="0 0 100 100" className="w-14 h-14" fill="none" stroke="url(#gold-line2)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <defs>
+            <linearGradient id="gold-line2" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="#EAC77A" />
+              <stop offset="55%" stopColor="#C8A048" />
+              <stop offset="100%" stopColor="#8B6A1E" />
+            </linearGradient>
+          </defs>
+          <path d="M22 32 C34 78 66 78 78 32" />
+          <path d="M32 42 C40 70 60 70 68 42" />
+          <ellipse cx="50" cy="70" rx="9" ry="7" fill="url(#gold-line2)" opacity="0.15" />
+          <ellipse cx="50" cy="70" rx="9" ry="7" />
+          <path d="M50 63 L50 77 M44 70 L56 70" strokeWidth="1" />
+          {[36, 44, 50, 56, 64].map((x, i) => (
+            <circle key={i} cx={x} cy={82 + Math.abs(i - 2) * 1.5} r="1.6" />
+          ))}
+          <path d="M18 28 l2 4 l4 2 l-4 2 l-2 4 l-2 -4 l-4 -2 l4 -2 z" fill="url(#gold-line2)" stroke="none" />
+          <path d="M82 28 l2 4 l4 2 l-4 2 l-2 4 l-2 -4 l-4 -2 l4 -2 z" fill="url(#gold-line2)" stroke="none" />
+        </svg>
+      ),
+    },
+    {
+      title: "Authentic Silk",
+      desc:
+        "Premium South Indian GI-tagged silk sarees, sourced directly from heritage weaver clusters with care.",
+      Icon: () => (
+        <svg viewBox="0 0 100 100" className="w-14 h-14" fill="none" stroke="url(#gold-line3)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <defs>
+            <linearGradient id="gold-line3" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="#EAC77A" />
+              <stop offset="55%" stopColor="#C8A048" />
+              <stop offset="100%" stopColor="#8B6A1E" />
+            </linearGradient>
+          </defs>
+          <path d="M22 72 L78 72 L82 84 L18 84 Z" />
+          <path d="M26 60 L74 60 L78 72 L22 72 Z" />
+          <path d="M30 48 L70 48 L74 60 L26 60 Z" />
+          <path d="M34 36 L66 36 L70 48 L30 48 Z" />
+          <path d="M38 24 L62 24 L66 36 L34 36 Z" />
+          <path d="M22 72 L78 72 M26 60 L74 60 M30 48 L70 48 M34 36 L66 36" />
+          <path d="M42 30 L58 30 M40 42 L60 42 M38 54 L62 54 M35 66 L65 66 M30 78 L70 78" strokeWidth="0.8" opacity="0.7" />
+        </svg>
+      ),
+    },
+    {
+      title: "Handcrafted Excellence",
+      desc:
+        "Attention to every detail, premium materials and skilled artisans — the hallmarks of true Indian luxury.",
+      Icon: () => (
+        <svg viewBox="0 0 100 100" className="w-14 h-14" fill="none" stroke="url(#gold-line4)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <defs>
+            <linearGradient id="gold-line4" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stopColor="#EAC77A" />
+              <stop offset="55%" stopColor="#C8A048" />
+              <stop offset="100%" stopColor="#8B6A1E" />
+            </linearGradient>
+          </defs>
+          <path d="M35 82 L35 52 C35 46 45 46 45 52 L45 30 C45 24 55 24 55 30 L55 34 C55 28 65 28 65 34 L65 40 C65 34 75 34 75 40 L75 66 C75 76 68 82 58 82 Z" />
+          <path d="M45 52 L45 40" strokeWidth="0.9" />
+          <path d="M55 34 L55 46" strokeWidth="0.9" />
+          <path d="M65 40 L65 52" strokeWidth="0.9" />
+          {/* sparkle above hand */}
+          <path d="M30 20 l1.6 4 l4 1.6 l-4 1.6 l-1.6 4 l-1.6 -4 l-4 -1.6 l4 -1.6 z" fill="url(#gold-line4)" stroke="none" />
+          <path d="M74 18 l1.2 3 l3 1.2 l-3 1.2 l-1.2 3 l-1.2 -3 l-3 -1.2 l3 -1.2 z" fill="url(#gold-line4)" stroke="none" opacity="0.8" />
+          {/* small lotus in palm */}
+          <path d="M50 62 C46 58 46 52 50 50 C54 52 54 58 50 62 Z" strokeWidth="1.1" />
+        </svg>
+      ),
+    },
+  ];
+
+  return (
+    <section
+      id="why"
+      className="relative py-16 md:py-24 px-4 md:px-8 lg:px-10 overflow-hidden"
+      style={{ background: "#FDF7EF" }}
+    >
+      {/* Very soft watermarks */}
+      <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden>
+        <LotusMotif className="absolute -left-10 top-10 w-[220px] h-[220px]" opacity={0.06} />
+        <LotusMotif className="absolute right-[-30px] bottom-10 w-[240px] h-[240px]" opacity={0.06} />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto relative z-[2]">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12 md:mb-16"
+        >
+          <div className="inline-flex items-center gap-3 text-[#B8860B] mb-3">
+            <span className="h-px w-10 bg-[#B8860B]/70" />
+            <span className="tracking-[0.4em] text-[11px] font-sans uppercase">
+              The Kamalavasinii Promise
+            </span>
+            <span className="h-px w-10 bg-[#B8860B]/70" />
+          </div>
+          <h2 className="font-serif text-[36px] md:text-[52px] font-semibold maroon-text leading-tight">
+            Why Kamalavasinii
+          </h2>
+          <div className="mt-3 flex justify-center">
+            <svg width="80" height="20" viewBox="0 0 80 20" aria-hidden>
+              <path d="M0 10 L34 10" stroke="#B8860B" strokeWidth="1" />
+              <path d="M46 10 L80 10" stroke="#B8860B" strokeWidth="1" />
+              <path
+                d="M40 3 C34 7 34 13 40 17 C46 13 46 7 40 3 Z"
+                fill="#B8860B"
+              />
+            </svg>
+          </div>
+          <p className="mt-5 font-sans text-[15px] md:text-[16px] text-[#5a3a3f] max-w-2xl mx-auto leading-relaxed">
+            Experience timeless craftsmanship, authentic heritage and bespoke luxury —
+            where every creation tells a story of India's finest artistry.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          {FEATURES.map((f, i) => (
+            <motion.div
+              key={f.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -8 }}
+              className="group relative rounded-[28px] p-6 md:p-8 bg-[#FFF9F2] border border-[#EFE1CC] shadow-[0_10px_30px_-18px_rgba(107,30,40,0.15)] hover:shadow-[0_30px_60px_-25px_rgba(107,30,40,0.25)] hover:border-[#C8A048]/60 transition-all duration-500 overflow-hidden"
+            >
+              {/* gold corner ornament */}
+              <svg
+                viewBox="0 0 40 40"
+                className="absolute top-3 right-3 w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"
+                aria-hidden
+              >
+                <path
+                  d="M4 20 C4 10 10 4 20 4 M20 4 L20 12 M20 4 L28 4"
+                  stroke="#C8A048"
+                  strokeWidth="1"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+                <circle cx="20" cy="20" r="1.2" fill="#C8A048" />
+              </svg>
+
+              {/* small gold circle behind icon */}
+              <div className="relative mb-5">
+                <div className="absolute inset-0 flex items-start">
+                  <span className="block w-16 h-16 rounded-full bg-gradient-to-br from-[#F7E4C5] to-[#F0D7A9] opacity-70" />
+                </div>
+                <div className="relative pt-1 pl-1">
+                  <f.Icon />
+                </div>
+              </div>
+
+              <h3 className="font-serif text-[22px] md:text-[24px] font-semibold maroon-text tracking-wide">
+                {f.title}
+              </h3>
+
+              {/* gold underline */}
+              <div className="mt-2 mb-4 h-[2px] w-10 bg-gradient-to-r from-[#C8A048] to-transparent group-hover:w-20 transition-all duration-500" />
+
+              <p className="font-sans text-[13.5px] md:text-[14px] text-[#5a3a3f] leading-relaxed">
+                {f.desc}
+              </p>
+
+              {/* subtle bottom sparkle on hover */}
+              <svg
+                viewBox="0 0 24 24"
+                className="absolute bottom-4 right-5 w-3 h-3 opacity-0 group-hover:opacity-70 transition-opacity"
+                aria-hidden
+              >
+                <path
+                  d="M12 2 L13 9 L20 10 L13 11 L12 18 L11 11 L4 10 L11 9 Z"
+                  fill="#C8A048"
+                />
+              </svg>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="cream-bg border-t border-[#EFE1CC] py-10 px-4 md:px-8 lg:px-10">
@@ -519,6 +738,7 @@ function App() {
       <Header active={active} setActive={setActive} />
       <Hero />
       <Categories />
+      <WhyUs />
       <Footer />
     </main>
   );
