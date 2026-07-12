@@ -1422,6 +1422,206 @@ function Journey() {
   );
 }
 
+function Testimonials() {
+  const TESTIMONIALS = [
+    {
+      quote:
+        "The craftsmanship exceeded every expectation. My bridal jewellery was exactly how I imagined it — every gemstone, every curve of gold, a reflection of my dream.",
+      name: "Ananya Iyer",
+      city: "Chennai",
+      occasion: "Bridal Collection",
+    },
+    {
+      quote:
+        "The consultation process was wonderful. Every detail was customized beautifully and the team treated my vision like their own creation.",
+      name: "Meera Krishnan",
+      city: "Bengaluru",
+      occasion: "Anniversary Gift",
+    },
+    {
+      quote:
+        "Our family ordered matching silk sarees and jewellery for a wedding. Everything arrived perfectly crafted, radiant, and full of soul.",
+      name: "Lakshmi Raghavan",
+      city: "Hyderabad",
+      occasion: "Wedding Ensemble",
+    },
+  ];
+
+  return (
+    <section
+      id="testimonials"
+      className="relative py-16 md:py-24 px-4 md:px-8 lg:px-10 overflow-hidden paper-texture"
+      style={{ background: "#FDF7EF" }}
+    >
+      {/* Watermarks */}
+      <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden>
+        <LotusMotif className="absolute left-[-30px] top-14 w-[220px] h-[220px]" opacity={0.06} />
+        <LotusMotif className="absolute right-[-40px] bottom-16 w-[260px] h-[260px]" opacity={0.06} />
+        <LotusMotif className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px]" opacity={0.03} />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto relative z-[2]">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-14 md:mb-20"
+        >
+          <div className="inline-flex items-center gap-3 text-[#B8860B] mb-3">
+            <span className="h-px w-10 bg-[#B8860B]/70" />
+            <span className="tracking-[0.4em] text-[11px] font-sans uppercase">
+              Testimonials
+            </span>
+            <span className="h-px w-10 bg-[#B8860B]/70" />
+          </div>
+          <h2 className="font-serif text-[34px] md:text-[50px] font-semibold maroon-text leading-[1.1]">
+            Words From Our{" "}
+            <span className="italic gold-text">Patrons</span>
+          </h2>
+          <div className="mt-4 flex justify-center">
+            <svg width="80" height="20" viewBox="0 0 80 20" aria-hidden>
+              <path d="M0 10 L34 10" stroke="#B8860B" strokeWidth="1" />
+              <path d="M46 10 L80 10" stroke="#B8860B" strokeWidth="1" />
+              <path d="M40 3 C34 7 34 13 40 17 C46 13 46 7 40 3 Z" fill="#B8860B" />
+            </svg>
+          </div>
+          <p className="mt-5 font-sans text-[15px] md:text-[16px] text-[#5a3a3f] max-w-2xl mx-auto leading-relaxed">
+            Every handcrafted creation carries a story. Here&apos;s what our clients
+            say about their experience with Kamalavasinii.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+          {TESTIMONIALS.map((t, i) => (
+            <motion.article
+              key={t.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+              whileHover={{ y: -8 }}
+              className="group relative rounded-[28px] bg-[#FFF9F2] border border-[#EFE1CC] p-7 md:p-9 shadow-[0_15px_40px_-20px_rgba(107,30,40,0.16)] hover:shadow-[0_35px_70px_-30px_rgba(107,30,40,0.28)] hover:border-[#C8A048]/70 transition-all duration-500 overflow-hidden"
+            >
+              {/* Gold corner ornaments */}
+              <svg viewBox="0 0 40 40" className="absolute top-3 left-3 w-6 h-6 opacity-60" aria-hidden>
+                <path d="M4 20 C4 10 10 4 20 4 M20 4 L20 12 M20 4 L28 4" stroke="#C8A048" strokeWidth="1" fill="none" strokeLinecap="round" />
+                <circle cx="20" cy="20" r="1.2" fill="#C8A048" />
+              </svg>
+              <svg viewBox="0 0 40 40" className="absolute bottom-3 right-3 w-6 h-6 opacity-60 rotate-180" aria-hidden>
+                <path d="M4 20 C4 10 10 4 20 4 M20 4 L20 12 M20 4 L28 4" stroke="#C8A048" strokeWidth="1" fill="none" strokeLinecap="round" />
+                <circle cx="20" cy="20" r="1.2" fill="#C8A048" />
+              </svg>
+
+              {/* Large decorative quotation mark */}
+              <svg
+                viewBox="0 0 100 80"
+                className="absolute -top-2 right-5 w-24 h-20 opacity-70 group-hover:opacity-90 transition-opacity"
+                aria-hidden
+              >
+                <defs>
+                  <linearGradient id={`q-${i}`} x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#EAC77A" />
+                    <stop offset="55%" stopColor="#C8A048" />
+                    <stop offset="100%" stopColor="#8B6A1E" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M20 60 C20 40 32 24 50 20 L50 30 C42 32 34 40 34 50 L44 50 L44 66 L20 66 Z"
+                  fill={`url(#q-${i})`}
+                />
+                <path
+                  d="M56 60 C56 40 68 24 86 20 L86 30 C78 32 70 40 70 50 L80 50 L80 66 L56 66 Z"
+                  fill={`url(#q-${i})`}
+                  opacity="0.85"
+                />
+              </svg>
+
+              {/* 5 gold stars */}
+              <div className="flex items-center gap-1 mb-5">
+                {Array.from({ length: 5 }).map((_, s) => (
+                  <svg key={s} viewBox="0 0 24 24" width="16" height="16" aria-hidden>
+                    <defs>
+                      <linearGradient id={`star-${i}-${s}`} x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0%" stopColor="#EAC77A" />
+                        <stop offset="100%" stopColor="#B8860B" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M12 2 L14.6 8.6 L22 9.3 L16.3 14.1 L18.1 21.3 L12 17.4 L5.9 21.3 L7.7 14.1 L2 9.3 L9.4 8.6 Z"
+                      fill={`url(#star-${i}-${s})`}
+                    />
+                  </svg>
+                ))}
+              </div>
+
+              {/* Testimonial quote */}
+              <blockquote className="relative">
+                <p className="font-serif italic text-[18px] md:text-[19.5px] text-[#3A2A20] leading-[1.6]">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
+              </blockquote>
+
+              {/* Decorative lotus divider */}
+              <div className="mt-7 mb-5 flex items-center gap-3">
+                <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#C8A048]/70" />
+                <svg width="20" height="20" viewBox="0 0 22 22" aria-hidden>
+                  <path d="M11 3 C7 8 7 14 11 19 C15 14 15 8 11 3 Z" fill="#C8A048" />
+                  <circle cx="11" cy="11" r="1.5" fill="#7B2334" />
+                </svg>
+                <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C8A048]/70" />
+              </div>
+
+              {/* Name + City + Occasion */}
+              <div>
+                <div className="font-serif text-[20px] md:text-[22px] font-semibold maroon-text tracking-wide">
+                  {t.name}
+                </div>
+                <div className="mt-1 flex items-center justify-center gap-2 font-sans text-[12px] text-[#8a5f66] tracking-[0.16em] uppercase">
+                  <span>{t.city}</span>
+                  <span className="w-1 h-1 rounded-full bg-[#C8A048]" />
+                  <span className="text-[#B8860B]">{t.occasion}</span>
+                </div>
+              </div>
+
+              {/* subtle hover sparkle */}
+              <svg viewBox="0 0 24 24" className="absolute bottom-5 left-5 w-3 h-3 opacity-0 group-hover:opacity-70 transition-opacity" aria-hidden>
+                <path d="M12 2 L13 9 L20 10 L13 11 L12 18 L11 11 L4 10 L11 9 Z" fill="#C8A048" />
+              </svg>
+            </motion.article>
+          ))}
+        </div>
+
+        {/* Bottom tagline */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-14 md:mt-20 text-center"
+        >
+          <div className="inline-flex items-center gap-4 justify-center">
+            <span className="h-px w-16 bg-gradient-to-r from-transparent via-[#B8860B] to-[#B8860B]" />
+            <svg width="26" height="26" viewBox="0 0 22 22" aria-hidden>
+              <path d="M11 3 C7 8 7 14 11 19 C15 14 15 8 11 3 Z" fill="#C8A048" />
+              <path d="M11 3 C4 10 4 12 11 19" stroke="#8B6A1E" strokeWidth="0.5" fill="none" />
+              <circle cx="11" cy="11" r="1.6" fill="#7B2334" />
+            </svg>
+            <span className="h-px w-16 bg-gradient-to-l from-transparent via-[#B8860B] to-[#B8860B]" />
+          </div>
+          <p className="mt-4 font-serif italic text-[22px] md:text-[28px] maroon-text">
+            Become a part of the{" "}
+            <span className="gold-text not-italic font-semibold">Kamalavasinii</span>{" "}
+            family.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="cream-bg border-t border-[#EFE1CC] py-10 px-4 md:px-8 lg:px-10">
@@ -1460,6 +1660,7 @@ function App() {
       <WhyUs />
       <Heritage />
       <Journey />
+      <Testimonials />
       <Footer />
     </main>
   );
