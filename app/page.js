@@ -1076,6 +1076,352 @@ function Heritage() {
   );
 }
 
+function JourneyIcons() { return null; }
+
+const STEP_ICONS = {
+  vision: () => (
+    <svg viewBox="0 0 80 80" fill="none" stroke="url(#j-gold)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-11 h-11" aria-hidden>
+      <defs>
+        <linearGradient id="j-gold" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#EAC77A" />
+          <stop offset="55%" stopColor="#C8A048" />
+          <stop offset="100%" stopColor="#8B6A1E" />
+        </linearGradient>
+      </defs>
+      {/* lotus */}
+      <path d="M28 46 C22 40 22 30 28 24 C34 30 34 40 28 46 Z" />
+      <path d="M28 46 C18 40 14 28 28 20 C42 28 38 40 28 46 Z" opacity="0.85" />
+      <path d="M28 40 C24 32 24 22 28 14 C32 22 32 32 28 40 Z" opacity="0.9" />
+      <circle cx="28" cy="30" r="1.6" fill="url(#j-gold)" />
+      {/* pencil crossing */}
+      <path d="M48 20 L66 38" />
+      <path d="M46 22 L50 18 L52 20 L48 24 Z" fill="url(#j-gold)" stroke="none" />
+      <path d="M66 38 L70 42 L66 46 L62 42 Z" fill="url(#j-gold)" stroke="none" opacity="0.9" />
+      <path d="M52 26 L60 34" strokeWidth="0.9" />
+      {/* sparkles */}
+      <path d="M60 14 l1 3 l3 1 l-3 1 l-1 3 l-1 -3 l-3 -1 l3 -1 z" fill="url(#j-gold)" stroke="none" />
+      <path d="M14 60 l1 3 l3 1 l-3 1 l-1 3 l-1 -3 l-3 -1 l3 -1 z" fill="url(#j-gold)" stroke="none" opacity="0.8" />
+    </svg>
+  ),
+  design: () => (
+    <svg viewBox="0 0 80 80" fill="none" stroke="url(#j-gold2)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-11 h-11" aria-hidden>
+      <defs>
+        <linearGradient id="j-gold2" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#EAC77A" />
+          <stop offset="55%" stopColor="#C8A048" />
+          <stop offset="100%" stopColor="#8B6A1E" />
+        </linearGradient>
+      </defs>
+      {/* paper with folded corner */}
+      <path d="M18 14 L52 14 L62 24 L62 66 L18 66 Z" />
+      <path d="M52 14 L52 24 L62 24" />
+      {/* sketch lines - a necklace curve on paper */}
+      <path d="M26 34 C32 46 48 46 54 34" strokeWidth="1.1" />
+      <ellipse cx="40" cy="46" rx="4" ry="3" />
+      <path d="M28 54 L52 54" strokeWidth="0.9" opacity="0.7" />
+      <path d="M28 60 L46 60" strokeWidth="0.9" opacity="0.5" />
+      {/* pencil */}
+      <path d="M52 42 L72 62" />
+      <path d="M50 40 L54 36 L58 40 L54 44 Z" fill="url(#j-gold2)" stroke="none" />
+      <path d="M72 62 L76 66 L72 70 L68 66 Z" fill="url(#j-gold2)" stroke="none" opacity="0.9" />
+    </svg>
+  ),
+  material: () => (
+    <svg viewBox="0 0 80 80" fill="none" stroke="url(#j-gold3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-11 h-11" aria-hidden>
+      <defs>
+        <linearGradient id="j-gold3" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#EAC77A" />
+          <stop offset="55%" stopColor="#C8A048" />
+          <stop offset="100%" stopColor="#8B6A1E" />
+        </linearGradient>
+      </defs>
+      {/* Big center gem */}
+      <path d="M40 14 L54 26 L48 46 L32 46 L26 26 Z" />
+      <path d="M40 14 L48 46 M40 14 L32 46 M26 26 L54 26" strokeWidth="0.9" />
+      <path d="M32 22 L40 18 L48 22" strokeWidth="0.9" opacity="0.7" />
+      {/* Small gems left/right */}
+      <path d="M14 54 L20 48 L26 54 L22 62 L18 62 Z" />
+      <path d="M14 54 L26 54" strokeWidth="0.8" />
+      <path d="M54 54 L60 48 L66 54 L62 62 L58 62 Z" />
+      <path d="M54 54 L66 54" strokeWidth="0.8" />
+      {/* gold ring below */}
+      <ellipse cx="40" cy="62" rx="14" ry="4" />
+      <circle cx="40" cy="62" r="1.4" fill="url(#j-gold3)" stroke="none" />
+    </svg>
+  ),
+  artisan: () => (
+    <svg viewBox="0 0 80 80" fill="none" stroke="url(#j-gold4)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-11 h-11" aria-hidden>
+      <defs>
+        <linearGradient id="j-gold4" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#EAC77A" />
+          <stop offset="55%" stopColor="#C8A048" />
+          <stop offset="100%" stopColor="#8B6A1E" />
+        </linearGradient>
+      </defs>
+      {/* hammer */}
+      <path d="M18 62 L48 32" />
+      <path d="M16 60 L20 64" strokeWidth="2.2" />
+      <path d="M42 26 L58 42 L52 48 L36 32 Z" fill="url(#j-gold4)" fillOpacity="0.12" />
+      {/* chisel crossing */}
+      <path d="M60 18 L34 44" />
+      <path d="M32 46 L28 42 L30 40 L34 44 Z" fill="url(#j-gold4)" stroke="none" />
+      <path d="M60 18 L66 14 L70 18 L66 22 Z" fill="url(#j-gold4)" stroke="none" />
+      {/* small gem sparkle */}
+      <path d="M60 62 l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 z" fill="url(#j-gold4)" stroke="none" />
+    </svg>
+  ),
+  delivery: () => (
+    <svg viewBox="0 0 80 80" fill="none" stroke="url(#j-gold5)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-11 h-11" aria-hidden>
+      <defs>
+        <linearGradient id="j-gold5" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stopColor="#EAC77A" />
+          <stop offset="55%" stopColor="#C8A048" />
+          <stop offset="100%" stopColor="#8B6A1E" />
+        </linearGradient>
+      </defs>
+      {/* box */}
+      <path d="M14 32 L66 32 L66 66 L14 66 Z" />
+      <path d="M10 24 L70 24 L70 34 L10 34 Z" />
+      {/* vertical ribbon */}
+      <path d="M40 24 L40 66" strokeWidth="2" />
+      <path d="M40 24 L40 66" stroke="#7B2334" strokeWidth="0.9" opacity="0.75" />
+      {/* Lotus bow on top */}
+      <path d="M40 24 C30 20 24 12 30 8 C36 10 38 16 40 22" />
+      <path d="M40 24 C50 20 56 12 50 8 C44 10 42 16 40 22" />
+      <circle cx="40" cy="20" r="2" fill="url(#j-gold5)" stroke="none" />
+      {/* corners sparkle */}
+      <path d="M18 46 l1 3 l3 1 l-3 1 l-1 3 l-1 -3 l-3 -1 l3 -1 z" fill="url(#j-gold5)" stroke="none" opacity="0.85" />
+      <path d="M60 50 l1 3 l3 1 l-3 1 l-1 3 l-1 -3 l-3 -1 l3 -1 z" fill="url(#j-gold5)" stroke="none" opacity="0.85" />
+    </svg>
+  ),
+};
+
+function Journey() {
+  const STEPS = [
+    {
+      n: "01",
+      title: "Share Your Vision",
+      desc: "Tell us your idea, inspiration or occasion.",
+      Icon: STEP_ICONS.vision,
+    },
+    {
+      n: "02",
+      title: "Design Consultation",
+      desc: "Our designers discuss your requirements and prepare concepts.",
+      Icon: STEP_ICONS.design,
+    },
+    {
+      n: "03",
+      title: "Material Selection",
+      desc: "Choose gold, silver, brass, clay, silk, gemstones and finishes.",
+      Icon: STEP_ICONS.material,
+    },
+    {
+      n: "04",
+      title: "Handcrafted By Artisans",
+      desc: "Experienced craftsmen create every detail with precision.",
+      Icon: STEP_ICONS.artisan,
+    },
+    {
+      n: "05",
+      title: "Delivered With Care",
+      desc: "Receive a handcrafted masterpiece made exclusively for you.",
+      Icon: STEP_ICONS.delivery,
+    },
+  ];
+
+  return (
+    <section
+      id="journey"
+      className="relative py-16 md:py-24 px-4 md:px-8 lg:px-10 overflow-hidden paper-texture"
+      style={{ background: "#FDF7EF" }}
+    >
+      {/* Watermarks */}
+      <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden>
+        <LotusMotif className="absolute left-[-40px] top-16 w-[240px] h-[240px]" opacity={0.06} />
+        <LotusMotif className="absolute right-[-30px] bottom-40 w-[240px] h-[240px]" opacity={0.06} />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto relative z-[2]">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-14 md:mb-20"
+        >
+          <div className="inline-flex items-center gap-3 text-[#B8860B] mb-3">
+            <span className="h-px w-10 bg-[#B8860B]/70" />
+            <span className="tracking-[0.4em] text-[11px] font-sans uppercase">
+              Custom Craftsmanship
+            </span>
+            <span className="h-px w-10 bg-[#B8860B]/70" />
+          </div>
+          <h2 className="font-serif text-[34px] md:text-[50px] font-semibold maroon-text leading-[1.1] max-w-4xl mx-auto">
+            From Your Dream To A{" "}
+            <span className="italic gold-text">Timeless Masterpiece</span>
+          </h2>
+          <div className="mt-4 flex justify-center">
+            <svg width="80" height="20" viewBox="0 0 80 20" aria-hidden>
+              <path d="M0 10 L34 10" stroke="#B8860B" strokeWidth="1" />
+              <path d="M46 10 L80 10" stroke="#B8860B" strokeWidth="1" />
+              <path d="M40 3 C34 7 34 13 40 17 C46 13 46 7 40 3 Z" fill="#B8860B" />
+            </svg>
+          </div>
+          <p className="mt-5 font-sans text-[15px] md:text-[16px] text-[#5a3a3f] max-w-2xl mx-auto leading-relaxed">
+            Every Kamalavasinii creation begins with your vision and is handcrafted
+            by skilled artisans into a timeless piece of heritage.
+          </p>
+        </motion.div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Desktop connecting gold line */}
+          <div className="hidden lg:block absolute top-[64px] left-[8%] right-[8%] h-px pointer-events-none">
+            <div className="w-full h-full bg-gradient-to-r from-transparent via-[#C8A048] to-transparent" />
+            {/* subtle beads on line */}
+            <div className="absolute inset-0 flex items-center justify-between px-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <span key={i} className="w-1.5 h-1.5 rounded-full bg-[#C8A048]/70" />
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile vertical line */}
+          <div className="lg:hidden absolute top-6 bottom-6 left-[36px] w-px bg-gradient-to-b from-transparent via-[#C8A048]/70 to-transparent pointer-events-none" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-6 lg:gap-4 relative">
+            {STEPS.map((s, i) => (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, delay: i * 0.12, ease: "easeOut" }}
+                whileHover={{ y: -8 }}
+                className="relative pl-16 lg:pl-0 flex lg:flex-col items-start lg:items-center text-left lg:text-center"
+              >
+                {/* Numbered gold circle (positioned above card on desktop; left on mobile) */}
+                <div className="absolute lg:static left-3 top-2 lg:mb-4 shrink-0 z-[3]">
+                  <div className="relative w-[68px] h-[68px] rounded-full bg-gradient-to-br from-[#FBEED0] to-[#F0D7A9] border border-[#C8A048]/60 shadow-[0_10px_25px_-10px_rgba(200,160,72,0.55)] flex items-center justify-center">
+                    <s.Icon />
+                    {/* step number badge */}
+                    <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-gradient-to-br from-[#8A2A36] to-[#5E1420] text-[#F1D07A] text-[11px] font-serif font-semibold flex items-center justify-center shadow-md">
+                      {s.n}
+                    </span>
+                    {/* Ring accent */}
+                    <span className="absolute inset-[-6px] rounded-full border border-[#C8A048]/25" />
+                  </div>
+                </div>
+
+                {/* Card */}
+                <div className="group w-full rounded-[22px] bg-[#FFF9F2] border border-[#EFE1CC] p-5 md:p-6 shadow-[0_10px_30px_-18px_rgba(107,30,40,0.15)] hover:shadow-[0_25px_50px_-25px_rgba(107,30,40,0.25)] hover:border-[#C8A048]/70 transition-all duration-500">
+                  <h3 className="font-serif text-[19px] md:text-[20px] font-semibold maroon-text tracking-wide">
+                    {s.title}
+                  </h3>
+                  <div className="mt-2 mb-3 h-[2px] w-10 lg:mx-auto bg-gradient-to-r from-[#C8A048] to-transparent group-hover:w-16 transition-all duration-500" />
+                  <p className="font-sans text-[13.5px] text-[#5a3a3f] leading-relaxed">
+                    {s.desc}
+                  </p>
+                </div>
+
+                {/* Mobile down-arrow between steps */}
+                {i < STEPS.length - 1 && (
+                  <div className="lg:hidden absolute -bottom-5 left-[28px]">
+                    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden>
+                      <path
+                        d="M12 4 L12 20 M6 14 L12 20 L18 14"
+                        stroke="#C8A048"
+                        strokeWidth="1.5"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom CTA panel */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-16 md:mt-24 relative"
+        >
+          <div className="relative rounded-[36px] overflow-hidden bg-gradient-to-br from-[#FFF3E7] via-[#FBEED0] to-[#F7DDC5] border border-[#C8A048]/40 shadow-[0_30px_60px_-30px_rgba(107,30,40,0.25)] px-6 md:px-14 py-12 md:py-16 text-center">
+            {/* corner ornaments */}
+            <svg viewBox="0 0 60 60" className="absolute top-3 left-3 w-10 h-10 opacity-70" aria-hidden>
+              <path d="M4 30 C4 15 15 4 30 4 M30 4 L30 14 M30 4 L40 4" stroke="#C8A048" strokeWidth="1" fill="none" strokeLinecap="round" />
+              <circle cx="30" cy="30" r="1.4" fill="#C8A048" />
+            </svg>
+            <svg viewBox="0 0 60 60" className="absolute top-3 right-3 w-10 h-10 opacity-70 -scale-x-100" aria-hidden>
+              <path d="M4 30 C4 15 15 4 30 4 M30 4 L30 14 M30 4 L40 4" stroke="#C8A048" strokeWidth="1" fill="none" strokeLinecap="round" />
+              <circle cx="30" cy="30" r="1.4" fill="#C8A048" />
+            </svg>
+            <svg viewBox="0 0 60 60" className="absolute bottom-3 left-3 w-10 h-10 opacity-70 -scale-y-100" aria-hidden>
+              <path d="M4 30 C4 15 15 4 30 4 M30 4 L30 14 M30 4 L40 4" stroke="#C8A048" strokeWidth="1" fill="none" strokeLinecap="round" />
+              <circle cx="30" cy="30" r="1.4" fill="#C8A048" />
+            </svg>
+            <svg viewBox="0 0 60 60" className="absolute bottom-3 right-3 w-10 h-10 opacity-70 rotate-180" aria-hidden>
+              <path d="M4 30 C4 15 15 4 30 4 M30 4 L30 14 M30 4 L40 4" stroke="#C8A048" strokeWidth="1" fill="none" strokeLinecap="round" />
+              <circle cx="30" cy="30" r="1.4" fill="#C8A048" />
+            </svg>
+
+            {/* Lotus mark */}
+            <div className="flex justify-center mb-4">
+              <LotusLogo size={54} />
+            </div>
+
+            <h3 className="font-serif text-[28px] md:text-[40px] font-semibold maroon-text leading-tight">
+              Ready To Create Something{" "}
+              <span className="italic gold-text">Unique?</span>
+            </h3>
+
+            <p className="mt-4 font-sans text-[14px] md:text-[15px] text-[#5a3a3f] max-w-xl mx-auto">
+              Speak with our designers and begin your bespoke Kamalavasinii journey.
+              We&apos;ll guide you from first idea to finished heirloom.
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-flex items-center gap-2">
+                BOOK CONSULTATION
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <path d="M5 12 L19 12 M13 6 L19 12 L13 18" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <a
+                href="https://wa.me/919999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-gold font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-flex items-center gap-2"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden>
+                  <path d="M20.52 3.48A11.86 11.86 0 0012.02 0C5.42 0 .04 5.38.04 11.98c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.62a11.94 11.94 0 005.82 1.49h.01c6.6 0 11.98-5.38 11.98-11.98 0-3.2-1.25-6.21-3.49-8.41zM12.03 21.3h-.01a9.9 9.9 0 01-5.05-1.38l-.36-.22-3.68.96.98-3.58-.24-.37a9.9 9.9 0 01-1.52-5.29c0-5.47 4.45-9.92 9.92-9.92 2.65 0 5.14 1.03 7.01 2.9a9.86 9.86 0 012.9 7.02c0 5.47-4.45 9.92-9.92 9.92zm5.45-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.78.97-.96 1.17-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.68-1.64-.93-2.24-.24-.58-.5-.5-.68-.51l-.58-.01c-.2 0-.53.07-.8.38-.28.3-1.06 1.03-1.06 2.52 0 1.48 1.08 2.91 1.23 3.11.15.2 2.13 3.26 5.16 4.57.72.31 1.29.5 1.73.64.73.23 1.4.2 1.92.12.59-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35z"/>
+                </svg>
+                WHATSAPP US
+              </a>
+            </div>
+
+            {/* sparkles */}
+            <svg viewBox="0 0 24 24" className="absolute top-1/4 left-[10%] w-3 h-3 opacity-70" aria-hidden>
+              <path d="M12 2 L13 9 L20 10 L13 11 L12 18 L11 11 L4 10 L11 9 Z" fill="#C8A048" />
+            </svg>
+            <svg viewBox="0 0 24 24" className="absolute bottom-[30%] right-[12%] w-3 h-3 opacity-70" aria-hidden>
+              <path d="M12 2 L13 9 L20 10 L13 11 L12 18 L11 11 L4 10 L11 9 Z" fill="#C8A048" />
+            </svg>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="cream-bg border-t border-[#EFE1CC] py-10 px-4 md:px-8 lg:px-10">
@@ -1113,6 +1459,7 @@ function App() {
       <Categories />
       <WhyUs />
       <Heritage />
+      <Journey />
       <Footer />
     </main>
   );
