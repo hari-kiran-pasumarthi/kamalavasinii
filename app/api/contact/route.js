@@ -1,12 +1,14 @@
+// Public helper: exposes basic ping + info without touching DB.
+
 import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/contactSchema';
-import { createContactSubmission } from '@/lib/contactStore';
+import { createInquiry } from '@/lib/repositories/inquiryRepository';
 
 export async function POST(request) {
   let body;
   try {
     body = await request.json();
-  } catch (e) {
+  } catch {
     return NextResponse.json(
       { ok: false, error: 'Invalid JSON body' },
       { status: 400 }
@@ -23,7 +25,7 @@ export async function POST(request) {
   }
 
   try {
-    const record = await createContactSubmission(parsed.data);
+    const record = await createInquiry(parsed.data);
     return NextResponse.json(
       { ok: true, id: record.id, message: 'Submission received' },
       { status: 201 }

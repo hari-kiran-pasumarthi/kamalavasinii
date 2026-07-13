@@ -1,0 +1,253 @@
+// Kamalavasinii Swarna & Silks — Prisma schema
+// Provider: PostgreSQL. Connection is read from env("DATABASE_URL").
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-openssl-3.0.x", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// -----------------------------------------------------------
+// ENUMS
+// -----------------------------------------------------------
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ConsultMode {
+  IN_PERSON
+  VIDEO_CALL
+  WHATSAPP
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  CLOSED
+}
+
+enum AppointmentStatus {
+  REQUESTED
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+enum PaymentStatus {
+  CREATED
+  AUTHORIZED
+  CAPTURED
+  FAILED
+  REFUNDED
+}
+
+// -----------------------------------------------------------
+// USERS + ADMIN
+// -----------------------------------------------------------
+model User {
+  id           String        @id @default(uuid()) @db.Uuid
+  email        String        @unique
+  name         String?
+  phone        String?
+  city         String?
+  role         Role          @default(USER)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  inquiries    Inquiry[]
+  appointments Appointment[]
+  payments     Payment[]
+
+  @@index([email])
+  @@map("users")
+}
+
+model Admin {
+  id           String   @id @default(uuid()) @db.Uuid
+  email        String   @unique
+  passwordHash String
+  name         String?
+  isActive     Boolean  @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([email])
+  @@map("admins")
+}
+
+// -----------------------------------------------------------
+// CATALOG
+// -----------------------------------------------------------
+model Category {
+  id          String       @id @default(uuid()) @db.Uuid
+  slug        String       @unique
+  name        String
+  subtitle    String?
+  description String?
+  sortOrder   Int          @default(0)
+  isActive    Boolean      @default(true)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  collections Collection[]
+  products    Product[]
+
+  @@map("categories")
+}
+
+model Collection {
+  id          String    @id @default(uuid()) @db.Uuid
+  slug        String    @unique
+  name        String
+  description String?
+  categoryId  String    @db.Uuid
+  category    Category  @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  sortOrder   Int       @default(0)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+
+  @@index([categoryId])
+  @@map("collections")
+}
+
+model Product {
+  id            String         @id @default(uuid()) @db.Uuid
+  slug          String         @unique
+  name          String
+  description   String?
+  shortDescription String?
+  price         Decimal?       @db.Decimal(12, 2)
+  currency      String         @default("INR")
+  material      String?
+  weightGrams   Decimal?       @db.Decimal(10, 3)
+  isCustom      Boolean        @default(false)
+  isPublished   Boolean        @default(true)
+
+  categoryId    String         @db.Uuid
+  category      Category       @relation(fields: [categoryId], references: [id])
+  collectionId  String?        @db.Uuid
+  collection    Collection?    @relation(fields: [collectionId], references: [id])
+
+  images        ProductImage[]
+  inquiries    Inquiry[]
+
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([categoryId])
+  @@index([collectionId])
+  @@index([isPublished])
+  @@map("products")
+}
+
+model ProductImage {
+  id        String   @id @default(uuid()) @db.Uuid
+  productId String   @db.Uuid
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@map("product_images")
+}
+
+// -----------------------------------------------------------
+// INQUIRIES  (aka Contact/Consultation submissions)
+// -----------------------------------------------------------
+model Inquiry {
+  id           String        @id @default(uuid()) @db.Uuid
+  // customer identity (denormalized so form can submit without account)
+  fullName     String
+  phone        String
+  email        String
+  city         String
+  service      String        // free-form to match form dropdown
+  mode         ConsultMode
+  date         String        // ISO date the customer picked
+  time         String        // HH:mm the customer picked
+  requirement  String        @db.Text
+
+  status       InquiryStatus @default(NEW)
+
+  // optional links
+  userId       String?       @db.Uuid
+  user         User?         @relation(fields: [userId], references: [id])
+  productId    String?       @db.Uuid
+  product      Product?      @relation(fields: [productId], references: [id])
+
+  appointments Appointment[]
+
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@index([status])
+  @@index([email])
+  @@map("inquiries")
+}
+
+// -----------------------------------------------------------
+// APPOINTMENTS
+// -----------------------------------------------------------
+model Appointment {
+  id         String            @id @default(uuid()) @db.Uuid
+  inquiryId  String?           @db.Uuid
+  inquiry    Inquiry?          @relation(fields: [inquiryId], references: [id])
+  userId     String?           @db.Uuid
+  user       User?             @relation(fields: [userId], references: [id])
+
+  mode       ConsultMode
+  scheduledAt DateTime
+  notes      String?           @db.Text
+  status     AppointmentStatus @default(REQUESTED)
+
+  createdAt  DateTime          @default(now())
+  updatedAt  DateTime          @updatedAt
+
+  @@index([status])
+  @@index([scheduledAt])
+  @@map("appointments")
+}
+
+// -----------------------------------------------------------
+// PAYMENTS  (Razorpay orders)
+// -----------------------------------------------------------
+model Payment {
+  id                 String        @id @default(uuid()) @db.Uuid
+
+  // Amount stored in the smallest currency unit (paise for INR)
+  amount             Int
+  currency           String        @default("INR")
+
+  status             PaymentStatus @default(CREATED)
+
+  // Razorpay identifiers
+  razorpayOrderId    String        @unique
+  razorpayPaymentId  String?       @unique
+  razorpaySignature  String?
+
+  // Free-form notes / receipt
+  receipt            String?
+  notes              Json?
+
+  userId             String?       @db.Uuid
+  user               User?         @relation(fields: [userId], references: [id])
+
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+
+  @@index([status])
+  @@index([userId])
+  @@map("payments")
+}
