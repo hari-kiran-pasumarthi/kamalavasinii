@@ -4,40 +4,21 @@ import React from "react";
 /* ============================================================
    Brand mark — ornate lotus (used in navbar + hero center)
    ============================================================ */
-export const LotusLogo = ({ size = 64, className = "" }) => (
-  <svg
-    viewBox="0 0 120 100"
-    width={size}
-    height={(size * 100) / 120}
-    className={className}
-    aria-hidden
-  >
-    <defs>
-      <linearGradient id="lotus-gold" x1="0" x2="1" y1="0" y2="1">
-        <stop offset="0%" stopColor="#EAC77A" />
-        <stop offset="50%" stopColor="#C8A048" />
-        <stop offset="100%" stopColor="#8E661A" />
-      </linearGradient>
-    </defs>
-    <g
-      fill="none"
-      stroke="url(#lotus-gold)"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M60 6 C55 24 55 44 60 60 C65 44 65 24 60 6 Z" />
-      <path d="M40 18 C40 34 48 52 60 60 C56 45 50 30 40 18 Z" />
-      <path d="M80 18 C80 34 72 52 60 60 C64 45 70 30 80 18 Z" />
-      <path d="M20 32 C28 46 42 58 60 62 C50 52 38 42 20 32 Z" />
-      <path d="M100 32 C92 46 78 58 60 62 C70 52 82 42 100 32 Z" />
-      <path d="M14 62 C34 74 60 78 60 78 C60 78 86 74 106 62" />
-      <path d="M10 72 C34 84 60 86 60 86 C60 86 86 84 110 72" />
-    </g>
-    <circle cx="60" cy="60" r="2.4" fill="#C8A048" />
-  </svg>
-);
+import Image from "next/image";
 
+export const LotusLogo = ({
+  size = 220,
+  className = "",
+}) => (
+  <Image
+    src="/images/logo.png"
+    alt="Kamalavasinii Swarna & Silks"
+    width={size}
+    height={size}
+    className={className}
+    priority
+  />
+);
 export const SparkleIcon = ({ size = 14, className = "", color = "#C8A048" }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} className={className} aria-hidden>
     <path
