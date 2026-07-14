@@ -1,24 +1,29 @@
 "use client";
 import React from "react";
 
-/* ============================================================
-   Brand mark — ornate lotus (used in navbar + hero center)
-   ============================================================ */
-import Image from "next/image";
+/* Brand Logo */
 
+import Image from "next/image";
+interface LotusLogoProps {
+   size?: number;
+   className?: string;
+}
 export const LotusLogo = ({
-  size = 220,
-  className = "",
-}) => (
-  <Image
-    src="/images/logo.png"
-    alt="Kamalavasinii Swarna & Silks"
-    width={size}
-    height={size}
-    className={className}
-    priority
-  />
-);
+   size = 220,
+   className = "",
+}: LotusLogoProps) => {
+   return (
+      <Image
+         src="/images/logo.png"
+         alt="Kamalavasinii Swarna & Silks"
+         width={size}
+         height={size}
+         priority
+         className={`object-contain ${className}`}
+         />
+   );
+};
+
 export const SparkleIcon = ({ size = 14, className = "", color = "#C8A048" }) => (
   <svg viewBox="0 0 24 24" width={size} height={size} className={className} aria-hidden>
     <path
