@@ -4,14 +4,11 @@ import React from "react";
 /* Brand Logo */
 
 import Image from "next/image";
-interface LotusLogoProps {
-   size?: number;
-   className?: string;
-}
+
 export const LotusLogo = ({
    size = 220,
    className = "",
-}: LotusLogoProps) => {
+}) => {
    return (
       <Image
          src="/images/logo.png"
