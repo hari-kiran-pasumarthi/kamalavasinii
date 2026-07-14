@@ -7,23 +7,22 @@ import WhyKamalavasinii from "@/components/home/WhyKamalavasinii";
 import Heritage from "@/components/home/Heritage";
 import CustomJourney from "@/components/home/CustomJourney";
 import Testimonials from "@/components/home/Testimonials";
+import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
     <>
       <SiteHeader activeHref="/" />
 
-      <Hero />
-
-      <CuratedTreasures />
-
-      <WhyKamalavasinii />
-
-      <Heritage />
-      
-      <CustomJourney />
-
-      <Testimonials />
+      <main>
+        <Hero />
+        <CuratedTreasures />
+        <WhyKamalavasinii />
+        <Heritage />
+        <CustomJourney />
+        <Testimonials />
+        <CTA />
+      </main>
 
       <SiteFooter />
     </>
