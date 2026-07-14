@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { getRazorpayClient, readRazorpayConfig } from '@/lib/razorpay';
 import { createPayment } from '@/lib/repositories/paymentRepository';
+import { Prisma } from "@prisma/client";
 
 const orderSchema = z.object({
   // amount is in the smallest currency unit (paise for INR)
@@ -12,7 +13,12 @@ const orderSchema = z.object({
     .max(1_000_000_00, 'Amount is unreasonably large'),
   currency: z.string().length(3).default('INR'),
   receipt: z.string().max(40).optional(),
-  notes: z.record(z.any()).optional(),
+  notes: z.record(z.string(), z.union([
+    z.string(),
+    z.number(),
+    z.boolean(),
+    z.null()
+  ])).optional(),
 });
 
 export async function POST(request: Request) {
@@ -65,7 +71,7 @@ export async function POST(request: Request) {
       currency,
       razorpayOrderId: order.id,
       receipt: order.receipt,
-      notes: (notes ?? {}) as Record<string, unknown>,
+      notes: (notes ?? {}) as Prisma.InputJsonValue,
     });
 
     return NextResponse.json(
