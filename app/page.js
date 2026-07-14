@@ -1,22 +1,16 @@
-import { SiteHeader, SiteFooter } from "@/components/layout/SiteLayout";
+import SiteHeader from "@/components/layout/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
 import Hero from "@/components/home/Hero";
-import Categories from "@/components/home/Categories";
-import WhyUs from "@/components/home/WhyUs";
-import Heritage from "@/components/home/Heritage";
-import Journey from "@/components/home/Journey";
+import CuratedTreasures from "@/components/home/CuratedTreasures";
 
-export default function HomePage() {
+export default function Home() {
   return (
     <>
       <SiteHeader activeHref="/" />
 
-      <main>
-        <Hero />
-        <Categories />
-        <WhyUs />
-        <Heritage />
-        <Journey />
-      </main>
+      <Hero />
+
+      <CuratedTreasures />
 
       <SiteFooter />
     </>
