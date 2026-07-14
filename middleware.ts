@@ -27,8 +27,16 @@ const PUBLIC_ADMIN_API_PATHS = new Set<string>([
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  // Allow public admin pages
+  if (pathname === "/admin/login") {
+    return NextResponse.next();
+  }
 
-  if (PUBLIC_ADMIN_API_PATHS.has(pathname)) {
+ const PUBLIC_ADMIN_PAGES = new Set([
+   "/admin/login",
+ ]);
+  
+  if (PUBLIC_ADMIN_PAGES.has(pathname)) {
     return NextResponse.next();
   }
 
