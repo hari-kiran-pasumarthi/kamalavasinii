@@ -926,7 +926,7 @@ function AtelierExperience() {
 function CouturePage() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
-      <SiteHeader activeHref="/couture" />
+      <SiteHeader />
       <Hero />
       <Introduction />
       <Collections />
