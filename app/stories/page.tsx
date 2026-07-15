@@ -729,6 +729,7 @@ className="px-7 py-3 rounded-full border border-[#C8A048]/50 bg-white hover:bg-[
 </section>
 
 );
+}
 
 /* ============================================================
    Story Timeline
