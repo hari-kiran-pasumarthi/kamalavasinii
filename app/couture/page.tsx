@@ -457,7 +457,7 @@ function Collections() {
 function CouturePagePart1() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
-      <SiteHeader activeHref="/couture" />
+      <SiteHeader />
       <Hero />
       <Introduction />
       <Collections />
