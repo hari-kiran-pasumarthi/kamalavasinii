@@ -2,7 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
+import * as SiteChrome from "@/components/SiteChrome";
+
+console.log(SiteChrome);
 import { LotusLogo, LotusMotif } from "@/components/SiteIllustrations";
 
 /* ============================================================
