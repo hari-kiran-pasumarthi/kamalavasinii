@@ -16,15 +16,10 @@ export const NAV = [
   { label: "Stories",        sub: "Artisans",    href: "/stories" },
 ];
 
-interface SiteHeaderProps {
-  /** The href of the current page (e.g. "/", "/jewellery") */
-  activeHref?: string;
-}
-
 /**
  * SiteHeader — sticky navbar shared across all pages.
  */
-export function SiteHeader({ activeHref = "/" }: SiteHeaderProps) {
+export function SiteHeader({ activeHref = "/" }) {
   const [open, setOpen] = useState(false);
 
   return (
