@@ -10,20 +10,17 @@ import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
-    <>
+    <main className="min-h-screen bg-[#FDF7EF]">
       <SiteHeader activeHref="/" />
-
-      <main>
-        <Hero />
-        <CuratedTreasures />
-        <WhyKamalavasinii />
-        <Heritage />
-        <CustomJourney />
-        <Testimonials />
-        <CTA />
-      </main>
-
+      <Hero />
+      <CuratedTreasures />
+      <WhyKamalavasinii />
+      <Heritage />
+      <CustomJourney />
+      <Testimonials />
+      <CTA />
       <SiteFooter />
-    </>
+    </main>
   );
 }
+What changed
