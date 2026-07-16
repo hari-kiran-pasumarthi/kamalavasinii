@@ -31,9 +31,12 @@ export async function POST(request) {
       { status: 201 }
     );
   } catch (err) {
-    console.error('[contact] create failed:', err);
+    console.error("[contact] create failed:", err);
     return NextResponse.json(
-      { ok: false, error: 'Server error, please try again' },
+      {
+        ok: false,
+        error: String(err),
+      },
       { status: 500 }
     );
   }
