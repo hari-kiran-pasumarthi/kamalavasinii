@@ -52,7 +52,7 @@ const CoutureDress = ({ id }: { id: string }) => (
            C103 63 109 69 120 69
            C131 69 137 63 137 53
            C137 44 131 35 120 35Z"
-        fill="url(#couture-body-creator)"
+        fill={`url(#couture-body-${id})`}
         stroke="#8B6A1E"
         strokeWidth="1"
       />
