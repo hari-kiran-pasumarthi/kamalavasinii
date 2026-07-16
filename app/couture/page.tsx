@@ -459,14 +459,14 @@ function Collections() {
 function CouturePagePart1() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
-      <SiteHeader />
+      <SiteChrome.SiteHeader />
       <Hero />
       <Introduction />
       <Collections />
       <Craftsmanship />
       <BespokeJourney />
       <ConsultCTA />
-      <SiteFooter />
+      <SiteChrome.SiteFooter />
     </main>
   );
 }
@@ -928,7 +928,7 @@ function AtelierExperience() {
 function CouturePage() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
-      <SiteHeader />
+      <SiteChrome.SiteHeader />
       <Hero />
       <Introduction />
       <Collections />
@@ -936,7 +936,7 @@ function CouturePage() {
       <BespokeJourney />
       <AtelierExperience />
       <ConsultCTA />
-      <SiteFooter />
+      <SiteChrome.SiteFooter />
     </main>
   );
 }
