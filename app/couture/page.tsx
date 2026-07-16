@@ -2,9 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import * as SiteChrome from "@/components/SiteChrome";
-
-console.log(SiteChrome);
+import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { LotusLogo, LotusMotif } from "@/components/SiteIllustrations";
 
 /* ============================================================
@@ -457,18 +455,18 @@ function Collections() {
 }
 
 function CouturePagePart1() {
-  return (
-    <main className="min-h-screen bg-[#FDF7EF]">
-      <SiteChrome.SiteHeader />
-      <Hero />
-      <Introduction />
-      <Collections />
-      <Craftsmanship />
-      <BespokeJourney />
-      <ConsultCTA />
-      <SiteChrome.SiteFooter />
-    </main>
-  );
+   return (
+      <main className="min-h-screen bg-[#FDF7EF]">
+         <SiteHeader activeHref="/couture" />
+         <Hero />
+         <Introduction />
+         <Collections />
+         <Craftsmanship />
+         <BespokeJourney />
+         <ConsultCTA />
+         <SiteFooter />
+      </main>
+   );
 }
 
 /* ============================================================
@@ -928,7 +926,7 @@ function AtelierExperience() {
 function CouturePage() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
-      <SiteChrome.SiteHeader />
+      <SiteHeader activeHref="/couture" />
       <Hero />
       <Introduction />
       <Collections />
@@ -936,7 +934,7 @@ function CouturePage() {
       <BespokeJourney />
       <AtelierExperience />
       <ConsultCTA />
-      <SiteChrome.SiteFooter />
+      <SiteFooter />
     </main>
   );
 }
