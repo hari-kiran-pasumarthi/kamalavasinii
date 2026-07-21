@@ -53,14 +53,14 @@ body {
 /* Watercolor background */
 .watercolor-bg {
   background:
-    radial-gradient(ellipse 60% 45% at 15% 30%, rgba(244, 210, 204, 0.55), transparent 60%),
-    radial-gradient(ellipse 55% 40% at 85% 25%, rgba(249, 220, 211, 0.55), transparent 60%),
-    radial-gradient(ellipse 70% 40% at 50% 85%, rgba(250, 239, 224, 0.9), transparent 60%),
-    radial-gradient(circle at 30% 70%, rgba(200, 160, 72, 0.06), transparent 55%),
-    linear-gradient(180deg, #FDF7EF 0%, #FAEEDD 100%);
+    radial-gradient(ellipse 60% 45% at 15% 30%, rgba(255,255,255,0.18), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 85% 25%, rgba(255,255,255,0.12), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 85%, rgba(244,210,204,0.45), transparent 60%),
+    radial-gradient(circle at 30% 70%, rgba(200,160,72,0.08), transparent 55%),
+    linear-gradient(180deg, #F6DBDA 0%, #F4D2CC 100%);
 }
 
-.cream-bg { background: linear-gradient(180deg, #FDF7EF 0%, #FAEFE0 100%); }
+.cream-bg { background: linear-gradient(180deg, #F6DBDA 0%, #F4D2CC 100%);}
 
 /* Soft category card backgrounds */
 .card-blush { background: linear-gradient(160deg, #FBE8DE 0%, #F7D6C8 100%); }
