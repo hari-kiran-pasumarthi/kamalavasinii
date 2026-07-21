@@ -36,36 +36,19 @@ export async function POST(request) {
     const record = await createInquiry(parsed.data);
 
     // Send email
-    await resend.emails.send({
-      from: "Kamalavasinii <onboarding@resend.dev>",
-      to: ["admin@kamalavasini.in"],
+    const { data, error } = await resend.emails.send({
+  from: "Kamalavasinii <onboarding@resend.dev>",
+  to: ["yourgmail@gmail.com"],
+  subject: `New Consultation Request - ${parsed.data.fullName}`,
+  html: `...`,
+});
 
-      subject: `New Consultation Request - ${parsed.data.fullName}`,
+console.log("Resend data:", data);
+console.log("Resend error:", error);
 
-      html: `
-        <h2>New Consultation Request</h2>
-
-        <p><strong>Name:</strong> ${parsed.data.fullName}</p>
-
-        <p><strong>Phone:</strong> ${parsed.data.phone}</p>
-
-        <p><strong>Email:</strong> ${parsed.data.email}</p>
-
-        <p><strong>City:</strong> ${parsed.data.city}</p>
-
-        <p><strong>Service:</strong> ${parsed.data.service}</p>
-
-        <p><strong>Consultation:</strong> ${parsed.data.mode}</p>
-
-        <p><strong>Date:</strong> ${parsed.data.date}</p>
-
-        <p><strong>Time:</strong> ${parsed.data.time}</p>
-
-        <p><strong>Requirement:</strong></p>
-
-        <p>${parsed.data.requirement}</p>
-      `,
-    });
+if (error) {
+  throw new Error(JSON.stringify(error));
+}
 
     return NextResponse.json(
       {
