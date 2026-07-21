@@ -7,7 +7,7 @@
 @tailwind utilities;
 
 :root {
-  --ivory: #FDF7EF;
+  --ivory: #F6DBDA;
   --ivory-2: #FAEFE0;
   --cream: #F9EDE3;
   --pink-soft: #F4D2CC;
@@ -41,7 +41,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--ivory);
+  background: #F6DBDA;
   color: #3d1f24;
   font-family: 'Poppins', system-ui, sans-serif;
   overflow-x: hidden;
