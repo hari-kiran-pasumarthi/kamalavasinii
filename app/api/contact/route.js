@@ -38,7 +38,7 @@ export async function POST(request) {
     // Send email
     const { data, error } = await resend.emails.send({
   from: "Kamalavasinii <onboarding@resend.dev>",
-  to: ["yourgmail@gmail.com"],
+  to: ["admin@kamalavasini.in"],
   subject: `New Consultation Request - ${parsed.data.fullName}`,
   html: `...`,
 });
