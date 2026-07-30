@@ -201,7 +201,17 @@ function ConsultationForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(
+  (data) => {
+    console.log("SUCCESS", data);
+    alert("SUCCESS");
+    onSubmit(data);
+  },
+  (errors) => {
+    console.log("VALIDATION ERRORS", errors);
+    alert("Validation failed");
+  }
+)}
           noValidate
           className="relative rounded-[32px] bg-[#FFF9F2] border border-[#EFE1CC] shadow-[0_25px_60px_-30px_rgba(107,30,40,0.20)] p-6 md:p-10 lg:p-12"
         >
