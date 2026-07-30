@@ -135,21 +135,6 @@ function ConsultationForm() {
   mode: "onBlur",
 });
 
-const selectedService = watch("service");
-    defaultValues: {
-  fullName: "",
-  phone: "",
-  email: "",
-  city: "",
-  service: "",
-  productType: "",
-  mode: "",
-  date: "",
-  time: "",
-  requirement: "",
-},
-    mode: "onBlur",
-  });
 
   const onSubmit = async (data) => {
     setStatus({ state: "loading", message: "" });
@@ -327,8 +312,6 @@ const selectedService = watch("service");
                 ))}
               </select>
             </Field>
-
-                        </Field>
 
             {selectedService && (
               <Field
