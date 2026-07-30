@@ -317,7 +317,7 @@ function ConsultationForm() {
             {selectedService && (
               <Field
                 label={
-                  selectedService === "Jewellery"
+                  selectedService === "Custom Jewellery"
                     ? "Jewellery Type"
                     : selectedService === "Silk Sarees"
                     ? "Saree Type"
