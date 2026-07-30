@@ -15,18 +15,53 @@ export const CONSULT_MODES = [
   "WhatsApp",
 ] as const;
 
-export const JEWELLERY_TYPES = [
-  "Kundan Jewellery",
-  "Victorian Jewellery",
-  "Casting Jewellery",
-  "Temple Jewellery",
-  "Plain Gold Jewellery",
-  "Imported Jewellery",
-  "Silver Jewellery",
-  "Diamond Jewellery",
-  "Terracotta Jewellery",
-] as const;
+export const PRODUCT_TYPES = {
+  "Custom Jewellery": [
+    "Kundan Jewellery",
+    "Victorian Jewellery",
+    "Casting Jewellery",
+    "Temple Jewellery",
+    "Plain Gold Jewellery",
+    "Imported Jewellery",
+    "Silver Jewellery",
+    "Diamond Jewellery",
+    "Terracotta Jewellery",
+  ],
 
+  "Silk Sarees": [
+    "Kanchipuram",
+    "Banarasi",
+    "Mysore Silk",
+    "Soft Silk",
+    "Organza",
+    "Tussar",
+  ],
+
+  Gemstones: [
+    "Yellow Sapphire",
+    "Blue Sapphire",
+    "Emerald",
+    "Cat's Eye",
+    "Ruby",
+    "Pearl",
+  ],
+
+  "Healing Stones": [
+    "Amethyst",
+    "Rose Quartz",
+    "Black Tourmaline",
+    "Citrine",
+    "Clear Quartz",
+  ],
+
+  "Bridal Consultation": [
+    "Bridal Package",
+  ],
+
+  Other: [
+    "Other",
+  ],
+} as const;
 export const COLLECTIONS = [
   "Necklace Sets",
   "Haram Sets",
