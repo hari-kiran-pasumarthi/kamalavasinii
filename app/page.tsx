@@ -8,6 +8,7 @@ import Heritage from "@/components/home/Heritage";
 import CustomJourney from "@/components/home/CustomJourney";
 import Testimonials from "@/components/home/Testimonials";
 import CTA from "@/components/home/CTA";
+import Collections from "@/components/home/Collections";
 
 export default function Home() {
   return (
