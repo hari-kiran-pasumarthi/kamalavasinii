@@ -39,7 +39,7 @@ export async function POST(request) {
     const { data, error } = await resend.emails.send({
   from: "Kamalavasinii <info@kamalavasini.in>",
   to: ["admin@kamalavasini.in"],
-  subject: "CHATGPT TEST 12345",
+  subject: `New ${parsed.data.service} Consultation | ${parsed.data.fullName}`,
   html: `
 <!DOCTYPE html>
 <html>
