@@ -82,17 +82,12 @@ export const contactSchema = z.object({
     errorMap: () => ({ message: "Please choose a service" }),
   }),
 
-  jewelleryType: z.enum(JEWELLERY_TYPES, {
-    errorMap: () => ({ message: "Please choose a jewellery type" }),
-  }),
+  // Optional until the form includes these fields
+  jewelleryType: z.enum(JEWELLERY_TYPES).optional(),
 
-  collection: z.enum(COLLECTIONS, {
-    errorMap: () => ({ message: "Please choose a collection" }),
-  }),
+  collection: z.enum(COLLECTIONS).optional(),
 
-  gemstone: z.enum(GEMSTONES, {
-    errorMap: () => ({ message: "Please choose a gemstone" }),
-  }),
+  gemstone: z.enum(GEMSTONES).optional(),
 
   mode: z.enum(CONSULT_MODES, {
     errorMap: () => ({ message: "Please choose a consultation mode" }),
