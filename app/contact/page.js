@@ -328,6 +328,38 @@ const selectedService = watch("service");
               </select>
             </Field>
 
+                        </Field>
+
+            {selectedService && (
+              <Field
+                label={
+                  selectedService === "Jewellery"
+                    ? "Jewellery Type"
+                    : selectedService === "Silk Sarees"
+                    ? "Saree Type"
+                    : "Gemstone"
+                }
+                required
+                error={errors.productType?.message}
+              >
+                <select
+                  className={`${baseInput} pr-9 appearance-none bg-[url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"%3E%3Cpath d="M1 1l5 5 5-5" fill="none" stroke="%23B8860B" stroke-width="1.5" stroke-linecap="round"/%3E%3C/svg%3E')] bg-no-repeat bg-[right_16px_center]`}
+                  defaultValue=""
+                  {...register("productType")}
+                >
+                  <option value="" disabled>
+                    Select an option
+                  </option>
+
+                  {PRODUCT_TYPES[selectedService]?.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </Field>
+            )}
+
             <Field
               label="Preferred Consultation"
               required
@@ -339,12 +371,6 @@ const selectedService = watch("service");
                     key={m}
                     className="cursor-pointer group"
                   >
-                    <input
-                      type="radio"
-                      value={m}
-                      className="peer sr-only"
-                      {...register("mode")}
-                    />
                     <span className="block text-center rounded-full border border-[#EFE1CC] bg-white/70 py-3 px-2 font-sans text-[12px] tracking-wider text-[#5a3a3f] transition-all peer-checked:bg-gradient-to-br peer-checked:from-[#FBEED0] peer-checked:to-[#F0D7A9] peer-checked:border-[#C8A048] peer-checked:text-[#6B1E28] peer-checked:shadow-[0_6px_16px_-6px_rgba(200,160,72,0.5)] group-hover:border-[#C8A048]/60">
                       {m}
                     </span>
