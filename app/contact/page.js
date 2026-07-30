@@ -8,6 +8,7 @@ import { LotusLogo, LotusMotif } from "@/components/SiteIllustrations";
 import {
   contactSchema,
   SERVICES,
+  PRODUCT_TYPES,
   CONSULT_MODES,
 } from "@/lib/contactSchema";
 
@@ -112,23 +113,41 @@ function ConsultationForm() {
   const [status, setStatus] = useState({ state: "idle", message: "" });
 
   const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    resolver: zodResolver(contactSchema),
+  register,
+  watch,
+  handleSubmit,
+  reset,
+  formState: { errors, isSubmitting },
+} = useForm({
+  resolver: zodResolver(contactSchema),
+  defaultValues: {
+    fullName: "",
+    phone: "",
+    email: "",
+    city: "",
+    service: "",
+    productType: "",
+    mode: "",
+    date: "",
+    time: "",
+    requirement: "",
+  },
+  mode: "onBlur",
+});
+
+const selectedService = watch("service");
     defaultValues: {
-      fullName: "",
-      phone: "",
-      email: "",
-      city: "",
-      service: "",
-      mode: "",
-      date: "",
-      time: "",
-      requirement: "",
-    },
+  fullName: "",
+  phone: "",
+  email: "",
+  city: "",
+  service: "",
+  productType: "",
+  mode: "",
+  date: "",
+  time: "",
+  requirement: "",
+},
     mode: "onBlur",
   });
 
