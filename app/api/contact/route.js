@@ -35,7 +35,6 @@ export async function POST(request) {
     // Save to database
     console.log("Parsed Data:", parsed.data);
     const record = await createInquiry(parsed.data);
-    throw new Error("STOP HERE");
     // Send email
     const { data, error } = await resend.emails.send({
   from: "Kamalavasinii <info@kamalavasini.in>",
