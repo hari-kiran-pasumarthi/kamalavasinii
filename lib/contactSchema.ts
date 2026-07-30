@@ -118,11 +118,10 @@ export const contactSchema = z.object({
   }),
 
   // Optional until the form includes these fields
-  jewelleryType: z.enum(JEWELLERY_TYPES).optional(),
-
-  collection: z.enum(COLLECTIONS).optional(),
-
-  gemstone: z.enum(GEMSTONES).optional(),
+  productType: z
+  .string()
+  .trim()
+  .min(1, "Please select a product"),
 
   mode: z.enum(CONSULT_MODES, {
     errorMap: () => ({ message: "Please choose a consultation mode" }),
