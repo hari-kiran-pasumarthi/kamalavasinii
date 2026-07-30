@@ -1,6 +1,7 @@
 import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 
 import Hero from "@/components/home/Hero";
+import FeaturedCategories from "@/components/home/FeaturedCategories";
 import CuratedTreasures from "@/components/home/CuratedTreasures";
 import WhyKamalavasinii from "@/components/home/WhyKamalavasinii";
 import Heritage from "@/components/home/Heritage";
@@ -12,13 +13,19 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
       <SiteHeader activeHref="/" />
+
       <Hero />
+
+      {/* New Section */}
+      <FeaturedCategories />
+
       <CuratedTreasures />
       <WhyKamalavasinii />
       <Heritage />
       <CustomJourney />
       <Testimonials />
       <CTA />
+
       <SiteFooter />
     </main>
   );
