@@ -134,6 +134,7 @@ function ConsultationForm() {
   },
   mode: "onBlur",
 });
+  const selectedService = watch("service");
 
 
   const onSubmit = async (data) => {
