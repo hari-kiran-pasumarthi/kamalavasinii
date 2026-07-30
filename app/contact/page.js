@@ -345,23 +345,30 @@ function ConsultationForm() {
             )}
 
             <Field
-              label="Preferred Consultation"
-              required
-              error={errors.mode?.message}
-            >
-              <div className="grid grid-cols-3 gap-2">
-                {CONSULT_MODES.map((m) => (
-                  <label
-                    key={m}
-                    className="cursor-pointer group"
-                  >
-                    <span className="block text-center rounded-full border border-[#EFE1CC] bg-white/70 py-3 px-2 font-sans text-[12px] tracking-wider text-[#5a3a3f] transition-all peer-checked:bg-gradient-to-br peer-checked:from-[#FBEED0] peer-checked:to-[#F0D7A9] peer-checked:border-[#C8A048] peer-checked:text-[#6B1E28] peer-checked:shadow-[0_6px_16px_-6px_rgba(200,160,72,0.5)] group-hover:border-[#C8A048]/60">
-                      {m}
-                    </span>
-                  </label>
-                ))}
-              </div>
-            </Field>
+  label="Preferred Consultation"
+  required
+  error={errors.mode?.message}
+>
+  <div className="grid grid-cols-3 gap-2">
+    {CONSULT_MODES.map((m) => (
+      <label
+        key={m}
+        className="cursor-pointer group"
+      >
+        <input
+          type="radio"
+          value={m}
+          className="peer sr-only"
+          {...register("mode")}
+        />
+
+        <span className="block text-center rounded-full border border-[#EFE1CC] bg-white/70 py-3 px-2 font-sans text-[12px] tracking-wider text-[#5a3a3f] transition-all peer-checked:bg-gradient-to-br peer-checked:from-[#FBEED0] peer-checked:to-[#F0D7A9] peer-checked:border-[#C8A048] peer-checked:text-[#6B1E28] peer-checked:shadow-[0_6px_16px_-6px_rgba(200,160,72,0.5)] group-hover:border-[#C8A048]/60">
+          {m}
+        </span>
+      </label>
+    ))}
+  </div>
+</Field>
 
             <Field
               label="Preferred Date"
