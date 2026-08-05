@@ -160,12 +160,12 @@ export default function Hero() {
           {/* =========================================================
               LEFT COLUMN: SOUTH INDIAN BRIDE (LARGER, MOVED LEFT/LOWER)
           ========================================================= */}
-          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-center order-2 lg:order-1 min-h-[460px] sm:min-h-[560px] lg:min-h-[660px]">
+          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-center order-2 lg:order-1 min-h-[460px] sm:min-h-[560px] lg:min-h-[760px]">
             {/* Soft Cream Radial Glow Directly Behind Illustration */}
-            <div className="absolute bottom-4 left-1/2 lg:left-45 -translate-x-1/2 w-[520px] h-[520px] sm:w-96 sm:h-96 bg-[#F7E8D0]/60 rounded-full blur-3xl pointer-events-none -z-10" />
+            <div className="absolute bottom-[-30px] left-1/2 lg:left-45 -translate-x-1/2 w-[520px] h-[520px] sm:w-96 sm:h-96 bg-[#F7E8D0]/60 rounded-full blur-3xl pointer-events-none -z-10" />
 
             {/* Jharokha / Temple Arch Line Art Background */}
-            <div className="absolute inset-0 flex items-center justify-center lg:justify-start pointer-events-none -z-10 opacity-25">
+            <div className="absolute inset-0 flex items-end justify-center lg:justify-start pointer-events-none -z-10 opacity-25">
               <svg className="w-[500px] sm:w-[440px] h-[720px] text-[#C3935B]" viewBox="0 0 200 300" fill="none" stroke="currentColor" strokeWidth="0.8">
                 <path d="M20 280 V100 C20 40, 100 20, 100 20 C100 20, 180 40, 180 100 V280" />
                 <path d="M32 280 V105 C32 48, 100 30, 100 30 C100 30, 168 48, 168 105 V280" />
@@ -182,36 +182,38 @@ export default function Hero() {
 
             {/* Illustration: Increased size ~35%, moved lower & left, seamless transparent blending */}
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative
-              w-full
-              max-w-[620px]
-              sm:max-w-[700px]
-              lg:max-w-[760px]
-              h-[620px]
-              sm:h-[720px]
-              lg:h-[820px]
-              flex
-              items-center
-              justify-center
-              lg:justify-start
-              lg:ml-6
-              lg:-mt-40
-              z-10
-              "
-              >
-            
-              <Image
-                src="/images/hero/hero-woman.png"
-                alt="South Indian Bride holding Lotus in Traditional Temple Gold Jewellery"
-                fill
-                priority
-                className=" object-contain object-bottom drop-shadow-[0_25px_45px_rgba(91,52,30,0.18)] "
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
-            </motion.div>
+  initial={{ opacity: 0, x: -60 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+  className="
+    absolute
+    bottom-0
+    left-1/2
+    -translate-x-1/2
+
+    lg:left-6
+    lg:translate-x-0
+
+    w-[340px]
+    sm:w-[420px]
+    lg:w-[560px]
+
+    h-[520px]
+    sm:h-[620px]
+    lg:h-[760px]
+
+    z-20
+  "
+>
+  <Image
+    src="/images/hero/hero-woman.png"
+    alt="South Indian Bride holding Lotus in Traditional Temple Gold Jewellery"
+    fill
+    priority
+    className="object-contain object-bottom"
+    sizes="(max-width:1024px)100vw,40vw"
+  />
+</motion.div>
           </div>
 
           {/* =========================================================
