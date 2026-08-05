@@ -87,7 +87,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full bg-[#FDF7EF] text-[#5B341E] overflow-hidden pt-2 pb-10">
+    <section className="relative w-full bg-[#FDF7EF] text-[#5B341E] overflow-hidden pt-2 pb-6">
       {/* -------------------------------------------------------------
           HERITAGE BACKGROUND & SUBTLE WATERCOLOR ELEMENTS
       ------------------------------------------------------------- */}
@@ -155,18 +155,18 @@ export default function Hero() {
           MAIN 3-COLUMN EDITORIAL HERO CONTENT
       ------------------------------------------------------------- */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-2 items-center min-h-[72vh] py-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-2 items-center min-h-[58vh] lg:min-h-[60vh] py-2">
           
           {/* =========================================================
-              LEFT COLUMN: SOUTH INDIAN BRIDE (LARGER, MOVED LEFT/LOWER)
+              LEFT COLUMN: SOUTH INDIAN BRIDE (LOWERED POSITION, MATCHED HEIGHT)
           ========================================================= */}
-          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-center order-2 lg:order-1 min-h-[460px] sm:min-h-[560px] lg:min-h-[650px]">
+          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-center order-2 lg:order-1 min-h-[400px] sm:min-h-[460px] lg:min-h-[500px]">
             {/* Soft Cream Radial Glow Directly Behind Illustration */}
-            <div className="absolute bottom-[-30px] left-1/2 lg:left-45 -translate-x-1/2 w-[520px] h-[520px] sm:w-96 sm:h-96 bg-[#F7E8D0]/60 rounded-full blur-3xl pointer-events-none -z-10" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[420px] h-[420px] sm:w-96 sm:h-96 bg-[#F7E8D0]/60 rounded-full blur-3xl pointer-events-none -z-10" />
 
-            {/* Jharokha / Temple Arch Line Art Background */}
-            <div className="absolute inset-0 flex items-end justify-center lg:justify-start pointer-events-none -z-10 opacity-25">
-              <svg className="w-[500px] sm:w-[440px] h-[720px] text-[#C3935B]" viewBox="0 0 200 300" fill="none" stroke="currentColor" strokeWidth="0.8">
+            {/* Jharokha / Temple Arch Line Art Background (Centered behind bride) */}
+            <div className="absolute inset-0 flex items-end justify-center pointer-events-none -z-10 opacity-25">
+              <svg className="w-[360px] sm:w-[420px] lg:w-[460px] h-[460px] sm:h-[500px] lg:h-[530px] text-[#C3935B]" viewBox="0 0 200 300" fill="none" stroke="currentColor" strokeWidth="0.8">
                 <path d="M20 280 V100 C20 40, 100 20, 100 20 C100 20, 180 40, 180 100 V280" />
                 <path d="M32 280 V105 C32 48, 100 30, 100 30 C100 30, 168 48, 168 105 V280" />
                 <circle cx="100" cy="12" r="3" fill="currentColor" />
@@ -180,44 +180,44 @@ export default function Hero() {
               </svg>
             </div>
 
-            {/* Illustration: Increased size ~35%, moved lower & left, seamless transparent blending */}
+            {/* Illustration: Same width, lowered to bottom-2 so feet nearly touch bottom & sit inside arch */}
             <motion.div
-  initial={{ opacity: 0, x: -60 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-  className="
-    absolute
-    bottom-[180px]
-    left-1/2
-    -translate-x-1/2
+              initial={{ opacity: 0, x: -60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              className="
+                absolute
+                bottom-0
+                left-1/2
+                -translate-x-1/2
 
-    lg:left-6
-    lg:translate-x-0
+                lg:left-1/2
+                lg:-translate-x-1/2
 
-    w-[340px]
-    sm:w-[420px]
-    lg:w-[560px]
+                w-[340px]
+                sm:w-[420px]
+                lg:w-[560px]
 
-    h-[520px]
-    sm:h-[620px]
-    lg:h-[600px]
+                h-[440px]
+                sm:h-[500px]
+                lg:h-[520px]
 
-    z-20
-  "
->
-  <Image
-    src="/images/hero/hero-woman.png"
-    alt="South Indian Bride holding Lotus in Traditional Temple Gold Jewellery"
-    fill
-    priority
-    className="object-contain object-bottom"
-    sizes="(max-width:1024px)100vw,40vw"
-  />
-</motion.div>
+                z-20
+              "
+            >
+              <Image
+                src="/images/hero/hero-woman.png"
+                alt="South Indian Bride holding Lotus in Traditional Temple Gold Jewellery"
+                fill
+                priority
+                className="object-contain object-bottom mix-blend-multiply"
+                sizes="(max-width:1024px) 100vw, 40vw"
+              />
+            </motion.div>
           </div>
 
           {/* =========================================================
-              CENTER COLUMN: BRAND IDENTITY (2X LOGO, UPWARD & SPACED)
+              CENTER COLUMN: BRAND IDENTITY (UNTOUCHED LOGO & STYLING)
           ========================================================= */}
           <motion.div
             variants={containerVariants}
@@ -225,7 +225,7 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-5 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-7 -mt-6 sm:-mt-8 lg:-mt-24"
           >
-            {/* Lotus Logo Icon: 2x Larger */}
+            {/* Lotus Logo Icon */}
             <motion.div variants={fadeInUp} className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-[380px] lg:h-[380px] flex items-center justify-center">
               {!logoError ? (
                 <Image
@@ -244,8 +244,6 @@ export default function Hero() {
               )}
             </motion.div>
 
-            {/* Premium Typography Brand Name */}
-            
             {/* Subtitle */}
             <motion.p
               variants={fadeInUp}
@@ -309,7 +307,7 @@ export default function Hero() {
           {/* =========================================================
               RIGHT COLUMN: COHESIVE SINGLE LUXURY ARRANGEMENT
           ========================================================= */}
-          <div className="lg:col-span-4 relative flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] order-3">
+          <div className="lg:col-span-3 relative flex items-center justify-center min-h-[400px] sm:min-h-[460px] lg:min-h-[500px] order-3">
             {/* Botanical Leaf Background Top Right */}
             <div className="absolute top-0 right-2 w-28 h-32 pointer-events-none opacity-40 z-0">
               <svg viewBox="0 0 100 120" fill="none" className="w-full h-full text-[#4A6B53]">
@@ -321,7 +319,7 @@ export default function Hero() {
             <motion.div
               variants={floatSoft}
               animate="animate"
-              className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-none h-[420px] sm:h-[480px] lg:h-[540px] flex items-center justify-center"
+              className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-none h-[400px] sm:h-[460px] lg:h-[500px] flex items-center justify-center"
             >
               
               {/* 1. Silk Sarees Stack (The Core Base) */}
@@ -392,14 +390,14 @@ export default function Hero() {
         </div>
 
         {/* -------------------------------------------------------------
-            CATEGORY CARDS ROW (UNTOUCHED ROUTING & FUNCTIONALITY)
+            CATEGORY CARDS ROW (MOVED UPWARD)
         ------------------------------------------------------------- */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="w-full pt-8 lg:pt-10 border-t border-[#C3935B]/20"
+          className="w-full pt-6 lg:pt-8 border-t border-[#C3935B]/20"
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {categories.map((cat, idx) => (
