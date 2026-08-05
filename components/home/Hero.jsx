@@ -93,7 +93,7 @@ export default function Hero() {
             <div className="absolute w-[520px] h-[520px] rounded-full bg-[#E6C15A]/20 blur-[120px]" />
 
             <img
-              src="/images/hero/hero-model.webp"
+              src="/images/hero/hero-sarees.png"
               alt="Luxury Jewellery"
               className="relative z-10 w-full max-w-[650px] h-auto object-contain"
             />
