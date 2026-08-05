@@ -185,23 +185,23 @@ export default function Hero() {
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-              className="
-relative
-w-full
-max-w-[620px]
-sm:max-w-[700px]
-lg:max-w-[760px]
-h-[620px]
-sm:h-[720px]
-lg:h-[820px]
-flex
-items-end
-justify-center
-lg:justify-start
-lg:ml-8
-lg:-mt-20
-z-10
-"              <Image
+              className="relative
+              w-full
+              max-w-[620px]
+              sm:max-w-[700px]
+              lg:max-w-[760px]
+              h-[620px]
+              sm:h-[720px]
+              lg:h-[820px]
+              flex
+              items-end
+              justify-center
+              lg:justify-start
+              lg:ml-8
+              lg:-mt-20
+              z-10
+              "
+              <Image
                 src="/images/hero/hero-woman.png"
                 alt="South Indian Bride holding Lotus in Traditional Temple Gold Jewellery"
                 fill
