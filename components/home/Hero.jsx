@@ -187,7 +187,7 @@ export default function Hero() {
   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
   className="
     absolute
-    bottom-0
+    bottom-[80px]
     left-1/2
     -translate-x-1/2
 
@@ -200,7 +200,7 @@ export default function Hero() {
 
     h-[520px]
     sm:h-[620px]
-    lg:h-[760px]
+    lg:h-[700px]
 
     z-20
   "
@@ -223,10 +223,10 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-6 lg:space-y-7 -mt-6 sm:-mt-8 lg:-mt-12"
+            className="lg:col-span-5 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-7 -mt-6 sm:-mt-8 lg:-mt-10"
           >
             {/* Lotus Logo Icon: 2x Larger */}
-            <motion.div variants={fadeInUp} className="relative w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 flex items-center justify-center">
+            <motion.div variants={fadeInUp} className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-[380px] lg:h-[380px] flex items-center justify-center">
               {!logoError ? (
                 <Image
                   src="/images/logo.png"
@@ -245,21 +245,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Premium Typography Brand Name */}
-            <motion.div variants={fadeInUp} className="space-y-2">
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-[0.26em] text-[#5B242A] uppercase leading-none drop-shadow-sm">
-                KAMALAVASINII
-              </h1>
-              
-              {/* Swarna & Silks Flanked Tagline */}
-              <div className="flex items-center justify-center gap-3 pt-1 text-[#C3935B]">
-                <div className="h-px w-8 sm:w-12 bg-gradient-to-r from-transparent via-[#C3935B]/60 to-[#C3935B]" />
-                <span className="font-serif text-xs sm:text-sm tracking-[0.28em] uppercase font-medium">
-                  SWARNA & SILKS
-                </span>
-                <div className="h-px w-8 sm:w-12 bg-gradient-to-l from-transparent via-[#C3935B]/60 to-[#C3935B]" />
-              </div>
-            </motion.div>
-
+            
             {/* Subtitle */}
             <motion.p
               variants={fadeInUp}
