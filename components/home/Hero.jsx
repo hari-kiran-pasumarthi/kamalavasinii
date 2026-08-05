@@ -194,11 +194,11 @@ export default function Hero() {
               sm:h-[720px]
               lg:h-[820px]
               flex
-              items-end
+              items-center
               justify-center
               lg:justify-start
-              lg:ml-8
-              lg:-mt-20
+              lg:ml-6
+              lg:-mt-40
               z-10
               "
               >
