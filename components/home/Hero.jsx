@@ -8,7 +8,7 @@ import { useState } from "react";
 const categories = [
   {
     title: "SWARNA JEWELLERY",
-    href: "/swarna",
+    href: "/jewellery",
     bgColor: "bg-[#FBF3EB]",
     type: "swarna",
   },
@@ -26,7 +26,7 @@ const categories = [
   },
   {
     title: "CLAY JEWELLERY",
-    href: "/clay",
+    href: "/clay-jewellery",
     bgColor: "bg-[#FBF3EB]",
     type: "clay",
   },
@@ -48,6 +48,7 @@ export default function Hero() {
   const [logoError, setLogoError] = useState(false);
   const [bgError, setBgError] = useState(false);
   const [sareeError, setSareeError] = useState(false);
+  const [womanError, setWomanError] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -55,23 +56,23 @@ export default function Hero() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.1,
+        delayChildren: 0.15,
       },
     },
   };
 
   const fadeInUp = {
-    hidden: { opacity: 0, y: 16 },
+    hidden: { opacity: 0, y: 18 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
   const floatSoft = {
     animate: {
-      y: [0, -5, 0],
+      y: [0, -6, 0],
       transition: {
         duration: 5.5,
         repeat: Infinity,
@@ -81,9 +82,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative w-full bg-[#FDF7EF] text-[#5B341E] overflow-hidden pt-2 pb-8">
+    <section className="relative w-full bg-[#FDF7EF] text-[#5B341E] overflow-hidden pt-4 pb-8">
       {/* -------------------------------------------------------------
-          BACKGROUND & AMBIENT WATERCOLOR WASH
+          EDITORIAL BACKGROUND & SOFT WATERCOLOR WASHES
       ------------------------------------------------------------- */}
       {!bgError && (
         <div className="absolute inset-0 pointer-events-none z-0">
@@ -98,10 +99,10 @@ export default function Hero() {
         </div>
       )}
 
-      {/* Radial Gold Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial from-[#E6C15A]/15 via-[#F7E8D0]/30 to-transparent rounded-full blur-3xl pointer-events-none z-0" />
-      <div className="absolute top-8 right-10 w-[450px] h-[450px] bg-[#F7E1D2]/35 rounded-full blur-3xl pointer-events-none z-0" />
-      <div className="absolute top-16 left-10 w-[400px] h-[400px] bg-[#E8F0E9]/35 rounded-full blur-3xl pointer-events-none z-0" />
+      {/* Radial Gold Wash Background Glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-radial from-[#E6C15A]/14 via-[#F7E8D0]/30 to-transparent rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-10 right-12 w-[420px] h-[420px] bg-[#F7E1D2]/30 rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-[#E8F0E9]/30 rounded-full blur-3xl pointer-events-none z-0" />
 
       {/* Golden Flying Birds Vector (Top Right Center) */}
       <div className="absolute top-10 right-[28%] pointer-events-none z-10 hidden lg:block opacity-50">
@@ -120,46 +121,56 @@ export default function Hero() {
           MAIN 3-COLUMN HERO CONTENT
       ------------------------------------------------------------- */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-2 items-end min-h-[520px] lg:min-h-[560px] pb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-2 items-end min-h-[500px] lg:min-h-[560px] pb-4">
           
           {/* =========================================================
-              LEFT COLUMN: LARGE PROMINENT BRIDE INSIDE ARCH
+              LEFT COLUMN: SOUTH INDIAN BRIDE INSIDE ARCH
           ========================================================= */}
-          <div className="lg:col-span-4 relative flex items-end justify-center min-h-[480px] sm:min-h-[540px] lg:min-h-[580px] order-2 lg:order-1">
-            {/* Soft Glow directly behind Arch & Bride */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[380px] h-[380px] bg-[#F7E8D0]/80 rounded-full blur-3xl pointer-events-none -z-10" />
+          <div className="lg:col-span-4 relative flex items-end justify-center min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] order-2 lg:order-1">
+            {/* Soft Glow behind Arch & Bride */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[360px] h-[360px] bg-[#F7E8D0]/80 rounded-full blur-3xl pointer-events-none -z-10" />
 
             {/* Jharokha / Temple Arch Line Art */}
             <div className="absolute inset-0 flex items-end justify-center pointer-events-none -z-10 opacity-30">
-              <svg className="w-[340px] sm:w-[400px] lg:w-[440px] h-[480px] sm:h-[540px] lg:h-[570px] text-[#C3935B]" viewBox="0 0 200 300" fill="none" stroke="currentColor" strokeWidth="0.8">
+              <svg className="w-[340px] sm:w-[400px] lg:w-[430px] h-[480px] sm:h-[530px] lg:h-[570px] text-[#C3935B]" viewBox="0 0 200 300" fill="none" stroke="currentColor" strokeWidth="0.8">
                 <path d="M20 280 V100 C20 40, 100 20, 100 20 C100 20, 180 40, 180 100 V280" />
                 <path d="M32 280 V105 C32 48, 100 30, 100 30 C100 30, 168 48, 168 105 V280" />
                 <circle cx="100" cy="12" r="3" fill="currentColor" />
               </svg>
             </div>
 
-            {/* Botanical Leaf Accent (Bottom Left Corner) */}
-            <div className="absolute bottom-0 left-0 w-28 h-36 pointer-events-none opacity-50 z-0">
+            {/* Botanical Leaf Accent (Bottom Left) */}
+            <div className="absolute bottom-0 left-0 w-24 h-32 pointer-events-none opacity-45 z-0">
               <svg viewBox="0 0 100 120" fill="none" className="w-full h-full text-[#4A6B53]">
-                <path d="M20 110 Q 40 70, 20 20 M20 70 Q 0 50, -10 60 M20 50 Q 50 30, 40 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                <path d="M20 110 Q 40 70, 20 20 M20 70 Q 0 50, -10 60 M20 50 Q 50 30, 40 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </div>
 
-            {/* South Indian Bride Illustration (Large & Prominent) */}
+            {/* South Indian Bride Illustration Container */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[540px] h-[480px] sm:h-[550px] lg:h-[600px] flex items-end justify-center z-10 lg:-ml-6"
+              className="relative w-[340px] sm:w-[420px] lg:w-[480px] h-[450px] sm:h-[520px] lg:h-[570px] flex items-end justify-center z-10"
             >
-              <Image
-                src="/images/hero/hero-woman.png"
-                alt="South Indian Bride in Silk Saree holding Lotus"
-                fill
-                priority
-                className="object-contain object-bottom mix-blend-multiply drop-shadow-[0_20px_30px_rgba(91,52,30,0.14)]"
-                sizes="(max-width:1024px) 100vw, 40vw"
-              />
+              {!womanError ? (
+                <Image
+                  src="/images/hero/hero-woman.png"
+                  alt="South Indian Bride in Silk Saree holding Lotus"
+                  fill
+                  priority
+                  onError={() => setWomanError(true)}
+                  className="object-contain object-bottom"
+                  sizes="(max-width:1024px) 100vw, 38vw"
+                />
+              ) : (
+                <div className="w-full h-full flex items-end justify-center pb-8">
+                  <svg viewBox="0 0 200 300" fill="none" className="w-64 h-80 text-[#C3935B]">
+                    <circle cx="100" cy="80" r="35" fill="#E89F71" />
+                    <path d="M60 140 Q 100 120, 140 140 L160 300 H40 Z" fill="#D9757A" />
+                  </svg>
+                </div>
+              )}
             </motion.div>
           </div>
 
@@ -170,10 +181,10 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-3.5 my-auto pb-2"
+            className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-3.5 my-auto pb-4"
           >
             {/* Lotus Line Art Emblem Logo */}
-            <motion.div variants={fadeInUp} className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-22 lg:h-22 flex items-center justify-center">
+            <motion.div variants={fadeInUp} className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center">
               {!logoError ? (
                 <Image
                   src="/images/logo.png"
@@ -241,7 +252,7 @@ export default function Hero() {
               variants={fadeInUp}
               className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full sm:w-auto"
             >
-              <Link href="/swarna" className="w-full sm:w-auto">
+              <Link href="/jewellery" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -307,28 +318,6 @@ export default function Hero() {
                 )}
               </div>
 
-              {/* Temple Gold Necklace Vector Overlay (Matching Reference Image) */}
-              <div className="absolute top-12 left-2 sm:left-4 w-[180px] sm:w-[210px] lg:w-[230px] h-[170px] sm:h-[200px] lg:h-[220px] z-20 pointer-events-none drop-shadow-md">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#E6C15A]">
-                  <path d="M15 25 Q 50 85, 85 25" stroke="#C3935B" strokeWidth="4" fill="none" />
-                  <path d="M22 32 Q 50 80, 78 32" stroke="#E6C15A" strokeWidth="2.5" fill="none" />
-                  <circle cx="50" cy="72" r="8" fill="#D9757A" />
-                  <circle cx="50" cy="72" r="5" fill="#E6C15A" />
-                  <circle cx="36" cy="62" r="5" fill="#E6C15A" />
-                  <circle cx="64" cy="62" r="5" fill="#E6C15A" />
-                </svg>
-              </div>
-
-              {/* Temple Earrings Vector Accent (Matching Reference) */}
-              <div className="absolute top-32 right-12 sm:right-16 w-16 sm:w-20 h-16 sm:h-20 z-25 pointer-events-none drop-shadow-md">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#E6C15A]">
-                  <circle cx="35" cy="25" r="8" fill="#C3935B" />
-                  <path d="M20 38 L50 38 L35 70 Z" fill="#E6C15A" />
-                  <circle cx="75" cy="25" r="8" fill="#C3935B" />
-                  <path d="M60 38 L90 38 L75 70 Z" fill="#E6C15A" />
-                </svg>
-              </div>
-
               {/* Gold Bangle Vector Accent (Bottom Right) */}
               <div className="absolute bottom-4 right-2 sm:right-6 w-24 sm:w-28 lg:w-32 h-20 sm:h-24 lg:h-28 z-25 drop-shadow-lg">
                 <svg viewBox="0 0 100 80" fill="none" className="w-full h-full">
@@ -341,7 +330,7 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* Loose Colorful Gemstones Vector Accent (Bottom Center/Left) */}
+              {/* Loose Gemstones Vector Accent (Bottom Center/Left) */}
               <div className="absolute bottom-6 left-[28%] w-24 sm:w-28 h-12 sm:h-14 z-30 drop-shadow-md">
                 <svg viewBox="0 0 120 40" fill="none" className="w-full h-full">
                   <polygon points="20,20 32,8 44,20 32,32" fill="#2E8B57" />
