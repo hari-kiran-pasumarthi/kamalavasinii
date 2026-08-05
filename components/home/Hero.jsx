@@ -89,13 +89,13 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
         {/* Hero Content */}
         <div className="min-h-[85vh] flex items-center">
-          <div className="w-full grid lg:grid-cols-[0.95fr_1.1fr_0.95fr] gap-8 lg:gap-12 items-center">
+          <div className="w-full grid lg:grid-cols-[1.15fr_1fr_1.15fr] gap-8 lg:gap-12 items-center">
             {/* LEFT COLUMN */}
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative flex justify-center lg:justify-end"
+              className="relative flex justify-start lg:justify-start -ml-40"
             >
               <div className="relative">
                 <div className="absolute -inset-16 rounded-full border border-[#D4A574]/10 opacity-40" />
@@ -115,6 +115,7 @@ export default function Hero() {
                 </motion.div>
 
                 <motion.div
+                  className="mt-20"
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -167,13 +168,13 @@ export default function Hero() {
                     transition: { duration: 0.9, ease: "easeOut" },
                   },
                 }}
-                className="w-24 h-24 lg:w-32 lg:h-32 flex items-center justify-center"
+                className="w-40 h-40 lg:w-44 lg:h-44 flex items-center justify-center"
               >
                 <Image
                   src="/images/logo.png"
                   alt="Kamalavasinii Logo"
-                  width={128}
-                  height={128}
+                  width={176}
+                  height={176}
                   className="w-full h-full object-contain"
                   priority
                 />
@@ -186,7 +187,7 @@ export default function Hero() {
                 }}
                 className="text-center space-y-2 lg:space-y-3"
               >
-                <h1 className="font-serif text-5xl lg:text-6xl xl:text-7xl font-light tracking-wider text-[#6B4423] leading-tight">
+                <h1 className="font-serif text-6xl lg:text-7xl xl:text-8xl font-light tracking-wider text-[#6B4423] leading-tight">
                   KAMALAVASINII
                 </h1>
                 <div className="flex items-center justify-center gap-3 lg:gap-4 mt-2 lg:mt-4">
@@ -203,7 +204,7 @@ export default function Hero() {
                   hidden: { opacity: 0 },
                   visible: { opacity: 1, transition: { duration: 0.9, ease: "easeOut" } },
                 }}
-                className="font-serif text-2xl lg:text-3xl text-[#6B4423] font-light text-center"
+                className="font-serif text-3xl lg:text-4xl text-[#6B4423] font-light text-center"
               >
                 Where Heritage Becomes Luxury
               </motion.h2>
@@ -229,7 +230,7 @@ export default function Hero() {
                 }}
                 className="text-center max-w-md lg:max-w-lg space-y-2 lg:space-y-3"
               >
-                <p className="font-serif text-sm lg:text-base text-[#6B4423] leading-relaxed font-light">
+                <p className="font-serif text-base lg:text-lg text-[#6B4423] leading-relaxed font-light">
                   Exclusive Customised Jewellery in Gold, Silver, Clay, Brass & Bronze.
                 </p>
                 <p className="font-serif text-xs lg:text-sm text-[#6B4423] leading-relaxed opacity-85 font-light">
@@ -248,7 +249,7 @@ export default function Hero() {
                   <motion.button
                     whileHover={{ scale: 1.08, y: -3 }}
                     whileTap={{ scale: 0.97 }}
-                    className="px-8 lg:px-10 py-2.5 lg:py-3 bg-[#D9757A] hover:bg-[#C4626A] text-white font-serif text-xs lg:text-sm font-light tracking-wider rounded-full transition-all duration-300 shadow-lg shadow-[#D9757A]/30"
+                    className="px-12 lg:px-10 py-2.5 lg:py-4 bg-[#D9757A] hover:bg-[#C4626A] text-white font-serif text-xs lg:text-sm font-light tracking-wider rounded-full transition-all duration-300 shadow-lg shadow-[#D9757A]/30"
                   >
                     EXPLORE SWARNA
                   </motion.button>
@@ -258,7 +259,7 @@ export default function Hero() {
                   <motion.button
                     whileHover={{ scale: 1.08, y: -3 }}
                     whileTap={{ scale: 0.97 }}
-                    className="px-8 lg:px-10 py-2.5 lg:py-3 border-2 border-[#D4A574] text-[#6B4423] hover:bg-[#FBF3EB] font-serif text-xs lg:text-sm font-light tracking-wider rounded-full transition-all duration-300"
+                    className="px-12 lg:px-10 py-2.5 lg:py-4 border-2 border-[#D4A574] text-[#6B4423] hover:bg-[#FBF3EB] font-serif text-xs lg:text-sm font-light tracking-wider rounded-full transition-all duration-300"
                   >
                     DISCOVER SILKS
                   </motion.button>
@@ -273,7 +274,7 @@ export default function Hero() {
               transition={{ duration: 1.2, ease: "easeOut" }}
               className="relative flex items-center justify-center lg:justify-start h-[500px] lg:h-[580px]"
             >
-              <div className="relative w-full max-w-[380px] h-full">
+              <div className="relative w-full max-w-[500px] h-full">
                 <motion.div
                   className="absolute inset-0 flex items-center justify-center"
                   animate={{ y: [0, -12, 0] }}
@@ -282,14 +283,14 @@ export default function Hero() {
                   <Image
                     src="/images/hero/hero-sarees.png"
                     alt="Luxury Silk Sarees"
-                    width={380}
-                    height={580}
+                    width={520}
+                    height={700}
                     className="w-full h-full object-contain drop-shadow-2xl"
                   />
                 </motion.div>
 
                 <motion.div
-                  className="absolute top-16 -right-4 w-24 lg:w-28"
+                  className="absolute top-16 -right-4 w-36 lg:w-28"
                   animate={{ y: [0, -22, 0], x: [0, 6, 0] }}
                   transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -303,7 +304,7 @@ export default function Hero() {
                 </motion.div>
 
                 <motion.div
-                  className="absolute top-48 right-6 w-20 lg:w-24"
+                  className="absolute top-48 right-6 w-28 lg:w-24"
                   animate={{ y: [0, -18, 0] }}
                   transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
                 >
@@ -317,7 +318,7 @@ export default function Hero() {
                 </motion.div>
 
                 <motion.div
-                  className="absolute bottom-24 right-12 w-14 lg:w-16"
+                  className="absolute bottom-24 right-12 w-24 lg:w-16"
                   animate={{ y: [0, -10, 0], rotate: [0, 2, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
                 >
