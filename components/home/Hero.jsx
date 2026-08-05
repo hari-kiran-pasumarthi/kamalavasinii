@@ -160,7 +160,7 @@ export default function Hero() {
           {/* =========================================================
               LEFT COLUMN: SOUTH INDIAN BRIDE (LARGER, MOVED LEFT/LOWER)
           ========================================================= */}
-          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-center order-2 lg:order-1 min-h-[460px] sm:min-h-[560px] lg:min-h-[760px]">
+          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-center order-2 lg:order-1 min-h-[460px] sm:min-h-[560px] lg:min-h-[650px]">
             {/* Soft Cream Radial Glow Directly Behind Illustration */}
             <div className="absolute bottom-[-30px] left-1/2 lg:left-45 -translate-x-1/2 w-[520px] h-[520px] sm:w-96 sm:h-96 bg-[#F7E8D0]/60 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -187,7 +187,7 @@ export default function Hero() {
   transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
   className="
     absolute
-    bottom-[80px]
+    bottom-[180px]
     left-1/2
     -translate-x-1/2
 
@@ -200,7 +200,7 @@ export default function Hero() {
 
     h-[520px]
     sm:h-[620px]
-    lg:h-[700px]
+    lg:h-[600px]
 
     z-20
   "
@@ -223,7 +223,7 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-5 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-7 -mt-6 sm:-mt-8 lg:-mt-10"
+            className="lg:col-span-5 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-7 -mt-6 sm:-mt-8 lg:-mt-24"
           >
             {/* Lotus Logo Icon: 2x Larger */}
             <motion.div variants={fadeInUp} className="relative w-48 h-48 sm:w-56 sm:h-56 lg:w-[380px] lg:h-[380px] flex items-center justify-center">
