@@ -1,4 +1,4 @@
-i already have these so  make the changes in this import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
+import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 
 import Hero from "@/components/home/Hero";
 import FeaturedCategories from "@/components/home/FeaturedCategories";
