@@ -201,6 +201,8 @@ export default function Hero() {
               lg:-mt-20
               z-10
               "
+              >
+            
               <Image
                 src="/images/hero/hero-woman.png"
                 alt="South Indian Bride holding Lotus in Traditional Temple Gold Jewellery"
