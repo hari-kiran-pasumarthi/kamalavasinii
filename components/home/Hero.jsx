@@ -172,16 +172,16 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-4 my-auto pb-4"
           >
-            {/* Lotus Logo Emblem */}
-            <motion.div variants={fadeInUp} className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center">
+            {/* Larger Brand Logo (Contains Kamalavasinii Name) */}
+            <motion.div variants={fadeInUp} className="relative w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 flex items-center justify-center my-1">
               {!logoError ? (
                 <Image
                   src="/images/logo.png"
-                  alt="Kamalavasinii Logo"
+                  alt="Kamalavasinii Swarna & Silks Logo"
                   fill
                   priority
                   onError={() => setLogoError(true)}
-                  className="object-contain"
+                  className="object-contain drop-shadow-sm"
                 />
               ) : (
                 <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#C3935B]">
@@ -191,30 +191,10 @@ export default function Hero() {
               )}
             </motion.div>
 
-            {/* Main Brand Title */}
-            <motion.div variants={fadeInUp} className="space-y-1">
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-[0.24em] text-[#5B242A] uppercase leading-none">
-                KAMALAVASINII
-              </h1>
-              
-              {/* Swarna & Silks Flanked Subtitle */}
-              <div className="flex items-center justify-center gap-2 pt-1 text-[#C3935B]">
-                <svg className="w-4 h-2 fill-current opacity-70" viewBox="0 0 30 10">
-                  <path d="M0 5 Q 15 0, 30 5 Q 15 10, 0 5 Z" />
-                </svg>
-                <span className="font-serif text-xs sm:text-sm tracking-[0.25em] uppercase font-medium">
-                  SWARNA & SILKS
-                </span>
-                <svg className="w-4 h-2 fill-current opacity-70" viewBox="0 0 30 10">
-                  <path d="M0 5 Q 15 0, 30 5 Q 15 10, 0 5 Z" />
-                </svg>
-              </div>
-            </motion.div>
-
             {/* Tagline "Where Heritage Becomes Luxury" */}
             <motion.p
               variants={fadeInUp}
-              className="font-serif text-base sm:text-lg text-[#5B341E] italic font-normal tracking-wide"
+              className="font-serif text-base sm:text-lg lg:text-xl text-[#5B341E] italic font-normal tracking-wide"
             >
               Where Heritage Becomes Luxury
             </motion.p>
