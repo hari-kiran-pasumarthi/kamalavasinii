@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -11,12 +9,10 @@ export default function Hero() {
 
       {/* Background */}
 
-      <Image
+      <img
         src="/images/hero/hero-bg.webp"
         alt=""
-        fill
-        priority
-        className="object-cover opacity-20"
+        className="absolute inset-0 w-full h-full object-cover opacity-20"
       />
 
       {/* Gold Overlay */}
@@ -37,62 +33,47 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
 
-            <Image
+            <img
               src="/images/logo.png"
               alt="Kamalavasinii"
-              width={180}
-              height={180}
-              priority
+              className="w-[180px] h-auto"
             />
 
             <p className="uppercase tracking-[0.45em] text-[#B8860B] mt-8 text-sm">
-
               SWARNA • SILKS • GEMSTONES
-
             </p>
 
             <h1 className="font-serif text-6xl lg:text-8xl leading-none text-[#5A1422] mt-6">
-
               Timeless
 
               <span className="block italic bg-gradient-to-r from-[#B8860B] to-[#F0D27A] bg-clip-text text-transparent">
-
                 Luxury
-
               </span>
-
             </h1>
 
             <p className="mt-10 text-lg leading-9 text-[#6C5A4D] max-w-xl">
-
               Discover handcrafted jewellery,
               authentic South Indian silk sarees,
               precious gemstones and bespoke creations
               designed to celebrate every milestone of life.
-
             </p>
 
             <div className="flex flex-wrap gap-5 mt-12">
 
-              <Link
+              <a
                 href="/jewellery"
                 className="px-8 py-4 rounded-full bg-gradient-to-r from-[#B8860B] to-[#D6AF36] text-white font-medium flex items-center gap-2 shadow-xl hover:scale-105 transition"
               >
-
                 Explore Jewellery
-
                 <ArrowRight size={18} />
+              </a>
 
-              </Link>
-
-              <Link
+              <a
                 href="/contact"
                 className="px-8 py-4 rounded-full border border-[#B8860B] text-[#6B1E28] hover:bg-[#B8860B] hover:text-white transition"
               >
-
                 Book Consultation
-
-              </Link>
+              </a>
 
             </div>
 
@@ -111,13 +92,10 @@ export default function Hero() {
 
             <div className="absolute w-[520px] h-[520px] rounded-full bg-[#E6C15A]/20 blur-[120px]" />
 
-            <Image
+            <img
               src="/images/hero/hero-model.webp"
               alt="Luxury Jewellery"
-              width={650}
-              height={900}
-              priority
-              className="relative z-10 object-contain"
+              className="relative z-10 w-full max-w-[650px] h-auto object-contain"
             />
 
           </motion.div>
