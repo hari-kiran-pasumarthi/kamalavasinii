@@ -18,7 +18,7 @@ export default function Home() {
       <Hero />
 
       {/* New Section */}
-      <FeaturedCategories />
+      
 
       <CuratedTreasures />
       <WhyKamalavasinii />
