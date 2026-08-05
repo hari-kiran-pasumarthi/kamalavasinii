@@ -121,9 +121,9 @@ export default function Hero() {
                   <Image
                     src="/images/hero/hero-woman.png"
                     alt="South Indian Bride"
-                    width={360}
-                    height={480}
-                    className="w-full max-w-[360px] h-auto object-contain drop-shadow-2xl"
+                    width={650}
+                    height={900}
+                    className="w-full max-w-[560px] h-auto object-contain drop-shadow-[0_35px_80px_rgba(0,0,0,0.18)]"
                     priority
                   />
                 </motion.div>
