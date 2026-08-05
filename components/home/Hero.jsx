@@ -172,8 +172,8 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-4 my-auto pb-4"
           >
-            {/* Prominent Extra-Large Brand Logo */}
-            <motion.div variants={fadeInUp} className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-[340px] lg:h-[340px] flex items-center justify-center my-0">
+            {/* Extra-Large Grand Brand Logo */}
+            <motion.div variants={fadeInUp} className="relative w-72 h-72 sm:w-[380px] sm:h-[380px] lg:w-[480px] lg:h-[480px] flex items-center justify-center -my-6 sm:-my-8 lg:-my-12">
               {!logoError ? (
                 <Image
                   src="/images/logo.png"
