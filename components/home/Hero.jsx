@@ -1,441 +1,494 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
 const categories = [
   {
-    title: "Swarna Jewellery",
-    subtitle: "Jewellery",
+    title: "SWARNA JEWELLERY",
     href: "/swarna",
     bgColor: "bg-[#FBF3EB]",
+    type: "swarna",
   },
   {
-    title: "Silks Sarees",
-    subtitle: "Sarees",
+    title: "SILKS SAREES",
     href: "/silks",
     bgColor: "bg-[#EFF5F0]",
+    type: "silks",
   },
   {
-    title: "Gemstones Ratna Mandira",
-    subtitle: "Ratna Mandira",
+    title: "GEMSTONES RATNA MANDIRA",
     href: "/gemstones",
     bgColor: "bg-[#F5F0F8]",
+    type: "gemstones",
   },
   {
-    title: "Clay Jewellery",
-    subtitle: "Artisan Crafts",
+    title: "CLAY JEWELLERY",
     href: "/clay",
     bgColor: "bg-[#FBF3EB]",
+    type: "clay",
   },
   {
-    title: "Couture Costumes",
-    subtitle: "Costumes",
+    title: "COUTURE COSTUMES",
     href: "/couture",
     bgColor: "bg-[#F0F5F3]",
+    type: "couture",
   },
   {
-    title: "Heritage Our Legacy",
-    subtitle: "Artisans",
+    title: "HERITAGE OUR LEGACY",
     href: "/heritage",
     bgColor: "bg-[#FBF3EB]",
+    type: "heritage",
   },
 ];
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const floatSoft = {
+    animate: {
+      y: [0, -8, 0],
+      transition: {
+        duration: 5.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
+  const floatReverse = {
+    animate: {
+      y: [0, 8, 0],
+      transition: {
+        duration: 6.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
+    },
+  };
+
   return (
-    <section className="relative w-full bg-[#FDF7EF]">
-      <Image
-        src="/images/hero/hero-bg.webp"
-        alt=""
-        fill
-        className="absolute inset-0 object-cover opacity-3"
-        priority={false}
-      />
+    <section className="relative w-full bg-[#FDF7EF] text-[#5B341E] overflow-hidden pt-4 pb-12">
+      {/* -------------------------------------------------------------
+          BACKGROUND TEXTURE & SOFT WATERCOLOR WASHES
+      ------------------------------------------------------------- */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <Image
+          src="/images/backgrounds/hero-bg.webp"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-20 mix-blend-multiply"
+        />
+      </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#FDF7EF] via-[#FDF7EF]/97 to-[#FDF7EF]" />
+      {/* Radial Gold & Soft Warm Glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[850px] bg-gradient-radial from-[#E6C15A]/14 via-[#F5E6CA]/30 to-transparent rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-10 right-10 w-[450px] h-[450px] bg-[#F5E1D2]/40 rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-20 left-10 w-[400px] h-[400px] bg-[#E8F0E9]/40 rounded-full blur-3xl pointer-events-none z-0" />
 
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-gradient-radial from-[#E6C15A]/12 to-transparent rounded-full blur-3xl" />
+      {/* Botanical Header Accent Top */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-20 pointer-events-none z-10 opacity-30">
+        <Image
+          src="/images/decorations/botanical-header.png"
+          alt=""
+          fill
+          className="object-contain object-top"
+        />
+      </div>
 
-      <motion.div
-        className="absolute top-32 left-16 w-56 h-56 opacity-[0.06]"
-        animate={{ rotate: [0, 20, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M50 8C65 28 75 48 70 68C78 85 50 98 50 98C50 98 22 85 30 68C25 48 35 28 50 8Z"
-            stroke="#D4A574"
-            strokeWidth="1.2"
-          />
-        </svg>
-      </motion.div>
+      {/* Floating Golden Flying Birds Vector */}
+      <div className="absolute top-16 right-[28%] pointer-events-none z-10 hidden lg:block opacity-60">
+        <motion.svg
+          animate={{ x: [0, 15, 0], y: [0, -5, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+          className="w-24 h-10 text-[#C3935B]/40 fill-current"
+          viewBox="0 0 100 40"
+        >
+          <path d="M0 20 Q 25 5, 50 20 Q 75 5, 100 20 Q 75 10, 50 25 Q 25 10, 0 20 Z" />
+          <path d="M40 10 Q 55 0, 70 10 Q 85 0, 100 10 Q 85 5, 70 15 Q 55 5, 40 10 Z" transform="scale(0.6) translate(30, -10)" />
+        </motion.svg>
+      </div>
 
-      <motion.div
-        className="absolute bottom-40 right-24 w-52 h-52 opacity-[0.05]"
-        animate={{ rotate: [0, -25, 0] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="38" stroke="#D4A574" strokeWidth="1.2" />
-          <path
-            d="M50 12L68 45L100 55L68 65L50 98L32 65L0 55L32 45Z"
-            fill="#D4A574"
-            opacity="0.12"
-          />
-        </svg>
-      </motion.div>
+      {/* -------------------------------------------------------------
+          MAIN 3-COLUMN HERO CONTENT
+      ------------------------------------------------------------- */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-2 items-center min-h-[72vh] py-4">
+          
+          {/* =========================================================
+              LEFT COLUMN: SOUTH INDIAN BRIDE PORTRAIT & ARCH LINE ART
+          ========================================================= */}
+          <div className="lg:col-span-4 relative flex items-end justify-center lg:justify-start order-2 lg:order-1 min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]">
+            {/* Jharokha / Temple Arch Line Art Background */}
+            <div className="absolute inset-0 flex items-center justify-center lg:justify-start pointer-events-none -z-10 opacity-25">
+              <svg className="w-[340px] sm:w-[420px] h-[480px] text-[#C3935B]" viewBox="0 0 200 300" fill="none" stroke="currentColor" strokeWidth="0.8">
+                <path d="M20 280 V100 C20 40, 100 20, 100 20 C100 20, 180 40, 180 100 V280" />
+                <path d="M30 280 V105 C30 50, 100 32, 100 32 C100 32, 170 50, 170 105 V280" />
+                <path d="M100 10 Q100 20 100 32" strokeWidth="1.2" />
+                <circle cx="100" cy="10" r="3" fill="currentColor" />
+              </svg>
+            </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        {/* Hero Content */}
-        <div className="min-h-[85vh] flex items-center">
-          <div className="w-full grid lg:grid-cols-[1.15fr_1fr_1.15fr] gap-8 lg:gap-12 items-center">
-            {/* LEFT COLUMN */}
+            {/* Botanical Plant Leaves Bottom Left Accent */}
+            <div className="absolute bottom-2 left-0 w-28 h-36 pointer-events-none opacity-40 z-0">
+              <svg viewBox="0 0 100 120" fill="none" className="w-full h-full text-[#4A6B53]">
+                <path d="M20 110 Q 40 70, 20 20 M20 70 Q 0 50, -10 60 M20 50 Q 50 30, 40 10 M20 30 Q -10 10, 0 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            {/* South Indian Woman Image */}
             <motion.div
-              initial={{ opacity: 0, x: -100 }}
+              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative flex justify-start lg:justify-start -ml-40"
+              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[460px] lg:max-w-none h-[440px] sm:h-[530px] lg:h-[600px] flex items-end justify-center lg:-ml-6 z-10"
             >
-              <div className="relative">
-                <div className="absolute -inset-16 rounded-full border border-[#D4A574]/10 opacity-40" />
+              <Image
+                src="/images/hero/hero-woman.png"
+                alt="South Indian Bride in Silk Saree and Gold Jewellery holding Lotus"
+                fill
+                priority
+                className="object-contain object-bottom drop-shadow-[0_20px_35px_rgba(91,52,30,0.18)]"
+                sizes="(max-width: 1024px) 100vw, 35vw"
+              />
+            </motion.div>
 
-                <motion.div
-                  className="absolute -top-8 -left-20 w-24 h-24 opacity-4"
-                  animate={{ rotate: [0, 30, 0] }}
-                  transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M50 12C68 35 78 58 72 78C82 95 50 110 50 110C50 110 18 95 28 78C22 58 32 35 50 12Z"
-                      stroke="#D4A574"
-                      strokeWidth="1.2"
-                    />
-                  </svg>
-                </motion.div>
+            {/* Floating Petal near Woman */}
+            <motion.div
+              variants={floatSoft}
+              animate="animate"
+              className="absolute top-12 left-6 w-10 h-10 pointer-events-none z-20 opacity-80"
+            >
+              <Image
+                src="/images/decorations/lotus-petals.png"
+                alt=""
+                width={40}
+                height={40}
+                className="object-contain"
+              />
+            </motion.div>
+          </div>
 
-                <motion.div
-                  className="mt-20"
-                  animate={{ y: [0, -15, 0] }}
-                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Image
-                    src="/images/hero/hero-woman.png"
-                    alt="South Indian Bride"
-                    width={650}
-                    height={900}
-                    className="w-full max-w-[560px] h-auto object-contain drop-shadow-[0_35px_80px_rgba(0,0,0,0.18)]"
-                    priority
-                  />
-                </motion.div>
+          {/* =========================================================
+              CENTER COLUMN: BRAND LOGO, TYPOGRAPHY & BUTTONS
+          ========================================================= */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3.5 sm:space-y-4"
+          >
+            {/* Lotus Line Art Logo */}
+            <motion.div variants={fadeInUp} className="relative w-16 h-16 sm:w-20 sm:h-20 mb-0.5">
+              <Image
+                src="/images/icons/logo.png"
+                alt="Kamalavasinii Lotus Emblem"
+                fill
+                priority
+                className="object-contain drop-shadow-sm"
+              />
+            </motion.div>
 
-                <motion.div
-                  className="absolute -top-20 -right-12 w-24 h-24"
-                  animate={{ y: [0, -24, 0], rotate: [0, 8, 0] }}
-                  transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M50 10C65 32 75 55 70 75C78 92 50 105 50 105C50 105 22 92 30 75C25 55 35 32 50 10Z"
-                      fill="#E6C15A"
-                      opacity="0.65"
-                    />
-                    <circle cx="50" cy="82" r="9" fill="#D4A574" opacity="0.55" />
-                  </svg>
-                </motion.div>
+            {/* Brand Title */}
+            <motion.div variants={fadeInUp} className="space-y-1">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-[0.22em] text-[#5B242A] uppercase leading-none">
+                KAMALAVASINII
+              </h1>
+              
+              {/* Swarna & Silks Flanked Tagline */}
+              <div className="flex items-center justify-center gap-2 pt-1 text-[#C3935B]">
+                <svg className="w-5 h-2 fill-current opacity-70" viewBox="0 0 30 10">
+                  <path d="M0 5 Q 15 0, 30 5 Q 15 10, 0 5 Z" />
+                </svg>
+                <span className="font-serif text-xs sm:text-sm tracking-[0.25em] uppercase font-medium">
+                  SWARNA & SILKS
+                </span>
+                <svg className="w-5 h-2 fill-current opacity-70" viewBox="0 0 30 10">
+                  <path d="M0 5 Q 15 0, 30 5 Q 15 10, 0 5 Z" />
+                </svg>
               </div>
             </motion.div>
 
-            {/* CENTER COLUMN */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: { staggerChildren: 0.15, delayChildren: 0.25 },
-                },
-              }}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-col items-center justify-center space-y-5 lg:space-y-7"
+            {/* Tagline "Where Heritage Becomes Luxury" */}
+            <motion.p
+              variants={fadeInUp}
+              className="font-serif text-base sm:text-lg lg:text-xl text-[#5B341E] italic font-normal"
             >
+              Where Heritage Becomes Luxury
+            </motion.p>
+
+            {/* Central Lotus Flourish Line */}
+            <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 my-0.5">
+              <div className="h-px w-10 sm:w-14 bg-[#C3935B]/50" />
+              <svg className="w-5 h-5 text-[#C3935B] fill-current opacity-80" viewBox="0 0 24 24">
+                <path d="M12 3 C10 7, 6 9, 2 12 C6 15, 10 17, 12 21 C14 17, 18 15, 22 12 C18 9, 14 7, 12 3 Z" />
+              </svg>
+              <div className="h-px w-10 sm:w-14 bg-[#C3935B]/50" />
+            </motion.div>
+
+            {/* Supporting Description */}
+            <motion.div variants={fadeInUp} className="space-y-1 max-w-md text-[#5B341E]/85">
+              <p className="font-serif text-xs sm:text-sm leading-relaxed font-light">
+                Exclusive Customised Jewellery in Gold, Silver, Clay, Wood, Brass & Bronze.
+              </p>
+              <p className="font-serif text-xs sm:text-sm leading-relaxed font-light">
+                All Types of GI Tagged Sarees of South India and Exquisite Gemstones.
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full sm:w-auto"
+            >
+              <Link href="/swarna" className="w-full sm:w-auto">
+                <motion.button
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#D9757A] hover:bg-[#C86368] text-white font-serif text-xs uppercase tracking-[0.18em] font-normal shadow-md shadow-[#D9757A]/25 transition-all duration-300"
+                >
+                  EXPLORE SWARNA
+                </motion.button>
+              </Link>
+
+              <Link href="/silks" className="w-full sm:w-auto">
+                <motion.button
+                  whileHover={{ scale: 1.04, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="w-full sm:w-auto px-8 py-3 rounded-full border border-[#C3935B] text-[#5B341E] hover:bg-[#FBF3EB] font-serif text-xs uppercase tracking-[0.18em] font-normal transition-all duration-300"
+                >
+                  DISCOVER SILKS
+                </motion.button>
+              </Link>
+            </motion.div>
+
+            {/* Carousel Pagination Dots */}
+            <motion.div variants={fadeInUp} className="flex items-center justify-center gap-2 pt-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#D9757A]" />
+              <span className="w-2 h-2 rounded-full bg-[#C3935B]/30" />
+              <span className="w-2 h-2 rounded-full bg-[#C3935B]/30" />
+              <span className="w-2 h-2 rounded-full bg-[#C3935B]/30" />
+            </motion.div>
+          </motion.div>
+
+          {/* =========================================================
+              RIGHT COLUMN: SAREES, JEWELLERY & GEMSTONES COMPOSITION
+          ========================================================= */}
+          <div className="lg:col-span-4 relative flex items-center justify-center min-h-[420px] sm:min-h-[480px] lg:min-h-[560px] order-3">
+            {/* Botanical Leaf Top Right Background */}
+            <div className="absolute top-0 right-4 w-28 h-32 pointer-events-none opacity-50 z-0">
+              <svg viewBox="0 0 100 120" fill="none" className="w-full h-full text-[#4A6B53]">
+                <path d="M80 10 Q 60 50, 80 110 M80 30 Q 50 10, 40 20 M80 50 Q 100 30, 110 40 M80 70 Q 40 60, 50 80" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+
+            {/* Product Composition Cluster */}
+            <div className="relative w-full max-w-[380px] sm:max-w-[430px] lg:max-w-none h-[420px] sm:h-[480px] lg:h-[540px] flex items-center justify-center">
+              
+              {/* 1. Saree Stack (Center Right Base) */}
               <motion.div
-                variants={{
-                  hidden: { opacity: 0, scale: 0.6 },
-                  visible: {
-                    opacity: 1,
-                    scale: 1,
-                    transition: { duration: 0.9, ease: "easeOut" },
-                  },
-                }}
-                className="w-40 h-40 lg:w-44 lg:h-44 flex items-center justify-center"
+                variants={floatSoft}
+                animate="animate"
+                className="absolute top-8 right-0 sm:right-2 w-[270px] sm:w-[320px] lg:w-[350px] h-[240px] sm:h-[280px] lg:h-[300px] z-10 drop-shadow-[0_20px_25px_rgba(0,0,0,0.15)]"
               >
                 <Image
-                  src="/images/logo.png"
-                  alt="Kamalavasinii Logo"
-                  width={176}
-                  height={176}
-                  className="w-full h-full object-contain"
-                  priority
+                  src="/images/hero/hero-sarees.png"
+                  alt="Folded Silk Sarees Stack - Pink, Green, Gold, Purple"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 35vw"
                 />
               </motion.div>
 
+              {/* 2. Temple Necklace (Draped Over Front Left of Sarees) */}
               <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
-                }}
-                className="text-center space-y-2 lg:space-y-3"
+                variants={floatReverse}
+                animate="animate"
+                className="absolute top-24 left-0 sm:left-2 w-[190px] sm:w-[230px] lg:w-[250px] h-[180px] sm:h-[210px] lg:h-[230px] z-20 drop-shadow-[0_12px_20px_rgba(0,0,0,0.2)]"
               >
-                <h1 className="font-serif text-6xl lg:text-7xl xl:text-8xl font-light tracking-wider text-[#6B4423] leading-tight">
-                  KAMALAVASINII
-                </h1>
-                <div className="flex items-center justify-center gap-3 lg:gap-4 mt-2 lg:mt-4">
-                  <div className="h-px w-8 lg:w-12 bg-[#D4A574]" />
-                  <p className="font-serif text-base lg:text-lg text-[#D4A574] tracking-[0.2em] font-light">
-                    SWARNA & SILKS
-                  </p>
-                  <div className="h-px w-8 lg:w-12 bg-[#D4A574]" />
-                </div>
+                <Image
+                  src="/images/jewellery/necklace.png"
+                  alt="Temple Gold Necklace"
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 80vw, 25vw"
+                />
               </motion.div>
 
-              <motion.h2
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0.9, ease: "easeOut" } },
-                }}
-                className="font-serif text-3xl lg:text-4xl text-[#6B4423] font-light text-center"
-              >
-                Where Heritage Becomes Luxury
-              </motion.h2>
-
+              {/* 3. Temple Earrings (Next to Necklace) */}
               <motion.div
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0.9, ease: "easeOut" } },
-                }}
-                className="flex items-center justify-center gap-2 lg:gap-3"
+                variants={floatSoft}
+                animate="animate"
+                className="absolute bottom-20 left-[48%] w-20 sm:w-24 lg:w-28 h-20 sm:h-24 lg:h-28 z-30 drop-shadow-md"
               >
-                <div className="h-px w-10 lg:w-12 bg-[#D4A574]" />
-                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 lg:w-5 lg:h-5">
-                  <path d="M8 2C10 6 12 10 10 14C12 15 8 16 8 16C8 16 4 15 6 14C4 10 6 6 8 2Z" fill="#D4A574" opacity="0.6" />
+                <Image
+                  src="/images/jewellery/earrings.png"
+                  alt="Temple Gold Jhumka Earrings"
+                  fill
+                  className="object-contain"
+                />
+              </motion.div>
+
+              {/* 4. Gemstones Scattered Near Bottom Center */}
+              <motion.div
+                variants={floatReverse}
+                animate="animate"
+                className="absolute bottom-6 left-[38%] w-24 sm:w-28 lg:w-32 h-16 sm:h-20 lg:h-22 z-30 drop-shadow-md"
+              >
+                <Image
+                  src="/images/gemstones/gemstones.png"
+                  alt="Emerald, Ruby and Sapphire Gemstones"
+                  fill
+                  className="object-contain"
+                />
+              </motion.div>
+
+              {/* 5. Gold Floral Bangle / Kada (Bottom Right) */}
+              <motion.div
+                animate={{ rotate: [0, 4, 0], y: [0, -6, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-4 right-2 sm:right-6 w-24 sm:w-28 lg:w-32 h-20 sm:h-24 lg:h-28 z-25 drop-shadow-lg"
+              >
+                <svg viewBox="0 0 100 80" fill="none" className="w-full h-full">
+                  <ellipse cx="50" cy="45" rx="40" ry="22" fill="#E6C15A" opacity="0.9" stroke="#C3935B" strokeWidth="2" />
+                  <ellipse cx="50" cy="45" rx="32" ry="16" fill="#FDF7EF" />
+                  <circle cx="50" cy="23" r="10" fill="#E6C15A" />
+                  <circle cx="50" cy="23" r="6" fill="#D9757A" />
+                  <circle cx="28" cy="30" r="7" fill="#E6C15A" />
+                  <circle cx="72" cy="30" r="7" fill="#E6C15A" />
                 </svg>
-                <div className="h-px w-10 lg:w-12 bg-[#D4A574]" />
               </motion.div>
 
+              {/* 6. Lotus Flower Accent (Bottom Right of Sarees) */}
               <motion.div
-                variants={{
-                  hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0.9, ease: "easeOut" } },
-                }}
-                className="text-center max-w-md lg:max-w-lg space-y-2 lg:space-y-3"
+                variants={floatSoft}
+                animate="animate"
+                className="absolute bottom-16 right-0 w-12 h-12 z-30 pointer-events-none"
               >
-                <p className="font-serif text-base lg:text-lg text-[#6B4423] leading-relaxed font-light">
-                  Exclusive Customised Jewellery in Gold, Silver, Clay, Brass & Bronze.
-                </p>
-                <p className="font-serif text-xs lg:text-sm text-[#6B4423] leading-relaxed opacity-85 font-light">
-                  All Types of G1 Tagged Sarees of South India and Exquisite Gemstones.
-                </p>
+                <Image
+                  src="/images/decorations/lotus-petals.png"
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
               </motion.div>
 
-              <motion.div
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: "easeOut" } },
-                }}
-                className="flex flex-col sm:flex-row gap-3 lg:gap-5 pt-2 lg:pt-3"
-              >
-                <Link href="/swarna">
-                  <motion.button
-                    whileHover={{ scale: 1.08, y: -3 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="px-12 lg:px-10 py-2.5 lg:py-4 bg-[#D9757A] hover:bg-[#C4626A] text-white font-serif text-xs lg:text-sm font-light tracking-wider rounded-full transition-all duration-300 shadow-lg shadow-[#D9757A]/30"
-                  >
-                    EXPLORE SWARNA
-                  </motion.button>
-                </Link>
-
-                <Link href="/silks">
-                  <motion.button
-                    whileHover={{ scale: 1.08, y: -3 }}
-                    whileTap={{ scale: 0.97 }}
-                    className="px-12 lg:px-10 py-2.5 lg:py-4 border-2 border-[#D4A574] text-[#6B4423] hover:bg-[#FBF3EB] font-serif text-xs lg:text-sm font-light tracking-wider rounded-full transition-all duration-300"
-                  >
-                    DISCOVER SILKS
-                  </motion.button>
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            {/* RIGHT COLUMN */}
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-              className="relative flex items-center justify-center lg:justify-start h-[500px] lg:h-[580px]"
-            >
-              <div className="relative w-full max-w-[500px] h-full">
-                <motion.div
-                  className="absolute inset-0 flex items-center justify-center"
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Image
-                    src="/images/hero/hero-sarees.png"
-                    alt="Luxury Silk Sarees"
-                    width={520}
-                    height={700}
-                    className="w-full h-full object-contain drop-shadow-2xl"
-                  />
-                </motion.div>
-
-                <motion.div
-                  className="absolute top-16 -right-4 w-36 lg:w-28"
-                  animate={{ y: [0, -22, 0], x: [0, 6, 0] }}
-                  transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Image
-                    src="/images/hero/necklace.png"
-                    alt="Temple Necklace"
-                    width={112}
-                    height={140}
-                    className="w-full h-auto drop-shadow-xl"
-                  />
-                </motion.div>
-
-                <motion.div
-                  className="absolute top-48 right-6 w-28 lg:w-24"
-                  animate={{ y: [0, -18, 0] }}
-                  transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
-                >
-                  <Image
-                    src="/images/hero/earrings.png"
-                    alt="Temple Earrings"
-                    width={96}
-                    height={120}
-                    className="w-full h-auto drop-shadow-lg"
-                  />
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-24 right-12 w-24 lg:w-16"
-                  animate={{ y: [0, -10, 0], rotate: [0, 2, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
-                >
-                  <Image
-                    src="/images/hero/gemstones.png"
-                    alt="Gemstones"
-                    width={64}
-                    height={48}
-                    className="w-full h-auto drop-shadow-lg"
-                  />
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-8 right-20 w-20 lg:w-24"
-                  animate={{ rotate: [0, 6, 0], y: [0, -10, 0] }}
-                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto drop-shadow-xl">
-                    <ellipse cx="50" cy="62" rx="35" ry="14" fill="#E6C15A" opacity="0.88" />
-                    <ellipse cx="50" cy="62" rx="30" ry="11" fill="#D4A574" opacity="0.65" />
-                    <circle cx="50" cy="32" r="18" fill="#E6C15A" opacity="0.92" />
-                    <circle cx="50" cy="32" r="14" fill="#F0D484" opacity="0.8" />
-                    <circle cx="48" cy="29" r="6" fill="white" opacity="0.45" />
-                    <circle cx="49" cy="36" r="3.5" fill="#D4A574" opacity="0.35" />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  className="absolute top-24 right-16 w-12 h-12"
-                  animate={{ y: [0, -18, 0], rotate: [0, 12, 0] }}
-                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-55">
-                    <path d="M50 12C63 30 72 50 67 68C75 82 50 92 50 92C50 92 25 82 33 68C28 50 37 30 50 12Z" fill="#E6C15A" opacity="0.65" />
-                    <circle cx="50" cy="75" r="7" fill="#D4A574" opacity="0.5" />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-32 right-32 w-10 h-10"
-                  animate={{ y: [0, -16, 0], rotate: [0, -10, 0] }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full opacity-45">
-                    <path d="M50 10C62 28 70 48 65 65C72 78 50 88 50 88C50 88 28 78 35 65C30 48 38 28 50 10Z" fill="#D4A574" opacity="0.55" />
-                    <circle cx="50" cy="68" r="5" fill="#E6C15A" opacity="0.4" />
-                  </svg>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* CATEGORY CARDS SECTION */}
-        <motion.div
-          className="w-full py-12 lg:py-16 border-t border-[#D4A574]/20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 lg:gap-4">
-              {categories.map((category, index) => (
-                <Link key={index} href={category.href}>
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.08 }}
-                    viewport={{ once: true }}
-                    whileHover={{ y: -8 }}
-                    className={`${category.bgColor} rounded-2xl p-5 lg:p-6 text-center cursor-pointer transition-all duration-300 h-full flex flex-col items-center justify-center min-h-[140px] lg:min-h-[160px]`}
-                  >
-                    <p className="font-serif text-sm lg:text-base text-[#6B4423] font-light tracking-wide mb-2 line-clamp-2">
-                      {category.title}
-                    </p>
-                    <p className="font-serif text-xs lg:text-sm text-[#D4A574] font-light">
-                      {category.subtitle}
-                    </p>
-                    <div className="mt-3 lg:mt-4 flex items-center justify-center text-[#D4A574] text-xs lg:text-sm font-serif font-light">
-                      Explore
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-1.5">
-                        <path d="M2 7H12M9 4L12 7L9 10" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
-                  </motion.div>
-                </Link>
-              ))}
             </div>
           </div>
-        </motion.div>
-      </div>
 
-      {/* PAGINATION DOTS */}
-      <motion.div
-        className="relative z-20 flex justify-center gap-2 py-6 lg:py-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.3, duration: 0.5 }}
-      >
+        </div>
+
+        {/* -------------------------------------------------------------
+            CATEGORY CARDS ROW (Matching Reference Design)
+        ------------------------------------------------------------- */}
         <motion.div
-          className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-[#D9757A]"
-          animate={{ scale: [1, 1.4, 1] }}
-          transition={{ duration: 2.8, repeat: Infinity }}
-        />
-        <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-[#D4A574]/25" />
-        <div className="w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-[#D4A574]/25" />
-      </motion.div>
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="w-full pt-8 lg:pt-10 border-t border-[#C3935B]/20"
+        >
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            {categories.map((cat, idx) => (
+              <Link key={idx} href={cat.href} className="group">
+                <motion.div
+                  whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                  className={`${cat.bgColor} rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center justify-between min-h-[160px] sm:min-h-[180px] shadow-sm hover:shadow-md transition-all duration-300 border border-black/5`}
+                >
+                  {/* Category SVG Vector Illustration */}
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center relative my-auto">
+                    {cat.type === "swarna" && (
+                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#C3935B]">
+                        <path d="M20 30 Q 50 80, 80 30" stroke="currentColor" strokeWidth="3" fill="none" />
+                        <path d="M30 40 Q 50 75, 70 40" stroke="#E6C15A" strokeWidth="2" fill="none" />
+                        <circle cx="50" cy="65" r="7" fill="#D9757A" />
+                        <circle cx="35" cy="52" r="5" fill="#E6C15A" />
+                        <circle cx="65" cy="52" r="5" fill="#E6C15A" />
+                        <circle cx="82" cy="28" r="4" fill="#C3935B" />
+                      </svg>
+                    )}
 
-      {/* SCROLL INDICATOR */}
-      <motion.div
-        animate={{ y: [0, 16, 0] }}
-        transition={{ repeat: Infinity, duration: 2.8, ease: "easeInOut" }}
-        className="absolute bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 z-20 hidden lg:block"
-      >
-        <div className="w-px h-12 bg-gradient-to-b from-[#D4A574] via-[#D4A574]/40 to-transparent" />
-      </motion.div>
+                    {cat.type === "silks" && (
+                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+                        <path d="M30 20 L70 20 L80 80 L20 80 Z" fill="#D9757A" opacity="0.85" />
+                        <path d="M40 20 L80 80 L60 80 L30 20 Z" fill="#E6C15A" opacity="0.9" />
+                        <path d="M30 20 Q 50 35, 70 20" stroke="#C3935B" strokeWidth="2" />
+                      </svg>
+                    )}
+
+                    {cat.type === "gemstones" && (
+                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+                        <polygon points="30,40 45,25 60,40 45,65" fill="#2E8B57" />
+                        <polygon points="50,60 65,45 80,60 65,80" fill="#D9757A" />
+                        <polygon points="20,70 32,58 44,70 32,82" fill="#4169E1" />
+                      </svg>
+                    )}
+
+                    {cat.type === "clay" && (
+                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#B85D3B]">
+                        <circle cx="35" cy="35" r="10" stroke="currentColor" strokeWidth="2" fill="#E89F71" />
+                        <circle cx="35" cy="55" r="14" fill="currentColor" />
+                        <circle cx="65" cy="35" r="10" stroke="currentColor" strokeWidth="2" fill="#E89F71" />
+                        <circle cx="65" cy="55" r="14" fill="currentColor" />
+                        <path d="M20 75 Q 50 95, 80 75" stroke="currentColor" strokeWidth="2" />
+                      </svg>
+                    )}
+
+                    {cat.type === "couture" && (
+                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
+                        <path d="M42 20 L58 20 L54 40 L46 40 Z" fill="#4A6B53" />
+                        <path d="M46 40 L20 85 L80 85 L54 40 Z" fill="#E89F71" opacity="0.9" />
+                        <path d="M35 85 L50 40 L65 85" stroke="#E6C15A" strokeWidth="2" />
+                      </svg>
+                    )}
+
+                    {cat.type === "heritage" && (
+                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#C3935B]">
+                        <path d="M50 15 L75 40 H25 Z" stroke="currentColor" strokeWidth="1.5" />
+                        <rect x="30" y="40" width="40" height="45" stroke="currentColor" strokeWidth="1.5" />
+                        <path d="M42 85 V60 H58 V85" stroke="currentColor" strokeWidth="1.5" />
+                        <circle cx="50" cy="10" r="3" fill="currentColor" />
+                      </svg>
+                    )}
+                  </div>
+
+                  {/* Card Titles & Links */}
+                  <div>
+                    <h3 className="font-serif text-xs sm:text-sm text-[#5B341E] font-medium tracking-wide uppercase leading-tight line-clamp-2">
+                      {cat.title}
+                    </h3>
+                    <p className="font-serif text-[11px] sm:text-xs text-[#C3935B] font-light mt-1 flex items-center justify-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                      Explore &rarr;
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+
+      </div>
     </section>
   );
 }
