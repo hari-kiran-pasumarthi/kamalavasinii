@@ -26,7 +26,7 @@ const categories = [
   },
   {
     title: "CLAY JEWELLERY",
-    href: "/clay-jewellery",
+    href: "/clay",
     bgColor: "bg-[#FBF3EB]",
     type: "clay",
   },
