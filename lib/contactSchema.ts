@@ -15,7 +15,7 @@ export const CONSULT_MODES = [
   "WhatsApp",
 ] as const;
 
-export const PRODUCT_TYPES = {
+export const PRODUCT_TYPES: Record<string, readonly string[]> = {
   "Custom Jewellery": [
     "Kundan Jewellery",
     "Victorian Jewellery",
@@ -62,31 +62,6 @@ export const PRODUCT_TYPES = {
     "Other",
   ],
 } as const;
-export const COLLECTIONS = [
-  "Necklace Sets",
-  "Haram Sets",
-  "Bangles",
-  "Bracelets",
-  "Finger Rings",
-  "Earrings",
-  "Jhumkas",
-  "Belts / Vaddanam",
-  "Nose Pins",
-  "Hair Pins",
-  "Tie Pins",
-  "Brooch Pins",
-  "Special Jewellery",
-] as const;
-
-export const GEMSTONES = [
-  "None",
-  "Yellow Sapphire",
-  "Blue Sapphire",
-  "Emerald",
-  "Cat's Eye",
-  "Ruby",
-  "Pearl",
-] as const;
 
 export const contactSchema = z.object({
   fullName: z
@@ -117,11 +92,10 @@ export const contactSchema = z.object({
     errorMap: () => ({ message: "Please choose a service" }),
   }),
 
-  // Optional until the form includes these fields
   productType: z
-  .string()
-  .trim()
-  .min(1, "Please select a product"),
+    .string()
+    .trim()
+    .min(1, "Please select an option"),
 
   mode: z.enum(CONSULT_MODES, {
     errorMap: () => ({ message: "Please choose a consultation mode" }),
