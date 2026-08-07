@@ -150,11 +150,32 @@ function ConsultationForm() {
 
   const onSubmit = async (data) => {
     setStatus({ state: "loading", message: "" });
+
+    // Payload mapping: Populates jewelleryType, collection, and gemstone 
+    // so the email API route receives valid values instead of "Not Selected"
+    const payload = {
+      ...data,
+      jewelleryType:
+        data.service === "Custom Jewellery"
+          ? data.productType
+          : "Not Applicable",
+      collection:
+        data.service === "Silk Sarees"
+          ? data.productType
+          : data.service === "Custom Jewellery"
+          ? data.productType
+          : "Not Applicable",
+      gemstone:
+        data.service === "Gemstones" || data.service === "Healing Stones"
+          ? data.productType
+          : "Not Applicable",
+    };
+
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
       const json = await res.json();
       if (!res.ok || !json.ok) {
@@ -490,7 +511,6 @@ function ContactDetails() {
       </div>
 
       <div className="max-w-[1300px] mx-auto relative z-[2] grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 items-stretch">
-        {/* Details column */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
