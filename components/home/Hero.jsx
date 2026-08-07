@@ -8,7 +8,7 @@ import { useState } from "react";
 const categories = [
   {
     title: "SWARNA JEWELLERY",
-    href: "/swarna",
+    href: "/jewellery",
     bgColor: "bg-[#FBF3EB]",
     type: "swarna",
   },
@@ -26,7 +26,7 @@ const categories = [
   },
   {
     title: "CLAY JEWELLERY",
-    href: "/clay",
+    href: "/clay-jewellery",
     bgColor: "bg-[#FBF3EB]",
     type: "clay",
   },
@@ -170,41 +170,59 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-4 my-auto pb-4"
+            className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-3.5 my-auto pb-4"
           >
-            {/* Prominent Extra-Large Brand Logo */}
-            <motion.div variants={fadeInUp} className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-[340px] lg:h-[340px] flex items-center justify-center my-0">
+            {/* Lotus Line Art Emblem Logo */}
+            <motion.div variants={fadeInUp} className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-22 lg:h-22 flex items-center justify-center">
               {!logoError ? (
                 <Image
                   src="/images/logo.png"
-                  alt="Kamalavasinii Swarna & Silks Logo"
+                  alt="Kamalavasinii Logo"
                   fill
                   priority
                   onError={() => setLogoError(true)}
-                  className="object-contain drop-shadow-sm"
+                  className="object-contain"
                 />
               ) : (
                 <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#C3935B]">
-                  <path d="M50 15 C60 35, 80 45, 90 60 C75 75, 55 80, 50 90 C45 80, 25 75, 10 60 C20 45, 40 35, 50 15 Z" stroke="currentColor" strokeWidth="2" />
+                  <path d="M50 15 C60 35, 80 45, 90 60 C75 75, 55 80, 50 90 C45 80, 25 75, 10 60 C20 45, 40 35, 50 15 Z" stroke="currentColor" strokeWidth="2" fill="none" />
                   <circle cx="50" cy="55" r="8" fill="#C3935B" />
                 </svg>
               )}
             </motion.div>
 
-            {/* Tagline "Where Heritage Becomes Luxury" */}
+            {/* Brand Title: KAMALAVASINII */}
+            <motion.div variants={fadeInUp} className="space-y-1">
+              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-[0.24em] text-[#5B242A] uppercase leading-none">
+                KAMALAVASINII
+              </h1>
+              
+              {/* Swarna & Silks Tagline */}
+              <div className="flex items-center justify-center gap-2 pt-1 text-[#C3935B]">
+                <svg className="w-4 h-2 fill-current opacity-70" viewBox="0 0 30 10">
+                  <path d="M0 5 Q 15 0, 30 5 Q 15 10, 0 5 Z" />
+                </svg>
+                <span className="font-serif text-xs sm:text-sm tracking-[0.25em] uppercase font-medium">
+                  SWARNA & SILKS
+                </span>
+                <svg className="w-4 h-2 fill-current opacity-70" viewBox="0 0 30 10">
+                  <path d="M0 5 Q 15 0, 30 5 Q 15 10, 0 5 Z" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Subtitle "Where Heritage Becomes Luxury" */}
             <motion.p
               variants={fadeInUp}
-              className="font-serif text-base sm:text-lg lg:text-xl text-[#5B341E] italic font-normal tracking-wide"
+              className="font-serif text-base sm:text-lg text-[#5B341E] italic font-normal tracking-wide"
             >
               Where Heritage Becomes Luxury
             </motion.p>
 
-            {/* Lotus Line Divider */}
+            {/* Diamond Line Divider */}
             <motion.div variants={fadeInUp} className="flex items-center justify-center gap-3 my-0.5">
               <div className="h-px w-10 sm:w-14 bg-[#C3935B]/40" />
-              <svg className="w-4 h-4 text-[#C3935B] fill-current opacity-80" viewBox="0 0 24 24">
-                <path d="M12 3 C10 7, 6 9, 2 12 C6 15, 10 17, 12 21 C14 17, 18 15, 22 12 C18 9, 14 7, 12 3 Z" />
-              </svg>
+              <div className="w-2 h-2 rotate-45 bg-[#C3935B]" />
               <div className="h-px w-10 sm:w-14 bg-[#C3935B]/40" />
             </motion.div>
 
@@ -223,7 +241,7 @@ export default function Hero() {
               variants={fadeInUp}
               className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full sm:w-auto"
             >
-              <Link href="/swarna" className="w-full sm:w-auto">
+              <Link href="/jewellery" className="w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -244,7 +262,7 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Pagination Dots */}
+            {/* Carousel Pagination Dots */}
             <motion.div variants={fadeInUp} className="flex items-center justify-center gap-2 pt-1">
               <span className="w-2.5 h-2.5 rounded-full bg-[#D9757A]" />
               <span className="w-2 h-2 rounded-full bg-[#C3935B]/35" />
@@ -254,29 +272,29 @@ export default function Hero() {
           </motion.div>
 
           {/* =========================================================
-              RIGHT COLUMN: SAREES, JEWELLERY & GEMSTONES COMPOSITION
+              RIGHT COLUMN: FULL SAREES & JEWELLERY COMPOSITION
           ========================================================= */}
-          <div className="lg:col-span-4 relative flex items-center justify-center min-h-[400px] sm:min-h-[450px] lg:min-h-[500px] order-3">
+          <div className="lg:col-span-4 relative flex items-center justify-center min-h-[400px] sm:min-h-[460px] lg:min-h-[500px] order-3">
             {/* Green Leaves Sprouting Top Right */}
-            <div className="absolute top-2 right-4 w-28 h-32 pointer-events-none opacity-60 z-0">
+            <div className="absolute top-0 right-2 w-28 h-32 pointer-events-none opacity-60 z-0">
               <svg viewBox="0 0 100 120" fill="none" className="w-full h-full text-[#4A6B53]">
                 <path d="M70 15 Q 50 50, 75 110 M75 35 Q 45 15, 35 25 M75 55 Q 95 35, 105 45 M75 75 Q 35 65, 45 85" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
               </svg>
             </div>
 
-            {/* Right Product Cluster */}
+            {/* Right Product Cluster Container */}
             <motion.div
               variants={floatSoft}
               animate="animate"
-              className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-none h-[380px] sm:h-[430px] lg:h-[470px] flex items-center justify-center"
+              className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-none h-[380px] sm:h-[440px] lg:h-[480px] flex items-center justify-center"
             >
               
-              {/* Main Saree Stack & Temple Jewellery Image */}
+              {/* Main Saree Stack Image */}
               <div className="relative w-[300px] sm:w-[350px] lg:w-[380px] h-[260px] sm:h-[300px] lg:h-[320px] z-10 drop-shadow-[0_18px_25px_rgba(0,0,0,0.14)]">
                 {!sareeError ? (
                   <Image
                     src="/images/hero/hero-sarees.png"
-                    alt="Silk Sarees & Temple Jewellery Collection"
+                    alt="Silk Sarees Collection"
                     fill
                     onError={() => setSareeError(true)}
                     className="object-contain"
@@ -284,12 +302,34 @@ export default function Hero() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-[#FBF3EB] rounded-2xl p-4 border border-[#C3935B]/30">
-                    <p className="font-serif text-xs text-[#5B341E]">Silk Sarees & Temple Jewellery</p>
+                    <p className="font-serif text-xs text-[#5B341E]">Silk Sarees Collection</p>
                   </div>
                 )}
               </div>
 
-              {/* Gold Bangle Accent Vector (Bottom Right) */}
+              {/* Temple Gold Necklace Vector Overlay */}
+              <div className="absolute top-12 left-2 sm:left-4 w-[180px] sm:w-[210px] lg:w-[230px] h-[170px] sm:h-[200px] lg:h-[220px] z-20 pointer-events-none drop-shadow-md">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#E6C15A]">
+                  <path d="M15 25 Q 50 85, 85 25" stroke="#C3935B" strokeWidth="4" fill="none" />
+                  <path d="M22 32 Q 50 80, 78 32" stroke="#E6C15A" strokeWidth="2.5" fill="none" />
+                  <circle cx="50" cy="72" r="8" fill="#D9757A" />
+                  <circle cx="50" cy="72" r="5" fill="#E6C15A" />
+                  <circle cx="36" cy="62" r="5" fill="#E6C15A" />
+                  <circle cx="64" cy="62" r="5" fill="#E6C15A" />
+                </svg>
+              </div>
+
+              {/* Temple Earrings Vector Accent */}
+              <div className="absolute top-32 right-12 sm:right-16 w-16 sm:w-20 h-16 sm:h-20 z-25 pointer-events-none drop-shadow-md">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#E6C15A]">
+                  <circle cx="35" cy="25" r="8" fill="#C3935B" />
+                  <path d="M20 38 L50 38 L35 70 Z" fill="#E6C15A" />
+                  <circle cx="75" cy="25" r="8" fill="#C3935B" />
+                  <path d="M60 38 L90 38 L75 70 Z" fill="#E6C15A" />
+                </svg>
+              </div>
+
+              {/* Gold Bangle Vector Accent */}
               <div className="absolute bottom-4 right-2 sm:right-6 w-24 sm:w-28 lg:w-32 h-20 sm:h-24 lg:h-28 z-25 drop-shadow-lg">
                 <svg viewBox="0 0 100 80" fill="none" className="w-full h-full">
                   <ellipse cx="50" cy="45" rx="40" ry="22" fill="#E6C15A" opacity="0.9" stroke="#C3935B" strokeWidth="2" />
@@ -301,16 +341,16 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* Colorful Gemstones Vector Accent (Bottom Center/Left) */}
-              <div className="absolute bottom-6 left-[32%] w-20 sm:w-24 h-12 sm:h-14 z-30 drop-shadow-md">
-                <svg viewBox="0 0 100 40" fill="none" className="w-full h-full">
+              {/* Loose Gemstones Vector Accent */}
+              <div className="absolute bottom-6 left-[28%] w-24 sm:w-28 h-12 sm:h-14 z-30 drop-shadow-md">
+                <svg viewBox="0 0 120 40" fill="none" className="w-full h-full">
                   <polygon points="20,20 32,8 44,20 32,32" fill="#2E8B57" />
-                  <polygon points="50,25 62,12 74,25 62,38" fill="#D9757A" />
-                  <polygon points="80,18 90,8 100,18 90,28" fill="#4169E1" />
+                  <polygon points="55,24 68,10 81,24 68,38" fill="#D9757A" />
+                  <polygon points="90,18 102,6 114,18 102,30" fill="#4169E1" />
                 </svg>
               </div>
 
-              {/* Water-colored Pink Lotus Accent (Bottom Right of Sarees) */}
+              {/* Water-colored Pink Lotus Accent */}
               <div className="absolute bottom-16 right-0 w-12 h-12 z-30 pointer-events-none">
                 <svg viewBox="0 0 100 100" fill="none" className="w-full h-full drop-shadow-md">
                   <path d="M50 15 C62 35, 82 45, 92 60 C77 75, 57 80, 50 90 C43 80, 23 75, 8 60 C18 45, 38 35, 50 15 Z" fill="#F4A6AC" opacity="0.9" />
@@ -324,7 +364,7 @@ export default function Hero() {
         </div>
 
         {/* -------------------------------------------------------------
-            CATEGORY CARDS ROW (MATCHING REFERENCE IMAGE)
+            INTEGRATED CATEGORY NAVIGATION HUB
         ------------------------------------------------------------- */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -340,7 +380,7 @@ export default function Hero() {
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
                   className={`${cat.bgColor} rounded-2xl p-4 sm:p-5 text-center flex flex-col items-center justify-between min-h-[150px] sm:min-h-[165px] shadow-sm hover:shadow-md transition-all duration-300 border border-black/5`}
                 >
-                  {/* Category Graphic */}
+                  {/* Category Illustration */}
                   <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center relative my-auto">
                     {cat.type === "swarna" && (
                       <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#C3935B]">
@@ -392,7 +432,7 @@ export default function Hero() {
                     )}
                   </div>
 
-                  {/* Titles */}
+                  {/* Category Title & Link */}
                   <div>
                     <h3 className="font-serif text-xs sm:text-sm text-[#5B341E] font-medium tracking-wide uppercase leading-tight line-clamp-1">
                       {cat.title}
