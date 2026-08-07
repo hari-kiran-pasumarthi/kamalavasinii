@@ -48,6 +48,7 @@ export default function Hero() {
   const [logoError, setLogoError] = useState(false);
   const [bgError, setBgError] = useState(false);
   const [sareeError, setSareeError] = useState(false);
+  const [womanError, setWomanError] = useState(false);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -150,16 +151,26 @@ export default function Hero() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[430px] h-[410px] sm:h-[470px] lg:h-[510px] flex items-end justify-center z-10"
+              className="relative w-[340px] sm:w-[400px] lg:w-[440px] h-[420px] sm:h-[480px] lg:h-[520px] flex items-end justify-center z-10"
             >
-              <Image
-                src="/images/hero/hero-woman.png"
-                alt="South Indian Bride in Silk Saree holding Lotus"
-                fill
-                priority
-                className="object-contain object-bottom mix-blend-multiply"
-                sizes="(max-width:1024px) 100vw, 33vw"
-              />
+              {!womanError ? (
+                <Image
+                  src="/images/hero/hero-woman.png"
+                  alt="South Indian Bride in Silk Saree holding Lotus"
+                  fill
+                  priority
+                  onError={() => setWomanError(true)}
+                  className="object-contain object-bottom mix-blend-multiply"
+                  sizes="(max-width:1024px) 100vw, 35vw"
+                />
+              ) : (
+                <div className="w-full h-full flex items-end justify-center pb-4">
+                  <svg viewBox="0 0 200 300" fill="none" className="w-64 h-80 text-[#C3935B]">
+                    <circle cx="100" cy="80" r="35" fill="#E89F71" />
+                    <path d="M60 140 Q 100 120, 140 140 L160 300 H40 Z" fill="#D9757A" />
+                  </svg>
+                </div>
+              )}
             </motion.div>
           </div>
 
@@ -172,7 +183,7 @@ export default function Hero() {
             animate="visible"
             className="lg:col-span-4 flex flex-col items-center justify-center text-center px-2 sm:px-4 z-20 order-1 lg:order-2 space-y-3 lg:space-y-3.5 my-auto pb-4"
           >
-            {/* Lotus Line Art Emblem Logo */}
+            {/* Lotus Line Art Logo Icon */}
             <motion.div variants={fadeInUp} className="relative w-16 h-16 sm:w-20 sm:h-20 lg:w-22 lg:h-22 flex items-center justify-center">
               {!logoError ? (
                 <Image
@@ -286,15 +297,15 @@ export default function Hero() {
             <motion.div
               variants={floatSoft}
               animate="animate"
-              className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-none h-[380px] sm:h-[440px] lg:h-[480px] flex items-center justify-center"
+              className="relative w-full max-w-[380px] sm:max-w-[420px] lg:max-w-none h-[380px] sm:h-[430px] lg:h-[470px] flex items-center justify-center"
             >
               
-              {/* Main Saree Stack Image */}
+              {/* Main Saree Stack & Temple Jewellery Image */}
               <div className="relative w-[300px] sm:w-[350px] lg:w-[380px] h-[260px] sm:h-[300px] lg:h-[320px] z-10 drop-shadow-[0_18px_25px_rgba(0,0,0,0.14)]">
                 {!sareeError ? (
                   <Image
                     src="/images/hero/hero-sarees.png"
-                    alt="Silk Sarees Collection"
+                    alt="Silk Sarees & Temple Jewellery Collection"
                     fill
                     onError={() => setSareeError(true)}
                     className="object-contain"
@@ -302,34 +313,12 @@ export default function Hero() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-[#FBF3EB] rounded-2xl p-4 border border-[#C3935B]/30">
-                    <p className="font-serif text-xs text-[#5B341E]">Silk Sarees Collection</p>
+                    <p className="font-serif text-xs text-[#5B341E]">Silk Sarees & Temple Jewellery</p>
                   </div>
                 )}
               </div>
 
-              {/* Temple Gold Necklace Vector Overlay */}
-              <div className="absolute top-12 left-2 sm:left-4 w-[180px] sm:w-[210px] lg:w-[230px] h-[170px] sm:h-[200px] lg:h-[220px] z-20 pointer-events-none drop-shadow-md">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#E6C15A]">
-                  <path d="M15 25 Q 50 85, 85 25" stroke="#C3935B" strokeWidth="4" fill="none" />
-                  <path d="M22 32 Q 50 80, 78 32" stroke="#E6C15A" strokeWidth="2.5" fill="none" />
-                  <circle cx="50" cy="72" r="8" fill="#D9757A" />
-                  <circle cx="50" cy="72" r="5" fill="#E6C15A" />
-                  <circle cx="36" cy="62" r="5" fill="#E6C15A" />
-                  <circle cx="64" cy="62" r="5" fill="#E6C15A" />
-                </svg>
-              </div>
-
-              {/* Temple Earrings Vector Accent */}
-              <div className="absolute top-32 right-12 sm:right-16 w-16 sm:w-20 h-16 sm:h-20 z-25 pointer-events-none drop-shadow-md">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full text-[#E6C15A]">
-                  <circle cx="35" cy="25" r="8" fill="#C3935B" />
-                  <path d="M20 38 L50 38 L35 70 Z" fill="#E6C15A" />
-                  <circle cx="75" cy="25" r="8" fill="#C3935B" />
-                  <path d="M60 38 L90 38 L75 70 Z" fill="#E6C15A" />
-                </svg>
-              </div>
-
-              {/* Gold Bangle Vector Accent */}
+              {/* Gold Bangle Vector Accent (Bottom Right) */}
               <div className="absolute bottom-4 right-2 sm:right-6 w-24 sm:w-28 lg:w-32 h-20 sm:h-24 lg:h-28 z-25 drop-shadow-lg">
                 <svg viewBox="0 0 100 80" fill="none" className="w-full h-full">
                   <ellipse cx="50" cy="45" rx="40" ry="22" fill="#E6C15A" opacity="0.9" stroke="#C3935B" strokeWidth="2" />
@@ -341,7 +330,7 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* Loose Gemstones Vector Accent */}
+              {/* Loose Gemstones Vector Accent (Bottom Center/Left) */}
               <div className="absolute bottom-6 left-[28%] w-24 sm:w-28 h-12 sm:h-14 z-30 drop-shadow-md">
                 <svg viewBox="0 0 120 40" fill="none" className="w-full h-full">
                   <polygon points="20,20 32,8 44,20 32,32" fill="#2E8B57" />
@@ -350,7 +339,7 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* Water-colored Pink Lotus Accent */}
+              {/* Water-colored Pink Lotus Accent (Bottom Right of Sarees) */}
               <div className="absolute bottom-16 right-0 w-12 h-12 z-30 pointer-events-none">
                 <svg viewBox="0 0 100 100" fill="none" className="w-full h-full drop-shadow-md">
                   <path d="M50 15 C62 35, 82 45, 92 60 C77 75, 57 80, 50 90 C43 80, 23 75, 8 60 C18 45, 38 35, 50 15 Z" fill="#F4A6AC" opacity="0.9" />
