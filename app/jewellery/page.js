@@ -307,13 +307,15 @@ function Hero() {
       </div>
 
       <div className="max-w-[1100px] mx-auto text-center relative z-[2]">
+        
+        {/* HERO LOGO: Scaled 3x (Size 260) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9 }}
-          className="flex justify-center mb-4"
+          className="flex justify-center items-center mb-8 w-full"
         >
-          <LotusLogo size={90} />
+          <LotusLogo size={260} />
         </motion.div>
 
         <motion.div
@@ -772,8 +774,9 @@ function ConsultCTA() {
             </svg>
           ))}
 
-          <div className="flex justify-center mb-4">
-            <LotusLogo size={54} />
+          {/* CTA LOGO: Scaled Up (Size 200) */}
+          <div className="flex justify-center items-center mb-6">
+            <LotusLogo size={200} />
           </div>
 
           <div className="inline-flex items-center gap-3 text-[#B8860B] mb-3">
