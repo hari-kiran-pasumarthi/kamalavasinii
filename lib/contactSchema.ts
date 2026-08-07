@@ -97,6 +97,11 @@ export const contactSchema = z.object({
     .trim()
     .min(1, "Please select an option"),
 
+  // Keys expected by backend email template
+  jewelleryType: z.string().optional(),
+  collection: z.string().optional(),
+  gemstone: z.string().optional(),
+
   mode: z.enum(CONSULT_MODES, {
     errorMap: () => ({ message: "Please choose a consultation mode" }),
   }),
