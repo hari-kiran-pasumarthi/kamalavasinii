@@ -10,18 +10,18 @@ import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#B83453]">
+    <main className="min-h-screen bg-gradient-to-b from-[#FFF5F7] via-[#FDF2F4] to-[#F9E8EC]">
       <SiteHeader activeHref="/" />
 
       {/* Hero section with integrated Category Navigation Hub */}
       <Hero />
-{/* Content Flow Continues */}
-       <WhyKamalavasinii />
+
+      {/* Content Flow Continues */}
+      <WhyKamalavasinii />
       <Heritage />
       <CustomJourney />
       <Testimonials />
       <CTA />
-
 
       <SiteFooter />
     </main>
