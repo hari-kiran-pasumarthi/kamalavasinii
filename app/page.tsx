@@ -16,14 +16,6 @@ export default function Home() {
       {/* Hero section with integrated Category Navigation Hub */}
       <Hero />
 
-      {/* Content Flow Continues */}
-      <CuratedTreasures />
-      <WhyKamalavasinii />
-      <Heritage />
-      <CustomJourney />
-      <Testimonials />
-      <CTA />
-
       <SiteFooter />
     </main>
   );
