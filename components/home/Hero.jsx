@@ -26,7 +26,7 @@ const categories = [
   },
   {
     title: "CLAY JEWELLERY",
-    href: "/clay",
+    href: "/clay", // <-- Updated to /clay
     bgColor: "bg-[#FBF3EB]",
     type: "clay",
   },
@@ -300,7 +300,7 @@ export default function Hero() {
               className="relative w-full max-w-[380px] sm:max-w-[420px] lg:max-w-none h-[380px] sm:h-[430px] lg:h-[470px] flex items-center justify-center"
             >
               
-              {/* Main Saree Stack & Temple Jewellery Image */}
+              {/* Main Saree Stack Image */}
               <div className="relative w-[300px] sm:w-[350px] lg:w-[380px] h-[260px] sm:h-[300px] lg:h-[320px] z-10 drop-shadow-[0_18px_25px_rgba(0,0,0,0.14)]">
                 {!sareeError ? (
                   <Image
@@ -318,7 +318,7 @@ export default function Hero() {
                 )}
               </div>
 
-              {/* Gold Bangle Vector Accent (Bottom Right) */}
+              {/* Gold Bangle Accent Vector (Bottom Right) */}
               <div className="absolute bottom-4 right-2 sm:right-6 w-24 sm:w-28 lg:w-32 h-20 sm:h-24 lg:h-28 z-25 drop-shadow-lg">
                 <svg viewBox="0 0 100 80" fill="none" className="w-full h-full">
                   <ellipse cx="50" cy="45" rx="40" ry="22" fill="#E6C15A" opacity="0.9" stroke="#C3935B" strokeWidth="2" />
