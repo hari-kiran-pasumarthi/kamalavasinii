@@ -10,7 +10,7 @@ import CTA from "@/components/home/CTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#FDF7EF]">
+    <main className="min-h-screen bg-[#CF5C75]">
       <SiteHeader activeHref="/" />
 
       {/* Hero section with integrated Category Navigation Hub */}
