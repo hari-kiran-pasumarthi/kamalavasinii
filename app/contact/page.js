@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,7 +14,7 @@ import {
 } from "@/lib/contactSchema";
 
 /* ============================================================
-   Utility form field wrappers (kept local, tailwind only)
+   Utility form field wrappers
    ============================================================ */
 const labelClass =
   "block font-sans text-[12px] tracking-[0.18em] uppercase text-[#8a5f66] mb-2";
@@ -36,9 +37,8 @@ function Field({ label, required, error, children }) {
 }
 
 /* ============================================================
-   Sections
+   Hero Section
    ============================================================ */
-
 function Hero() {
   return (
     <section className="relative watercolor-bg paper-texture overflow-hidden py-20 md:py-24 lg:py-28 px-4 md:px-8 lg:px-10">
@@ -109,33 +109,44 @@ function Hero() {
   );
 }
 
+/* ============================================================
+   Form Section
+   ============================================================ */
 function ConsultationForm() {
   const [status, setStatus] = useState({ state: "idle", message: "" });
 
   const {
-  register,
-  watch,
-  handleSubmit,
-  reset,
-  formState: { errors, isSubmitting },
-} = useForm({
-  resolver: zodResolver(contactSchema),
-  defaultValues: {
-    fullName: "",
-    phone: "",
-    email: "",
-    city: "",
-    service: "",
-    productType: "",
-    mode: "",
-    date: "",
-    time: "",
-    requirement: "",
-  },
-  mode: "onBlur",
-});
+    register,
+    watch,
+    setValue,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      fullName: "",
+      phone: "",
+      email: "",
+      city: "",
+      service: "",
+      productType: "",
+      mode: "In Person",
+      date: "",
+      time: "",
+      requirement: "",
+    },
+    mode: "onTouched",
+  });
+
   const selectedService = watch("service");
 
+  // Reset productType when switching service
+  useEffect(() => {
+    if (selectedService) {
+      setValue("productType", "");
+    }
+  }, [selectedService, setValue]);
 
   const onSubmit = async (data) => {
     setStatus({ state: "loading", message: "" });
@@ -156,7 +167,7 @@ function ConsultationForm() {
       setStatus({
         state: "success",
         message:
-          "Thank you. Your consultation request has been received — our team will reach out within 24 hours.",
+          "Thank you! Your consultation request has been received — our team will reach out within 24 hours.",
       });
       reset();
     } catch (err) {
@@ -206,21 +217,11 @@ function ConsultationForm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          onSubmit={handleSubmit(
-  (data) => {
-    console.log("SUCCESS", data);
-    alert("SUCCESS");
-    onSubmit(data);
-  },
-  (errors) => {
-    console.log("VALIDATION ERRORS", errors);
-    alert("Validation failed");
-  }
-)}
+          onSubmit={handleSubmit(onSubmit)}
           noValidate
           className="relative rounded-[32px] bg-[#FFF9F2] border border-[#EFE1CC] shadow-[0_25px_60px_-30px_rgba(107,30,40,0.20)] p-6 md:p-10 lg:p-12"
         >
-          {/* corner ornaments */}
+          {/* Corner ornaments */}
           {[
             { c: "top-3 left-3", tr: "" },
             { c: "top-3 right-3", tr: "-scale-x-100" },
@@ -245,11 +246,7 @@ function ConsultationForm() {
           ))}
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            <Field
-              label="Full Name"
-              required
-              error={errors.fullName?.message}
-            >
+            <Field label="Full Name" required error={errors.fullName?.message}>
               <input
                 type="text"
                 autoComplete="name"
@@ -259,11 +256,7 @@ function ConsultationForm() {
               />
             </Field>
 
-            <Field
-              label="Phone Number"
-              required
-              error={errors.phone?.message}
-            >
+            <Field label="Phone Number" required error={errors.phone?.message}>
               <input
                 type="tel"
                 autoComplete="tel"
@@ -293,14 +286,9 @@ function ConsultationForm() {
               />
             </Field>
 
-            <Field
-              label="Service Required"
-              required
-              error={errors.service?.message}
-            >
+            <Field label="Service Required" required error={errors.service?.message}>
               <select
                 className={`${baseInput} pr-9 appearance-none bg-[url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20d%3D%22M1%201l5%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%23B8860B%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E')] bg-no-repeat bg-[right_16px_center]`}
-                defaultValue=""
                 {...register("service")}
               >
                 <option value="" disabled>
@@ -314,84 +302,61 @@ function ConsultationForm() {
               </select>
             </Field>
 
-            {selectedService && (
-              <Field
-                label={
-                  selectedService === "Custom Jewellery"
-                    ? "Jewellery Type"
-                    : selectedService === "Silk Sarees"
-                    ? "Saree Type"
-                    : "Gemstone"
-                }
-                required
-                error={errors.productType?.message}
+            <Field
+              label={
+                selectedService === "Custom Jewellery"
+                  ? "Jewellery Type"
+                  : selectedService === "Silk Sarees"
+                  ? "Saree Type"
+                  : selectedService === "Gemstones"
+                  ? "Gemstone"
+                  : "Product Type"
+              }
+              required
+              error={errors.productType?.message}
+            >
+              <select
+                disabled={!selectedService}
+                className={`${baseInput} pr-9 appearance-none bg-[url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"%3E%3Cpath d="M1 1l5 5 5-5" fill="none" stroke="%23B8860B" stroke-width="1.5" stroke-linecap="round"/%3E%3C/svg%3E')] bg-no-repeat bg-[right_16px_center] disabled:opacity-50 disabled:cursor-not-allowed`}
+                {...register("productType")}
               >
-                <select
-                  className={`${baseInput} pr-9 appearance-none bg-[url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"%3E%3Cpath d="M1 1l5 5 5-5" fill="none" stroke="%23B8860B" stroke-width="1.5" stroke-linecap="round"/%3E%3C/svg%3E')] bg-no-repeat bg-[right_16px_center]`}
-                  defaultValue=""
-                  {...register("productType")}
-                >
-                  <option value="" disabled>
-                    Select an option
-                  </option>
+                <option value="" disabled>
+                  {selectedService ? "Select an option" : "Select a service first"}
+                </option>
 
-                  {PRODUCT_TYPES[selectedService]?.map((item) => (
+                {selectedService &&
+                  PRODUCT_TYPES[selectedService]?.map((item) => (
                     <option key={item} value={item}>
                       {item}
                     </option>
                   ))}
-                </select>
-              </Field>
-            )}
-
-            <Field
-  label="Preferred Consultation"
-  required
-  error={errors.mode?.message}
->
-  <div className="grid grid-cols-3 gap-2">
-    {CONSULT_MODES.map((m) => (
-      <label
-        key={m}
-        className="cursor-pointer group"
-      >
-        <input
-          type="radio"
-          value={m}
-          className="peer sr-only"
-          {...register("mode")}
-        />
-
-        <span className="block text-center rounded-full border border-[#EFE1CC] bg-white/70 py-3 px-2 font-sans text-[12px] tracking-wider text-[#5a3a3f] transition-all peer-checked:bg-gradient-to-br peer-checked:from-[#FBEED0] peer-checked:to-[#F0D7A9] peer-checked:border-[#C8A048] peer-checked:text-[#6B1E28] peer-checked:shadow-[0_6px_16px_-6px_rgba(200,160,72,0.5)] group-hover:border-[#C8A048]/60">
-          {m}
-        </span>
-      </label>
-    ))}
-  </div>
-</Field>
-
-            <Field
-              label="Preferred Date"
-              required
-              error={errors.date?.message}
-            >
-              <input
-                type="date"
-                className={baseInput}
-                {...register("date")}
-              />
+              </select>
             </Field>
 
-            <Field
-              label="Preferred Time"
-              required
-              error={errors.time?.message}
-            >
-              <input
-                type="time"
-                className={baseInput}
-                {...register("time")}
-              />
+            <Field label="Preferred Consultation" required error={errors.mode?.message}>
+              <div className="grid grid-cols-3 gap-2">
+                {CONSULT_MODES.map((m) => (
+                  <label key={m} className="cursor-pointer group">
+                    <input
+                      type="radio"
+                      value={m}
+                      className="peer sr-only"
+                      {...register("mode")}
+                    />
+                    <span className="block text-center rounded-full border border-[#EFE1CC] bg-white/70 py-3 px-2 font-sans text-[12px] tracking-wider text-[#5a3a3f] transition-all peer-checked:bg-gradient-to-br peer-checked:from-[#FBEED0] peer-checked:to-[#F0D7A9] peer-checked:border-[#C8A048] peer-checked:text-[#6B1E28] peer-checked:shadow-[0_6px_16px_-6px_rgba(200,160,72,0.5)] group-hover:border-[#C8A048]/60">
+                      {m}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </Field>
+
+            <Field label="Preferred Date" required error={errors.date?.message}>
+              <input type="date" className={baseInput} {...register("date")} />
+            </Field>
+
+            <Field label="Preferred Time" required error={errors.time?.message}>
+              <input type="time" className={baseInput} {...register("time")} />
             </Field>
 
             <div className="md:col-span-2">
@@ -457,6 +422,9 @@ function ConsultationForm() {
   );
 }
 
+/* ============================================================
+   Contact Details
+   ============================================================ */
 function ContactDetails() {
   const rows = [
     {
@@ -580,7 +548,7 @@ function ContactDetails() {
           </ul>
         </motion.div>
 
-        {/* Map placeholder */}
+        {/* Map Placeholder */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -588,7 +556,6 @@ function ContactDetails() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="relative rounded-[32px] overflow-hidden bg-gradient-to-br from-[#FFF3E7] via-[#FBEED0] to-[#F7DDC5] border border-[#C8A048]/40 shadow-[0_20px_50px_-30px_rgba(107,30,40,0.18)] min-h-[420px] flex items-center justify-center paper-texture"
         >
-          {/* Fake map grid */}
           <svg
             viewBox="0 0 600 500"
             className="absolute inset-0 w-full h-full"
@@ -608,7 +575,6 @@ function ContactDetails() {
                 <line key={`v-${i}`} x1={i * 45 + 10} y1="0" x2={i * 45 + 10} y2="500" />
               ))}
             </g>
-            {/* rivers / winding roads */}
             <path
               d="M0 200 C120 180 200 260 320 240 C440 220 520 300 600 280"
               stroke="url(#map-gold)"
@@ -623,7 +589,6 @@ function ContactDetails() {
               fill="none"
               opacity="0.5"
             />
-            {/* blocks */}
             {[
               [80, 90, 90, 60],
               [220, 60, 110, 70],
@@ -685,7 +650,7 @@ function ContactDetails() {
   );
 }
 
-function ContactPage() {
+export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#FDF7EF]">
       <SiteHeader activeHref="/contact" />
@@ -696,5 +661,3 @@ function ContactPage() {
     </main>
   );
 }
-
-export default ContactPage;
