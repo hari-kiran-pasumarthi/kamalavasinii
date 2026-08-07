@@ -367,12 +367,18 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.6 }}
           className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium">
+          <a
+            href="#consult"
+            className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-block text-center"
+          >
             BOOK CONSULTATION
-          </button>
-          <button className="btn-outline-gold font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium">
+          </a>
+          <a
+            href="/contact"
+            className="btn-outline-gold font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-block text-center"
+          >
             REQUEST CUSTOM DESIGN
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
@@ -786,12 +792,15 @@ function ConsultCTA() {
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-flex items-center gap-2">
+            <a
+              href="/contact"
+              className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-flex items-center gap-2"
+            >
               BOOK CONSULTATION
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                 <path d="M5 12 L19 12 M13 6 L19 12 L13 18" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </a>
             <a
               href="https://wa.me/919999999999"
               target="_blank"
