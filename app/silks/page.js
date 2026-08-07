@@ -27,7 +27,6 @@ const GoldDefs = ({ id }) => (
 
 /* ============================================================
    Saree collection illustrations
-   Each shows a folded silk saree with region-specific pattern
    ============================================================ */
 const SareeCard = ({ id, silkFrom, silkTo, patternFn }) => (
   <svg viewBox="0 0 220 160" className="w-full h-full" aria-hidden>
@@ -54,7 +53,7 @@ const SareeCard = ({ id, silkFrom, silkTo, patternFn }) => (
     {/* Bottom zari border */}
     <path d="M20 130 L200 130" stroke={`url(#sk-zari-${id})`} strokeWidth="8" />
 
-    {/* Second folded saree layer behind (subtle) */}
+    {/* Second folded saree layer behind */}
     <path d="M50 58 L170 58 L180 70 L40 70 Z" fill={`url(#silk-${id})`} opacity="0.75" />
     <path d="M50 58 L170 58" stroke={`url(#sk-zari-${id})`} strokeWidth="4" />
 
@@ -76,14 +75,12 @@ const SareeCard = ({ id, silkFrom, silkTo, patternFn }) => (
 /* Region-specific pattern rendering functions */
 const kanchipuramPattern = (id) => (
   <g>
-    {/* Temple-tower motifs */}
     {[60, 90, 120, 150, 180].map((x, i) => (
       <g key={i} transform={`translate(${x} 100)`}>
         <path d="M0 0 L4 -8 L-4 -8 Z" fill="#F1D07A" opacity="0.9" />
         <path d="M-4 0 L4 0" stroke="#F1D07A" strokeWidth="0.6" />
       </g>
     ))}
-    {/* peacock feather medallions */}
     {[70, 105, 140].map((x, i) => (
       <g key={`p-${i}`} transform={`translate(${x} 115)`}>
         <ellipse cx="0" cy="0" rx="5" ry="8" fill="#8B6A1E" opacity="0.5" />
@@ -96,7 +93,6 @@ const kanchipuramPattern = (id) => (
 
 const banarasiPattern = (id) => (
   <g>
-    {/* Ornate paisleys */}
     {[55, 85, 115, 145, 175].map((x, i) => (
       <path
         key={i}
@@ -105,11 +101,9 @@ const banarasiPattern = (id) => (
         opacity="0.9"
       />
     ))}
-    {/* small buti dots */}
     {[45, 60, 75, 90, 105, 120, 135, 150, 165, 180].map((x, i) => (
       <circle key={`d-${i}`} cx={x} cy={115} r="1.2" fill="#8B6A1E" opacity="0.8" />
     ))}
-    {/* Middle zari band */}
     <path d="M30 95 L190 95" stroke="#F1D07A" strokeWidth="1" opacity="0.7" />
     <path d="M30 118 L190 118" stroke="#F1D07A" strokeWidth="1" opacity="0.7" />
   </g>
@@ -117,7 +111,6 @@ const banarasiPattern = (id) => (
 
 const mysorePattern = (id) => (
   <g>
-    {/* Minimal fine dots */}
     {Array.from({ length: 6 }).map((_, r) =>
       Array.from({ length: 12 }).map((__, c) => (
         <circle
@@ -135,7 +128,6 @@ const mysorePattern = (id) => (
 
 const uppadaPattern = (id) => (
   <g>
-    {/* Jamdani-style diagonal floral motifs */}
     {[60, 100, 140, 180].map((x, i) => (
       <g key={i} transform={`translate(${x} 100)`}>
         <path d="M0 -4 C-3 -2 -3 2 0 4 C3 2 3 -2 0 -4 Z" fill="#F1D07A" />
@@ -155,7 +147,6 @@ const uppadaPattern = (id) => (
 
 const gadwalPattern = (id) => (
   <g>
-    {/* Interlocked cotton-silk checked pattern */}
     <g stroke="#F1D07A" strokeWidth="0.5" opacity="0.7">
       {[80, 95, 110, 125].map((y, i) => (
         <line key={`gh-${i}`} x1="30" y1={y} x2="190" y2={y} />
@@ -164,7 +155,6 @@ const gadwalPattern = (id) => (
         <line key={`gv-${i}`} x1={35 + i * 15} y1={78} x2={35 + i * 15} y2={128} />
       ))}
     </g>
-    {/* Temple border triangles */}
     {[40, 60, 80, 100, 120, 140, 160, 180].map((x, i) => (
       <path
         key={`t-${i}`}
@@ -178,7 +168,6 @@ const gadwalPattern = (id) => (
 
 const pochampallyPattern = (id) => (
   <g>
-    {/* Ikat diamond geometric pattern */}
     {[
       { x: 55, y: 95 },
       { x: 85, y: 95 },
@@ -419,13 +408,15 @@ function Hero() {
       </div>
 
       <div className="max-w-[1100px] mx-auto text-center relative z-[2]">
+        
+        {/* HERO LOGO: Scaled 3x (Size 260) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9 }}
-          className="flex justify-center mb-4"
+          className="flex justify-center items-center mb-8 w-full"
         >
-          <LotusLogo size={90} />
+          <LotusLogo size={260} />
         </motion.div>
 
         <motion.div
@@ -821,8 +812,9 @@ function ConsultCTA() {
             </svg>
           ))}
 
-          <div className="flex justify-center mb-4">
-            <LotusLogo size={54} />
+          {/* CTA LOGO: Scaled Up (Size 200) */}
+          <div className="flex justify-center items-center mb-6">
+            <LotusLogo size={200} />
           </div>
 
           <div className="inline-flex items-center gap-3 text-[#B8860B] mb-3">
