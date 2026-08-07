@@ -6,12 +6,12 @@ import { SiteHeader, SiteFooter } from "@/components/SiteChrome";
 import { LotusLogo, LotusMotif } from "@/components/SiteIllustrations";
 
 /* ============================================================
-   Hero Section with Centered & Large Scaled Logo
+   Hero Section with 3x Scaled Centered Logo
 ============================================================ */
 
 function StoriesHero() {
   return (
-    <section className="relative watercolor-bg paper-texture overflow-hidden py-24 lg:py-32 px-4 md:px-8 lg:px-10">
+    <section className="relative watercolor-bg paper-texture overflow-hidden py-20 lg:py-28 px-4 md:px-8 lg:px-10">
       {/* Background Watermark Motifs */}
       <div className="pointer-events-none absolute inset-0 z-[0]" aria-hidden>
         <LotusMotif
@@ -26,15 +26,15 @@ function StoriesHero() {
 
       <div className="max-w-[1100px] mx-auto text-center relative z-[2]">
         
-        {/* LOGO: Centered and Increased in Size */}
+        {/* LOGO: Centered & Scaled 3x Larger (320px) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="flex justify-center items-center mb-8 w-full"
         >
-          <div className="transform scale-125 sm:scale-150 transition-transform duration-300">
-            <LotusLogo size={130} />
+          <div className="w-[280px] sm:w-[360px] md:w-[420px] h-auto flex items-center justify-center mx-auto">
+            <LotusLogo size={320} />
           </div>
         </motion.div>
 
