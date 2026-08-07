@@ -2,7 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export default function StorySection() {
   return (
@@ -104,6 +106,25 @@ export default function StorySection() {
               </p>
             </div>
           </div>
+
+          {/* Action Buttons Section */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#B8860B] to-[#D8B24B] text-white font-medium shadow-xl hover:scale-105 transition-all text-center"
+            >
+              Book Consultation
+              <ArrowRight size={18} />
+            </Link>
+
+            <Link
+              href="/heritage"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full border border-[#B8860B] text-[#5A1422] hover:bg-[#B8860B] hover:text-white transition-all font-medium text-center"
+            >
+              Discover Our Story
+            </Link>
+          </div>
+
         </div>
 
       </div>
