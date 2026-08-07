@@ -29,7 +29,7 @@ export default function Heritage() {
             <div className="relative rounded-[40px] overflow-hidden shadow-2xl">
 
               <Image
-                src="/images/heritage/heritage.webp"
+                src="/images/heritage.webp"
                 alt="Kamalavasinii Heritage"
                 width={700}
                 height={900}
