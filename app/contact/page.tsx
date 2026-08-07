@@ -11,17 +11,25 @@ import {
   SERVICES,
   PRODUCT_TYPES,
   CONSULT_MODES,
+  type ContactFormValues,
 } from "@/lib/contactSchema";
 
 /* ============================================================
-   Utility form field wrappers
+   TypeScript Interfaces & Field Wrappers
    ============================================================ */
 const labelClass =
   "block font-sans text-[12px] tracking-[0.18em] uppercase text-[#8a5f66] mb-2";
 const baseInput =
   "w-full rounded-[14px] bg-[#FFF9F2] border border-[#EFE1CC] px-4 py-3 font-sans text-[14px] text-[#3A2A20] placeholder:text-[#B39A93] outline-none focus:border-[#C8A048] focus:ring-2 focus:ring-[#C8A048]/25 transition-all";
 
-function Field({ label, required, error, children }) {
+interface FieldProps {
+  label: string;
+  required?: boolean;
+  error?: string;
+  children: React.ReactNode;
+}
+
+function Field({ label, required, error, children }: FieldProps) {
   return (
     <div>
       <label className={labelClass}>
@@ -113,7 +121,10 @@ function Hero() {
    Form Section
    ============================================================ */
 function ConsultationForm() {
-  const [status, setStatus] = useState({ state: "idle", message: "" });
+  const [status, setStatus] = useState<{
+    state: "idle" | "loading" | "success" | "error";
+    message: string;
+  }>({ state: "idle", message: "" });
 
   const {
     register,
@@ -122,14 +133,14 @@ function ConsultationForm() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm({
+  } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       fullName: "",
       phone: "",
       email: "",
       city: "",
-      service: "",
+      service: undefined,
       productType: "",
       mode: "In Person",
       date: "",
@@ -148,11 +159,9 @@ function ConsultationForm() {
     }
   }, [selectedService, setValue]);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: ContactFormValues) => {
     setStatus({ state: "loading", message: "" });
 
-    // Payload mapping: Populates jewelleryType, collection, and gemstone 
-    // so the email API route receives valid values instead of "Not Selected"
     const payload = {
       ...data,
       jewelleryType:
@@ -311,6 +320,7 @@ function ConsultationForm() {
               <select
                 className={`${baseInput} pr-9 appearance-none bg-[url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%228%22%20viewBox%3D%220%200%2012%208%22%3E%3Cpath%20d%3D%22M1%201l5%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%23B8860B%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E')] bg-no-repeat bg-[right_16px_center]`}
                 {...register("service")}
+                defaultValue=""
               >
                 <option value="" disabled>
                   Select a service
@@ -340,6 +350,7 @@ function ConsultationForm() {
                 disabled={!selectedService}
                 className={`${baseInput} pr-9 appearance-none bg-[url('data:image/svg+xml;utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"%3E%3Cpath d="M1 1l5 5 5-5" fill="none" stroke="%23B8860B" stroke-width="1.5" stroke-linecap="round"/%3E%3C/svg%3E')] bg-no-repeat bg-[right_16px_center] disabled:opacity-50 disabled:cursor-not-allowed`}
                 {...register("productType")}
+                defaultValue=""
               >
                 <option value="" disabled>
                   {selectedService ? "Select an option" : "Select a service first"}
@@ -444,7 +455,7 @@ function ConsultationForm() {
 }
 
 /* ============================================================
-   Contact Details
+   Contact Details Section
    ============================================================ */
 function ContactDetails() {
   const rows = [
@@ -568,7 +579,7 @@ function ContactDetails() {
           </ul>
         </motion.div>
 
-        {/* Map Placeholder */}
+        {/* Map placeholder */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
