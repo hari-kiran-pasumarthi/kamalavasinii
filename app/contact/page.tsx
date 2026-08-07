@@ -20,7 +20,7 @@ import {
 const labelClass =
   "block font-sans text-[12px] tracking-[0.18em] uppercase text-[#8a5f66] mb-2";
 const baseInput =
-  "w-full rounded-[14px] bg-[#FFF9F2] border border-[#EFE1CC] px-4 py-3 font-sans text-[14px] text-[#3A2A20] placeholder:text-[#B39A93] outline-none focus:border-[#C8A048] focus:ring-2 focus:ring-[#C8A048]/25 transition-all";
+  "w-full rounded-[14px] bg-[#CF5C75] border border-[#EFE1CC] px-4 py-3 font-sans text-[14px] text-[#3A2A20] placeholder:text-[#B39A93] outline-none focus:border-[#C8A048] focus:ring-2 focus:ring-[#C8A048]/25 transition-all";
 
 interface FieldProps {
   label: string;
