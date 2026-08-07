@@ -117,7 +117,7 @@ const banarasiPattern = (id) => (
 
 const mysorePattern = (id) => (
   <g>
-    {/* Minimal fine dots (Mysore is known for smooth silk with small zari buti) */}
+    {/* Minimal fine dots */}
     {Array.from({ length: 6 }).map((_, r) =>
       Array.from({ length: 12 }).map((__, c) => (
         <circle
@@ -261,7 +261,6 @@ const IconGold = ({ id, children }) => (
 
 const StepDesign = () => (
   <IconGold id="step-design">
-    {/* Pen sketching a saree */}
     <path d="M14 22 L46 22 L54 30 L54 60 L14 60 Z" />
     <path d="M46 22 L46 30 L54 30" />
     <path d="M22 40 C30 46 42 46 50 40" />
@@ -274,57 +273,45 @@ const StepDesign = () => (
 
 const StepLoom = () => (
   <IconGold id="step-loom">
-    {/* Loom frame */}
     <path d="M12 20 L68 20" />
     <path d="M20 20 L20 66" />
     <path d="M60 20 L60 66" />
     <path d="M14 66 L66 66" strokeWidth="2" />
-    {/* Warp threads */}
     {[26, 32, 38, 44, 50, 56].map((x, i) => (
       <path key={i} d={`M${x} 22 L${x} 60`} strokeWidth="0.8" opacity="0.75" />
     ))}
-    {/* Shuttle */}
     <path d="M14 44 L26 44 L30 48 L26 52 L14 52 Z" fill="url(#sk-gold-step-loom)" stroke="none" />
     <path d="M30 48 L54 48" strokeWidth="2" stroke="url(#sk-gold-step-loom)" />
-    {/* Woven fabric */}
     <path d="M20 60 L60 60 L60 66 L20 66 Z" fill="url(#sk-gold-step-loom)" fillOpacity="0.3" />
   </IconGold>
 );
 
 const StepZari = () => (
   <IconGold id="step-zari">
-    {/* Zari spool with thread */}
     <ellipse cx="40" cy="30" rx="18" ry="6" />
     <path d="M22 30 L22 54" />
     <path d="M58 30 L58 54" />
     <ellipse cx="40" cy="54" rx="18" ry="6" fill="url(#sk-gold-step-zari)" fillOpacity="0.5" />
-    {/* Thread strands */}
     {[24, 30, 36, 42, 48, 54].map((x, i) => (
       <path key={i} d={`M${x} 32 L${x} 52`} strokeWidth="0.9" opacity="0.85" />
     ))}
-    {/* Trailing zari thread */}
     <path d="M58 54 C64 60 70 60 74 66" strokeWidth="1.2" />
     <circle cx="74" cy="66" r="2" fill="url(#sk-gold-step-zari)" stroke="none" />
-    {/* Sparkles */}
     <path d="M18 66 l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 z" fill="url(#sk-gold-step-zari)" stroke="none" />
   </IconGold>
 );
 
 const StepInspect = () => (
   <IconGold id="step-inspect">
-    {/* Magnifying glass over fabric */}
     <circle cx="34" cy="34" r="14" />
     <path d="M45 45 L60 60" strokeWidth="2.4" />
-    {/* Fabric threads inside glass */}
     <path d="M26 34 L42 34 M30 30 L38 30 M30 38 L38 38" strokeWidth="0.9" />
-    {/* Check tick */}
     <path d="M52 22 L58 28 L68 16" stroke="url(#sk-gold-step-inspect)" strokeWidth="2" />
   </IconGold>
 );
 
 const StepDeliver = () => (
   <IconGold id="step-deliver">
-    {/* Wrapped silk saree box with lotus ribbon */}
     <path d="M14 32 L66 32 L66 66 L14 66 Z" />
     <path d="M10 24 L70 24 L70 34 L10 34 Z" />
     <path d="M40 24 L40 66" strokeWidth="2" />
@@ -347,7 +334,6 @@ const STEPS = [
    ============================================================ */
 const FeatWeaving = () => (
   <IconGold id="f-weav">
-    {/* Loom motif */}
     <path d="M18 22 L62 22" />
     <path d="M22 22 L22 60" />
     <path d="M58 22 L58 60" />
@@ -362,12 +348,10 @@ const FeatWeaving = () => (
 
 const FeatPureSilk = () => (
   <IconGold id="f-silk">
-    {/* Silk cocoon shape */}
     <ellipse cx="40" cy="42" rx="18" ry="26" />
     <path d="M24 30 C30 38 50 38 56 30" strokeWidth="0.8" />
     <path d="M22 44 C30 52 50 52 58 44" strokeWidth="0.8" />
     <path d="M24 58 C30 62 50 62 56 58" strokeWidth="0.8" />
-    {/* certificate mark */}
     <circle cx="60" cy="20" r="8" />
     <path d="M56 20 L60 24 L66 16" strokeWidth="1.4" />
   </IconGold>
@@ -375,7 +359,6 @@ const FeatPureSilk = () => (
 
 const FeatDesigns = () => (
   <IconGold id="f-design">
-    {/* Traditional motif kolam / paisley */}
     <path d="M40 14 C22 26 22 54 40 66 C58 54 58 26 40 14 Z" />
     <path d="M40 22 C28 30 28 50 40 58 C52 50 52 30 40 22 Z" opacity="0.8" />
     <circle cx="40" cy="40" r="3" fill="url(#sk-gold-f-design)" stroke="none" />
@@ -388,14 +371,12 @@ const FeatDesigns = () => (
 
 const FeatFinish = () => (
   <IconGold id="f-finish">
-    {/* Neatly folded saree */}
     <path d="M18 24 L62 24 L62 34 L18 34 Z" />
     <path d="M18 24 L62 24" strokeWidth="1.5" />
     <path d="M14 40 L66 40 L66 50 L14 50 Z" />
     <path d="M14 40 L66 40" strokeWidth="1.5" />
     <path d="M10 56 L70 56 L70 66 L10 66 Z" />
     <path d="M10 56 L70 56" strokeWidth="1.5" />
-    {/* Sparkles */}
     <path d="M14 18 l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 z" fill="url(#sk-gold-f-finish)" stroke="none" opacity="0.85" />
     <path d="M66 18 l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 z" fill="url(#sk-gold-f-finish)" stroke="none" opacity="0.85" />
   </IconGold>
@@ -499,10 +480,16 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.6 }}
           className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a href="#collections" className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium">
+          <a
+            href="#collections"
+            className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-block text-center"
+          >
             VIEW COLLECTIONS
           </a>
-          <a href="#consult" className="btn-outline-gold font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium">
+          <a
+            href="#consult"
+            className="btn-outline-gold font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-block text-center"
+          >
             BOOK CONSULTATION
           </a>
         </motion.div>
@@ -857,12 +844,15 @@ function ConsultCTA() {
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-flex items-center gap-2">
+            <a
+              href="/contact"
+              className="btn-primary-gradient font-sans tracking-[0.2em] text-[12px] px-9 py-4 rounded-full font-medium inline-flex items-center gap-2"
+            >
               BOOK CONSULTATION
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
                 <path d="M5 12 L19 12 M13 6 L19 12 L13 18" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-            </button>
+            </a>
             <a
               href="https://wa.me/919999999999"
               target="_blank"
