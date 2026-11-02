@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <script src="https://weya-chat-agent.vercel.app/widget/v1/weya-widget.js" data-campaign="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJ3ZXlhX3dpZGdldF9jYW1wYWlnbiIsImJhdGNoX2lkIjoiNmFkZWZhYzQ1NmY3MmE2NzMxYzA1MDUxIiwib3JnX2lkIjoiNmEzZjY5Yjk1MWFkYmM3NjZmMzMxMzkxIiwiaWF0IjoxNzkyOTk4MDg0fQ.DcVW0jFLfSqwSWCxyG4hQ6k-HM-f3e41J2SLwtLMzxQ" data-api-url="https://dev.api.weya.live/ai" async></script>
+        <script src="https://weya-chat-agent.vercel.app/widget/v1/weya-widget.js" data-campaign="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXAiOiJ3ZXlhX3dpZGdldF9jYW1wYWlnbiIsImJhdGNoX2lkIjoiNmFlODZkMzA2ODg1MjM0MWM1NzdhZGJmIiwib3JnX2lkIjoiNjgxMzQ0Yzg1YjMyY2JhMDJiZjkyN2UxIiwiaWF0IjoxNzkzNjE3MjAwfQ.xBNjKVhpZuAcjC9wly6rcEryG2EBV78MCQk-RztKLJ0" data-api-url="https://api.weya.live/ai" async></script>
       </body>
     </html>
   )
